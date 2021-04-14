@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "usuarios-4f720": {
+      "hosting": {
+        "GraficasAngular": [
+          "usuarios-4f720"
+        ]
+      }
+    }
+  }
+}

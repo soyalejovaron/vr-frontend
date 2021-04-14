@@ -1,0 +1,85 @@
+<!-- Creación del formulario -->
+<div class="row m-5 p-1">
+    <div class="card col-3">
+        <div class="card-body">
+            <form [formGroup] = "sensorForm" (ngSubmit)="agregarSensor()">
+                <div class="form-group">
+                    <label for="tipo">Tipo del sensor</label>
+                    <input type="text" class="form-control" id="tipo" formControlName="tipoSensor" value="Humedad" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre del sensor</label>
+                    <input type="text" class="form-control" id="nombre" formControlName="nombreSensor">
+                </div>
+                <div class="form-group">
+                    <label for="datos">Datos</label>
+                    <input type="text" class="form-control" id="datos" formControlName="datosSensor" required>
+                </div>
+                <div class="form-group">
+                    <label>Planta:</label>
+                    <select formControlName="plantaSensor" class="form-control">
+                        <option  *ngFor="let item of plantas" value="{{item.id_planta}}">{{item.nombre_planta}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="estado">Estado:</label>
+                    <select class="form-control" id="estado" formControlName="estadoSensor" required>
+                        <option>activo</option>
+                        <option>inactivo</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="color">Color de la gráfica</label>
+                    <!-- Input que permite seleccionar el color de la paleta -->
+                    <input class="form-control" [(colorPicker)]="color" [style.background]="color" id="color" formControlName="colorSensor" readonly/>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success" [disabled]="!sensorForm.valid">{{textButton}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+
+    <!-- Creación de la tabla  -->
+    <div class="col-9">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="tablaHumedad" class="table table-striped table-bordered row-border hover" >
+            <thead class="thead-dark text-center">
+                <tr class="">
+                    <th scope="col">ID</th>
+                    <th scope="col">Tipo sensor</th>
+                    <th scope="col">Nombre sensor</th>
+                    <th scope="col">Planta sensor</th>
+                    <th scope="col">Estado sensor</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                <tr *ngFor="let sensor of sensores">
+                    <th>{{sensor.idSensorH}}</th>
+                    <td>{{sensor.tipoSensorH}}</td>
+                    <td>{{sensor.nombreSensorH}}</td>
+                    <td>{{sensor.id_planta}}</td>
+                    <td>{{sensor.estadoSensorH}}</td>
+                    <td>
+                    <input class="form-control" [(colorPicker)]="sensor.colorSensorH" [style.background]="sensor.colorSensorH" readonly disabled/>
+                    </td>
+                    <td>
+                        <i class="fas fa-edit fa-2x text-info mr-3" [routerLink]="['/humedad', sensor.idSensorH]"></i>
+                        <i class="fas fa-minus fa-2x text-danger" (click)="borrarSensor(sensor.idSensorH)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-success" (click)="exportarExcel()"><img class="mr-2 mb-1" src="../../../assets/imagenes/excel.png" alt="" width="20px">informe Excel</button>
+        <a [routerLink]="['/graficaRadarH']" class="float-right ">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Estadisticas
+        </a>
+    </div>
+</div>

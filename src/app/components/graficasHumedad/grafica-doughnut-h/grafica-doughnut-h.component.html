@@ -1,0 +1,21 @@
+<div class="container">
+  <app-tipo-grafica-humedad></app-tipo-grafica-humedad>
+  <div>
+    <div>
+      <div style="display: block" *ngIf="barChartData" >
+        <canvas id="grafica" baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"
+        [colors]="chartColors">
+      </canvas>
+    </div>
+  </div>
+  <button type="button" class="btn btn-light" (click)="print()"><i class="fas fa-paint-brush mr-2"></i>Descargar grafica</button>
+  <button type="button" class="btn btn-info float-left mr-3" (click)="printGrafica()"><i class="fas fa-print mr-2 text-dark"></i>Descargar informe</button>
+  <button type="button" class="btn btn-dark float-right" [routerLink]="['/humedad']"><i class="fas fa-chevron-left mr-2"></i>Volver</button>
+  </div>
+  </div>

@@ -1,0 +1,242 @@
+<div class="container-fluid mt-5" *ngIf="user$ | async as user; else home">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-3 border">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h4>Información</h4>
+                        </div>
+                        <div class="col-12 mt-3 text-center border-bottom">
+                            <h4>Tanque</h4>
+                            <!-- <img src="../public/img/deposito-de-agua.png" alt="" width="50px"> -->
+                            <img src="../../../assets/imagenes/deposito-de-agua.png" width="50px">
+                            
+                            <p>97%</p>
+                        </div>
+                        <div class="col-12 mt-3 text-center border-bottom">
+                            <h4>Válvula</h4>
+                            <!-- <img src="../public/img/gas.png" alt="" width="50px"> -->
+                            <img src="../../../assets/imagenes/gas.png" width="50px">
+                            <p class="text-success">Encendida</p>
+                        </div>
+                        <div class="col-12 mt-3 text-center border-bottom">
+                            <h4>Energía</h4>
+                            <!-- <img src="../public/img/energia.png" alt="" width="50px"> -->
+                            <img src="../../../assets/imagenes/energia.png" width="50px">
+
+                            <p class="text-success">Encendida</p>
+                        </div>
+                        <div class="col-12 mt-3 text-center border-bottom">
+                            <h4>Pánel solar</h4>
+                            <!-- <img src="../public/img/poder.png" alt="" width="50px"> -->
+                            <img src="../../../assets/imagenes/poder.png" width="50px">
+
+                            <p class="text-success">Encendida</p>
+                        </div>
+                        <div class="col-12 mt-3 text-center mb-2">
+                            <div class="row">
+                                <div class="col-12">
+                                    <a class="btn btn-danger">Off</a>
+                                    <a class="btn btn-info">Corriente</a>
+                                    <a class="btn btn-danger">Stop</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 border">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h4>Estado de las líneas de riego</h4>
+                            <hr>
+                        </div>
+                        <div class="col-3 mt-3 text-center border-right">
+                            <h4>Línea 1</h4>
+                            <hr>
+                            <h6>Estado</h6>
+                            <!-- <img src="../public/img/boton-de-inicio.png" alt="" width="25px"> -->
+                            <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
+                            <p class="text-success">Encendida</p>
+                            <hr>
+                            <h4>Temperatura</h4>
+                            <!-- <img src="../public/img/caliente.png" alt="" width="40px"> -->
+                            <img src="../../../assets/imagenes/caliente.png" width="40px">
+                            <p>24°</p>
+                            <hr>
+                            <h4>Humedad</h4>
+                            <!-- <img src="../public/img/humedad.png" alt="" width="40px"> -->
+                            <img src="../../../assets/imagenes/humedad.png" width="40px">
+
+                            <p>16%</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12 p-3"><input type="submit" class="btn btn-danger btn-block"
+                                        value="Activar/desactivar"></div>
+                                <div class="col-12 p-3"><a href="#"
+                                        class="btn btn-primary btn-block">Ver
+                                        estadísticas</a></div>
+                            </div>
+                        </div>
+                        <div class="col-3 mt-3 text-center border-right">
+                            <h4>Línea 2</h4>
+                            <hr>
+                            <h6>Estado</h6>
+                            <!-- <img src="../public/img/boton-de-inicio.png" alt="" width="25px"> -->
+                            <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
+
+                            <p class="text-success">Encendida</p>
+                            <hr>
+                            <h4>Temperatura</h4>
+                            <!-- <img src="../public/img/caliente.png" alt="" width="40px"> -->
+                            <img src="../../../assets/imagenes/caliente.png" width="40px">
+                            <p>26°</p>
+                            <hr>
+                            <h4>Humedad</h4>
+                            <!-- <img src="../public/img/humedad.png" alt="" width="40px"> -->
+                            <img src="../../../assets/imagenes/humedad.png" width="40px">
+                            <p>13%</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12 p-3"><input type="submit" class="btn btn-danger btn-block"
+                                        value="Activar/desactivar"></div>
+                                <div class="col-12 p-3"><a href="#"
+                                        class="btn btn-primary btn-block">Ver
+                                        estadísticas</a></div>
+                            </div>
+                        </div>
+                        <div class="col-3 mt-3 text-center border-right">
+                            <h4>Línea 3</h4>
+                            <hr>
+                            <h6>Estado</h6>
+                            <!-- <img src="../public/img/boton-de-inicio.png" alt="" width="25px"> -->
+                            <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
+                        
+                            <p class="text-danger">Apagada</p>
+                            <hr>
+                            <h4>Temperatura</h4>
+                            <!-- <img src="../public/img/caliente.png" alt="" width="40px"> -->
+                            <img src="../../../assets/imagenes/caliente.png" width="40px">
+                            <p>32°</p>
+                            <hr>
+                            <h4>Humedad</h4>
+                            <!-- <img src="../public/img/humedad.png" alt="" width="40px"> -->
+                            <img src="../../../assets/imagenes/humedad.png" width="40px">
+                            <p>9%</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12 p-3"><input type="submit" class="btn btn-danger btn-block"
+                                        value="Activar/desactivar"></div>
+                                <div class="col-12 p-3"><a href="#"
+                                        class="btn btn-primary btn-block">Ver
+                                        estadísticas</a></div>
+                            </div>
+                        </div>
+                        <div class="col-3 mt-3 text-center border-right">
+                            <h4>Línea 4</h4>
+                            <hr>
+                            <h6>Estado</h6>
+                            <!-- <img src="../public/img/boton-de-inicio.png" alt="" width="25px"> -->
+                            <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
+                    
+                            <p class="text-warning">Peligro</p>
+                            <hr>
+                            <h4>Temperatura</h4>
+                            <!-- <img src="../public/img/caliente.png" alt="" width="40px"> -->
+                            <img src="../../../assets/imagenes/energia.png" width="40px">
+|1                            <p>39°</p>
+                            <hr>
+                            <h4>Humedad</h4>
+                            <!-- <img src="../public/img/humedad.png" alt="" width="40px"> -->
+                            <img src="../../../assets/imagenes/humedad.png" width="40px">
+                            <p>1%</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12 p-3"><input type="submit" class="btn btn-danger btn-block"
+                                        value="Activar/desactivar"></div>
+                                <div class="col-12 p-3"><a href="#"
+                                        class="btn btn-primary btn-block">Ver
+                                        estadísticas</a></div>
+                                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #home>
+    
+    <div class="contianer text-center" >
+        <div class="jumbotron">
+            <h1 class="display-4">Bienvenido al Vivero CTGI del SENA!</h1>
+            <p class="lead">Activar el sistema de riego automatizado, ver estadísitcas en tiempo real, descargar
+                reportes...</p>
+            <hr class="my-4">
+            <div class="col-12">
+                <!--Indicador de roles, iniciando sesión como admin, jardinero o aprendiz-->
+                <a [routerLink]="['/login']" class="btn btn-info">Iniciar sesión</a> |
+                <a [routerLink]="['/register']" class="btn btn-secondary">Registrarse</a>
+            </div>
+        </div>
+    </div>
+    <!--Contenido de las ventajas del Vivero que tiene como funciones principales, estructurado en Bootstrap
+        y usando iconos ilustrativos al tema-->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row justify-content-center">
+                            <div class="col-10 text-center">
+                                <h5>Sistema automatizado</h5>
+                                <h5>
+                                    <img src="../../assets/imagenes/infraestructura.png" alt="" width="70px">
+                                </h5>
+                                <p>El sistema automatizado reduce tiempo y hace que los procesos sean más precisos que uno manual.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row justify-content-center">
+                            <div class="col-10 text-center">
+                                <h5>Fuente de energía</h5>
+                                <h5>
+                                    <img src="../../assets/imagenes/poder.png" alt="" width="70px">
+                                </h5>
+                                <p>Instalaciones fotovoltáicas para producir electricidad usando páneles solares.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row justify-content-center">
+                            <div class="col-10 text-center">
+                                <h5>Estadísticas</h5>
+                                <!-- <h5><img src="public/img//grafico-de-barras.png" alt="" width="70px"></h5> -->
+                                <h5>
+                                    <img src="../../assets/imagenes/grafico-de-barras.png" alt="" width="70px">
+                                </h5>
+                                <p>Datos que son transformados en vistas usando como plantilla una gráfica para su representación visual.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row justify-content-center">
+                            <div class="col-10 text-center">
+                                <h5>Digital</h5>
+                                <!-- <h5><img src="public/img/sensible.png" alt="" width="70px"></h5> -->
+                                <h5>
+                                    <img src="../../assets/imagenes/sensible.png" alt="" width="70px">
+                                </h5>
+                                <p>Sistema llevado a dispositivos móviles haciendo el acceso mucho más fácil y accesible.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</ng-template>

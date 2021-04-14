@@ -1,0 +1,12 @@
+<div class="dropdown mt-3">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+      Tipo De Grafica
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" [routerLink]="['/graficaRadarT']" [routerLinkActive]="['active']">Radar</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/graficaLinealT']" [routerLinkActive]="['active']">Lineal</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/graficaBarrasT']" [routerLinkActive]="['active']">Barra</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/graficaPolarT']" [routerLinkActive]="['active']">PolarArea</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/graficaDoughnutT']" [routerLinkActive]="['active']">Doughnut</a></li>
+    </ul>
+</div>
