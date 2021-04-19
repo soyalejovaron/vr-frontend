@@ -131,18 +131,6 @@ const routes: Routes = [
     path: 'verificar',
     component: SendEmailComponent
   },
-  {
-    path: 'administrador',
-    loadChildren: () =>
-      import('../app/administrador/administrador.module').then((m) => m.AdministradorModule),
-    canActivate: [PermisosAdmin],
-  },
-  {
-    path: 'jardinero',
-    loadChildren: () =>
-      import('../app/jardinero/jardinero.module').then((m) => m.JardineroModule),
-      canActivate: [PermisosJardineroAdmin],
-  },
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'login', loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule) },
   { path: 'contraseñaOlvidada', loadChildren: () => import('./auth/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule) },

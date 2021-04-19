@@ -67,7 +67,7 @@ export class GraficaBarHComponent implements OnInit {
   }
 
   printGrafica(){
-    printJS({printable: this.categoria, properties: ['tipoSensorH','nombreSensorH', 'datosSensorH','colorSensorH'],
+    printJS({printable: this.categoria, properties: ['tipoSensorH','nombreSensorH', 'datosSensorH'],
      type: 'json', header: '<h3 class="custom-h3">Lista de sensores de humedad</h3>',
     style: '.custom-h3 { color: red; text-align: center;  }', documentTitle: 'Vive Registro'})
   }
