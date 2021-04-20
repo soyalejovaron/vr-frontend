@@ -41,6 +41,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CrearUsuariosComponent } from './components/crear-usuarios/crear-usuarios.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlantasComponent } from './components/plantas/plantas.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { PlantasComponent } from './components/plantas/plantas.component';
     NavbarComponent,
     CrearUsuariosComponent,
     PlantasComponent,
+    PerfilComponent,
     
   
   ],

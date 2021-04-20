@@ -11,7 +11,7 @@
                             <h4>Tanque</h4>
                             <!-- <img src="../public/img/deposito-de-agua.png" alt="" width="50px"> -->
                             <img src="../../../assets/imagenes/deposito-de-agua.png" width="50px">
-                            
+
                             <p>97%</p>
                         </div>
                         <div class="col-12 mt-3 text-center border-bottom">
@@ -73,8 +73,7 @@
                             <div class="row">
                                 <div class="col-12 p-3"><input type="submit" class="btn btn-danger btn-block"
                                         value="Activar/desactivar"></div>
-                                <div class="col-12 p-3"><a href="#"
-                                        class="btn btn-primary btn-block">Ver
+                                <div class="col-12 p-3"><a href="#" class="btn btn-primary btn-block">Ver
                                         estadísticas</a></div>
                             </div>
                         </div>
@@ -100,8 +99,7 @@
                             <div class="row">
                                 <div class="col-12 p-3"><input type="submit" class="btn btn-danger btn-block"
                                         value="Activar/desactivar"></div>
-                                <div class="col-12 p-3"><a href="#"
-                                        class="btn btn-primary btn-block">Ver
+                                <div class="col-12 p-3"><a href="#" class="btn btn-primary btn-block">Ver
                                         estadísticas</a></div>
                             </div>
                         </div>
@@ -111,7 +109,7 @@
                             <h6>Estado</h6>
                             <!-- <img src="../public/img/boton-de-inicio.png" alt="" width="25px"> -->
                             <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
-                        
+
                             <p class="text-danger">Apagada</p>
                             <hr>
                             <h4>Temperatura</h4>
@@ -127,8 +125,7 @@
                             <div class="row">
                                 <div class="col-12 p-3"><input type="submit" class="btn btn-danger btn-block"
                                         value="Activar/desactivar"></div>
-                                <div class="col-12 p-3"><a href="#"
-                                        class="btn btn-primary btn-block">Ver
+                                <div class="col-12 p-3"><a href="#" class="btn btn-primary btn-block">Ver
                                         estadísticas</a></div>
                             </div>
                         </div>
@@ -138,7 +135,7 @@
                             <h6>Estado</h6>
                             <!-- <img src="../public/img/boton-de-inicio.png" alt="" width="25px"> -->
                             <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
-                    
+
                             <p class="text-warning">Peligro</p>
                             <hr>
                             <h4>Temperatura</h4>
@@ -154,10 +151,9 @@
                             <div class="row">
                                 <div class="col-12 p-3"><input type="submit" class="btn btn-danger btn-block"
                                         value="Activar/desactivar"></div>
-                                <div class="col-12 p-3"><a href="#"
-                                        class="btn btn-primary btn-block">Ver
+                                <div class="col-12 p-3"><a href="#" class="btn btn-primary btn-block">Ver
                                         estadísticas</a></div>
-                                        
+
                             </div>
                         </div>
                     </div>
@@ -168,23 +164,209 @@
 </div>
 
 <ng-template #home>
-    
-    <div class="contianer text-center" >
+    <style>
+        .rounded-5 {
+            border-radius: 2rem;
+        }
+
+        .card-cover {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+
+    <main class="vh-100 text-center d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 shadow-lg rounded-5 p-5">
+                    <img src="../../assets/logo/logo-dark.svg" alt="Ejemplo de VR" style="width: 65px;">
+                    <h1 class="display-6 fw-bold">¿Quieres controlar los datos de tus plantas?</h1>
+                    <p class="fs-4">Regístrate y haz parte de esta y muchas mas funciones.</p>
+                    <div class="mb-2">
+                        <a class="btn btn-primary px-3 rounded-3 mx-1" href="">Iniciar sesión</a>
+                        <a class="btn btn-dark px-3 rounded-3 mx-1" href="">Regístrate</a>
+                    </div>
+                    <div class="mt-4">
+                        <a class="text-primary" href="#servicios">Servicios</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <section class="vh-100 text-center d-flex justify-content-center align-items-center"
+        style="background-color: #151516;" id="servicios">
+        <div class="container mb-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-12 text-white p-5">
+                    <img src="../../assets/logo/logo-light.svg" alt="Ejemplo de VR" style="width: 35px;">
+                    <h1 class="display-5 fw-bold">Servicios</h1>
+                    <p class="fs-5 text-secondary">Un buen manejo de los datos de tus plantas puede ser de ayuda.</p>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="p-4 card-cover d-flex align-items-center justify-content-center text-white shadow-lg bg-info rounded-5"
+                        style="background-image: url('../../assets/images/services/s1.png'); height: 270px;">
+                        <div class="">
+                            <h1 class="display-6 fw-bold">Controla la temperatura</h1>
+                            <span class="fs-6">A medida que vaya subiendo la temperatura de tus plantas, se te avisará
+                                para reducirla y apasiguar el calor.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="p-4 card-cover d-flex align-items-center justify-content-center text-white shadow-lg bg-info rounded-5"
+                        style="background-image: url('../../assets/images/services/s2.png'); height: 270px;">
+                        <div class="">
+                            <h1 class="display-6 fw-bold">Genera empleo</h1>
+                            <span class="fs-6">Con esta plataforma puedes registrar usuarios para que puedan ejercer su
+                                labor como jardineros dentro de su sistema.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="p-4 card-cover d-flex align-items-center justify-content-center text-white shadow-lg bg-info rounded-5"
+                        style="background-image: url('../../assets/images/services/s3.png'); height: 270px;">
+                        <div class="">
+                            <h1 class="display-6 fw-bold">Alto rendimiento</h1>
+                            <span class="fs-6">Este aplicativo se usa en la web con el fin de que no tengas que
+                                descargar nada y dando buena experiencia al usarlo.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="vh-100 text-center d-flex justify-content-center align-items-center">
+        <div class="container mb-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-12 p-5">
+                    <img src="../../assets/logo/logo-light.svg" alt="Ejemplo de VR" style="width: 35px;">
+                    <h1 class="display-5 fw-bold">Equipo de desarrollo</h1>
+                    <p class="fs-5 text-secondary">Un buen equipo sacando adelante un buen proyecto.</p>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col-12 col-md-12 col-lg-6">
+                    <div class="p-4 card-cover d-flex align-items-center justify-content-center text-white shadow-lg bg-info rounded-5"
+                        style="background-image: url('../../assets/images/team/t1.png'); height: 270px;">
+                        <div class="">
+                            <h1 class="display-4 fw-bold">Frontend</h1>
+                            <span class="fs-6">Liderado y desarrollado por Alejandro, implementando sus buenas prácticas
+                                en el desarrollo de lado del usuario.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-6">
+                    <div class="p-4 card-cover d-flex align-items-center justify-content-center text-white shadow-lg bg-info rounded-5"
+                        style="background-image: url('../../assets/images/team/t2.png'); height: 270px;">
+                        <div class="">
+                            <h1 class="display-4 fw-bold">Backend</h1>
+                            <span class="fs-6">Liderado y desarrollado por Yeison, un apasionado por las grandes
+                                funciones de un sistema, sin miedo a los errores.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="card text-center rounded-0" style="background-color: #151516;">
+            <div class="card-header text-white">
+                Características
+            </div>
+            <div class="card-body">
+                <div class="row justify-content-center">
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="col-4">
+                                <ul class="text-start text-white">
+                                    <li class="list-unstyled">
+                                        <span class="fs-5 fw-bold">
+                                            Tecnologías
+                                        </span>
+                                    </li>
+                                    <hr class="w-50">
+                                    <li>
+                                        Angular
+                                    </li>
+                                    <li>
+                                        Firebase
+                                    </li>
+                                    <li>
+                                        MySQL
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-4">
+                                <ul class="text-start text-white">
+                                    <li class="list-unstyled">
+                                        <span class="fs-5 fw-bold">
+                                            Rutas
+                                        </span>
+                                    </li>
+                                    <hr class="w-50">
+                                    <li>
+                                        <a class="text-white" routerLink="/home">
+                                            Inicio
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white" routerLink="/login">
+                                            Iniciar sesión
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white" routerLink="/register">
+                                            Registrarse
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-4">
+                                <ul class="text-start text-white">
+                                    <li class="list-unstyled">
+                                        <span class="fs-5 fw-bold">
+                                            Contacto
+                                        </span>
+                                    </li>
+                                    <hr class="w-50">
+                                    <li>
+                                        viveregistro.contacto@gmail.com
+                                    </li>
+                                    <li>
+                                        01800045561499
+                                    </li>
+                                    <li>
+                                        Medellín, Colombia
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                &copy; 2021 todo los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- <div class="contianer text-center">
         <div class="jumbotron">
             <h1 class="display-4">Bienvenido al Vivero CTGI del SENA!</h1>
             <p class="lead">Activar el sistema de riego automatizado, ver estadísitcas en tiempo real, descargar
                 reportes...</p>
             <hr class="my-4">
             <div class="col-12">
-                <!--Indicador de roles, iniciando sesión como admin, jardinero o aprendiz-->
                 <a [routerLink]="['/login']" class="btn btn-info">Iniciar sesión</a> |
                 <a [routerLink]="['/register']" class="btn btn-secondary">Registrarse</a>
             </div>
         </div>
-    </div>
-    <!--Contenido de las ventajas del Vivero que tiene como funciones principales, estructurado en Bootstrap
-        y usando iconos ilustrativos al tema-->
-    <div class="container">
+    </div> -->
+    <!-- <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="row">
@@ -195,7 +377,8 @@
                                 <h5>
                                     <img src="../../assets/imagenes/infraestructura.png" alt="" width="70px">
                                 </h5>
-                                <p>El sistema automatizado reduce tiempo y hace que los procesos sean más precisos que uno manual.</p>
+                                <p>El sistema automatizado reduce tiempo y hace que los procesos sean más precisos que
+                                    uno manual.</p>
                             </div>
                         </div>
                     </div>
@@ -214,11 +397,11 @@
                         <div class="row justify-content-center">
                             <div class="col-10 text-center">
                                 <h5>Estadísticas</h5>
-                                <!-- <h5><img src="public/img//grafico-de-barras.png" alt="" width="70px"></h5> -->
                                 <h5>
                                     <img src="../../assets/imagenes/grafico-de-barras.png" alt="" width="70px">
                                 </h5>
-                                <p>Datos que son transformados en vistas usando como plantilla una gráfica para su representación visual.</p>
+                                <p>Datos que son transformados en vistas usando como plantilla una gráfica para su
+                                    representación visual.</p>
                             </div>
                         </div>
                     </div>
@@ -226,17 +409,17 @@
                         <div class="row justify-content-center">
                             <div class="col-10 text-center">
                                 <h5>Digital</h5>
-                                <!-- <h5><img src="public/img/sensible.png" alt="" width="70px"></h5> -->
                                 <h5>
                                     <img src="../../assets/imagenes/sensible.png" alt="" width="70px">
                                 </h5>
-                                <p>Sistema llevado a dispositivos móviles haciendo el acceso mucho más fácil y accesible.</p>
+                                <p>Sistema llevado a dispositivos móviles haciendo el acceso mucho más fácil y
+                                    accesible.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
+    </div> -->
+
 </ng-template>

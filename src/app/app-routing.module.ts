@@ -27,6 +27,7 @@ import { SendEmailComponent } from './auth/send-email/send-email.component';
 import { PermisosJardineroAdmin } from './auth/guards/permisos-jardinero';
 import { PermisosAdmin } from './auth/guards/permisos-admin';
 import { PlantasComponent } from './components/plantas/plantas.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 
 
@@ -89,6 +90,10 @@ const routes: Routes = [
   {
     path: 'editar/:uid',
     component: CrearUsuariosComponent
+  },
+  {
+    path: 'perfil/:uid',
+    component: PerfilComponent
   },
   {
     path: 'crud',
