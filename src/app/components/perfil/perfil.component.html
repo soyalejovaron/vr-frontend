@@ -1,4 +1,42 @@
-<div class="container pt-4">
+<style>
+    .rounded-5 {
+        border-radius: 2rem;
+    }
+</style>
+<div class="d-flex text-center mt-5 align-items-center justify-content-center">
+    <div class="shadow-lg rounded-5 p-4" style="width: 30rem;">
+        <div class="card-body">
+            <h3>
+                {{titulo}}
+                <div *ngIf="loading" class="spinner-border float-right" role="status">
+                    <span class="sr-only">
+                        Loading...
+                    </span>
+                </div>
+            </h3>
+
+            <form class="mt-4" [formGroup]="createUsuario" (ngSubmit)="editarEmpleado()">
+                <div class="row">
+                    <div class="col">
+                        <input type="number" class="form-control form-control-lg" formControlName="documento"
+                            placeholder="Documento">
+                    </div>
+                </div>
+                <input type="text" class="form-control form-control-lg mt-4" formControlName="displayName"
+                    placeholder="Nombre Completo">
+                <div class="mt-4">
+                    <button type="text" class="btn btn-secondary mx-2 px-3" routerLink="/inicio">
+                        Volver
+                    </button>
+                    <button type="submit" class="btn btn-dark mx-2 px-3">
+                        Aceptar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- <div class="container pt-4">
     <div class="row">
         <div class="col-lg-6 offset-lg-3">
             <div class="card text-center">
@@ -6,9 +44,9 @@
                     <h3>{{ titulo }}
                         <div *ngIf="loading" class="spinner-border float-right" role="status">
                             <span class="sr-only">Loading...</span>
-                          </div>
+                        </div>
                     </h3>
-                    
+
                     <form class="mt-4" [formGroup]="createUsuario" (ngSubmit)="editarEmpleado()">
                         <div class="row">
                             <div class="col">
@@ -16,8 +54,8 @@
                                     placeholder="Documento">
                             </div>
                         </div>
-                            <input type="text" class="form-control form-control-lg mt-4" formControlName="displayName"
-                                placeholder="Nombre Completo">
+                        <input type="text" class="form-control form-control-lg mt-4" formControlName="displayName"
+                            placeholder="Nombre Completo">
                         <div class="mt-3">
                             <button type="text" class="btn btn-secondary btn-lg mr-3"
                                 routerLink="/inicio">Volver</button>
@@ -28,4 +66,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

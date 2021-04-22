@@ -1,6 +1,6 @@
 <!-- ===================================================== -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1 d-flex align-items-center">
-   <div class="container">
+   <div class="container-fluid">
       <!-- ===================================================== -->
       <a class="navbar-brand" routerLink="/home">
          <img class="mb-1" src="../../../assets/logo/logo-light.svg" alt="Ejemplo de VR" style="width: 35px;">
@@ -19,35 +19,53 @@
          <ul class="navbar-nav" *ngIf="user$ | async as user; else login">
             <li class="nav-item mx-0 mx-lg-2">
                <a class="nav-link" href="#home" [routerLinkActive]="['active']">
-                  Inicio
+                  <span>
+                     <i class="fas fa-home text-white me-1"></i>
+                     Inicio
+                  </span>
                </a>
             </li>
             <li class="nav-item mx-0 mx-lg-2">
                <a class="nav-link" [routerLink]="['/crud']" [routerLinkActive]="['active']">
-                  Gestionar Usuarios
+                  <span>
+                     <i class="fas fa-user-cog text-white me-1"></i>
+                     Gestionar Usuarios
+                  </span>
                </a>
             </li>
             <li class="nav-item dropdown mx-0 mx-lg-2">
                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                   data-bs-toggle="dropdown" aria-expanded="true">
-                  Tipo Sensor
+                  <span>
+                     <i class="fas fa-temperature-high text-white me-1"></i>
+                     Tipo de Sensor
+                  </span>
                </a>
                <ul class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
                   <li>
                      <a class="dropdown-item" [routerLink]="['/humedad']" [routerLinkActive]="['active']">
-                        Humedad
+                        <span>
+                           <i class="fas fa-tint text-dark me-1"></i>
+                           Humedad
+                        </span>
                      </a>
                   </li>
                   <li>
                      <a class="dropdown-item" [routerLink]="['/temperatura']" [routerLinkActive]="['active']">
-                        Temperatura
+                        <span>
+                           <i class="fas fa-thermometer-full text-dark me-1"></i>
+                           Temperatura
+                        </span>
                      </a>
                   </li>
                </ul>
             </li>
             <li class="nav-item mx-0 mx-lg-2">
                <a class="nav-link" [routerLink]="['/plantas']" [routerLinkActive]="['active']">
-                  Plantas
+                  <span>
+                     <i class="fas fa-seedling text-white me-1"></i>
+                     Plantas
+                  </span>
                </a>
             </li>
             <li class="nav-item mx-0 mx-lg-2">
@@ -57,16 +75,22 @@
             </li>
          </ul>
          <!-- ===================================================== -->
-         <ul class="navbar-nav navbar-nav-login" *ngIf="user$ | async as user">
+         <ul class="navbar-nav ms-auto" *ngIf="user$ | async as user">
             <li class="nav-item dropdown mx-0 mx-lg-2">
                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                   data-bs-toggle="dropdown" aria-expanded="true">
-                  {{user.email}}
+                  <span>
+                     <i class="fas fa-user text-white me-1"></i>
+                     {{user.email}}
+                  </span>
                </a>
                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <li>
-                     <a class="dropdown-item" [routerLink] = "['/perfil/', user.uid]" [routerLinkActive]="['active']">
-                        Perfil
+                     <a class="dropdown-item" [routerLink]="['/perfil/', user.uid]" [routerLinkActive]="['active']">
+                        <span>
+                           <i class="fas fa-user-edit text-dark me-1"></i>
+                           Perfil
+                        </span>
                      </a>
                   </li>
                   <li>
@@ -74,7 +98,10 @@
                   </li>
                   <li>
                      <a class="dropdown-item" (click)="onLogout()">
-                        Cerrar Sesión
+                        <span>
+                           <i class="fas fa-sign-out-alt text-dark me-1"></i>
+                           Cerrar sesión
+                        </span>
                      </a>
                   </li>
                </ul>
@@ -82,11 +109,14 @@
          </ul>
          <!-- ===================================================== -->
          <ng-template #login>
-            <!-- ===================================================== routerLink="/home" -->
+            <!-- ===================================================== -->
             <ul class="navbar-nav">
                <li class="nav-item mx-0 mx-lg-2">
                   <a class="nav-link" routerLink="/home">
-                     Inicio
+                     <span>
+                        <i class="fas fa-home text-white me-1"></i>
+                        Inicio
+                     </span>
                   </a>
                </li>
             </ul>
@@ -94,12 +124,18 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                <li class="nav-item mx-0 mx-lg-2 my-1 my-lg-0">
                   <a class="btn btn-primary btn-sm text-white rounded-pill px-3" routerLink="/login">
-                     Iniciar seión
+                     <span>
+                        <i class="fas fa-sign-in-alt text-white me-1"></i>
+                        Iniciar sesión
+                     </span>
                   </a>
                </li>
                <li class="nav-item mx-0 mx-lg-2 my-1 my-lg-0">
                   <a class="btn btn-secondary btn-sm text-white rounded-pill px-3" routerLink="/register">
-                     Regístrate
+                     <span>
+                        <i class="fas fa-user-plus text-white me-1"></i>
+                        Regístrate
+                     </span>
                   </a>
                </li>
             </ul>
