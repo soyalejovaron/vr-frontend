@@ -30,22 +30,6 @@ export class AuthService extends RoleValidator {
     );
   }
 
-  exportToExcel(json: any[], excelFileName: string):void{
-    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json);
-    const workbook: XLSX.WorkBook = {
-      Sheets: {'data': worksheet},
-      SheetNames: ['data']
-    };
-    const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-    this.saveAsExcel(excelBuffer, excelFileName);
-  }
-
-  private saveAsExcel(buffer: any, fileName: string): void{
-    const data: Blob = new Blob([buffer], { type: EXCEL_TYPE });
-    FileSaver.saveAS(data, fileName + '_export_' + new Date().getTime() + EXCEL_EXT);
-
-  }
-
   async loginGoogle(): Promise<User> {
     try {
       const { user } = await this.afAuth.signInWithPopup(

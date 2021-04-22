@@ -1,4 +1,4 @@
-import { User } from '../../shared/models/user.interface';
+import { Roles, User } from '../../shared/models/user.interface';
 import { Observable } from 'rxjs';
 import { AuthService } from '..//../auth/services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,13 +14,12 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  public user$: Observable<User> = this.authSvc.afAuth.user;
+  public user$: Observable<User> = this.authSvc.user$;
 
-  usuario: any= this.user$;
-
+  
   constructor(public authSvc: AuthService, private router: Router, private toastr: ToastrService, private usuarioService: UsuarioService) {
-    
   }
+
 
   async onLogout() {
     try {

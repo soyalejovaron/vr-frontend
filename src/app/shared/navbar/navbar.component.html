@@ -50,6 +50,11 @@
                   Plantas
                </a>
             </li>
+            <li class="nav-item mx-0 mx-lg-2">
+               <a class="nav-link">Rol:
+                  {{user.role}}
+               </a>
+            </li>
          </ul>
          <!-- ===================================================== -->
          <ul class="navbar-nav navbar-nav-login" *ngIf="user$ | async as user">
