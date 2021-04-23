@@ -4,13 +4,14 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { User } from '../../shared/models/user.interface';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
- 
+  public user$: Observable<User> = this.authSvc.user$;
   submitted = false;
   confirmarLogin = false;
   usuarioLogin: FormGroup;

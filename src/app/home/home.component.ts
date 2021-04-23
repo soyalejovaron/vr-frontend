@@ -11,6 +11,7 @@ import { User } from '../shared/models/user.interface';
 })
 export class HomeComponent implements OnInit {
   public user$: Observable<User> = this.authSvc.afAuth.user;
+  public secciones: Array<string> = ['primera'];
   constructor(public authSvc: AuthService, private router: Router) { }
 
   ngOnInit(): void {

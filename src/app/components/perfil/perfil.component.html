@@ -18,11 +18,13 @@
             <form class="mt-4" [formGroup]="createUsuario" (ngSubmit)="editarEmpleado()">
                 <div class="row">
                     <div class="col">
-                        <input type="number" class="form-control form-control-lg" formControlName="documento"
+                        <label class="float-left h6" for="doc">Documento:</label>
+                        <input type="number" id="doc" class="form-control form-control-lg" formControlName="documento"
                             placeholder="Documento">
                     </div>
                 </div>
-                <input type="text" class="form-control form-control-lg mt-4" formControlName="displayName"
+                <label class="float-left h6 mt-4" for="nombre">Nombre:</label>
+                <input type="text" id="nombre" class="form-control form-control-lg mt-4" formControlName="displayName"
                     placeholder="Nombre Completo">
                 <div class="mt-4">
                     <button type="text" class="btn btn-secondary mx-2 px-3" routerLink="/inicio">

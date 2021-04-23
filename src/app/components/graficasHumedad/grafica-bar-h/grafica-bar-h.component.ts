@@ -4,6 +4,7 @@ import * as pluginDataLabels from 'chartjs-plugin-annotation';
 import { Label } from 'ng2-charts';
 import { SensorhumedadService } from 'src/app/services/sensorhumedad.service';
 import * as printJS from 'print-js';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -40,7 +41,7 @@ export class GraficaBarHComponent implements OnInit {
   private colores = [];
   private tipo = [];
 
-  constructor(protected _sensorHumedadService: SensorhumedadService ) {
+  constructor(protected _sensorHumedadService: SensorhumedadService, private toastr: ToastrService ) {
     this.getCategoria();
   }
 
@@ -57,7 +58,7 @@ export class GraficaBarHComponent implements OnInit {
         this.colores.push(cate.colorSensorH);
         this.tipo.push(cate.tipoSensorH);
       }
-     
+
       this.cargarDatos(this.datos, this.nombreCategoria, this.colores);
     });
   }
@@ -66,10 +67,26 @@ export class GraficaBarHComponent implements OnInit {
     printJS('grafica', 'html')
   }
 
+  mensajeFinal(){
+    window.alert('Tu archivo está listo para imprimirse')
+  }
+
+
   printGrafica(){
-    printJS({printable: this.categoria, properties: ['tipoSensorH','nombreSensorH', 'datosSensorH'],
-     type: 'json', header: '<h3 class="custom-h3">Lista de sensores de humedad</h3>',
-    style: '.custom-h3 { color: red; text-align: center;  }', documentTitle: 'Vive Registro'})
+    printJS({printable: this.categoria, properties: [
+      { field: 'idSensorH', displayName: 'Id'},
+      { field: 'nombreSensorH', displayName: 'Nombre Del Sensor'},
+      { field: 'tipoSensorH', displayName: 'Tipo Del Sensor'},
+      { field: 'id_planta', displayName: 'Id planta'},
+      { field: 'id_estado', displayName: 'Id estado'}
+        ],
+     type: 'json', header: '<h3 class="custom-h3">Sensores de humedad</h3>',
+    style: '.custom-h3 { margin-top: 50px; color: black; text-align: center;text-shadow: 2px 15px 3px #3971A5;border-left: 2px solid black; border-right: 2px solid black; font-size: 25px; }'
+    , documentTitle: 'Vive Registro',
+    gridHeaderStyle: 'border: 2px solid black; color: black;',
+	  gridStyle: 'border: 2px solid gray; text-align:center; ', showModal: true, modalMessage: 'Por favor espera...', 
+    onLoadingEnd: this.mensajeFinal
+  })
   }
 
   cargarDatos(datos, nombreCategoria, colores) {

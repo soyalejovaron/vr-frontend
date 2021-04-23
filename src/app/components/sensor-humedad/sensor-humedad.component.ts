@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { EstadoService } from 'src/app/services/estado.service';
 import { PlantasService } from 'src/app/services/plantas.service';
 import { SensorhumedadService } from 'src/app/services/sensorhumedad.service';
 import * as XLSX from 'xlsx';
@@ -16,6 +17,8 @@ export class SensorHumedadComponent implements OnInit, OnDestroy {
   sensores: any = [];
   plantas: any;
   planta: any;
+  estados: any;
+  estado: any;
   color = "black";
   sensorForm: FormGroup;
   sensor: any;
@@ -29,7 +32,7 @@ export class SensorHumedadComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
   dtTrigger = new Subject();
 
-  constructor(protected _sensorHumedadService: SensorhumedadService , public fb: FormBuilder, private route: ActivatedRoute, private router: Router, private _plantasService: PlantasService) {
+  constructor(protected _sensorHumedadService: SensorhumedadService , public fb: FormBuilder, private route: ActivatedRoute, private router: Router, private _plantasService: PlantasService, private _estadosService: EstadoService) {
     this.textButton = "Agregar";
     this.obtenerParametroUrl();
     this.sensorForm = this.fb.group({
@@ -51,6 +54,13 @@ export class SensorHumedadComponent implements OnInit, OnDestroy {
     },
       error => { console.error(error) }
     );
+
+    this._estadosService.getEstados().subscribe(resp => {
+      this.estados = resp;
+    },
+      error => { console.error(error) }
+    );
+
     this.dtOptions = {
       pagingType: 'full_numbers',
       retrieve: true,
@@ -88,7 +98,7 @@ export class SensorHumedadComponent implements OnInit, OnDestroy {
           this.datosS = res[0].datosSensorH;
           this.nombreS = res[0].nombreSensorH;
           this.tipoS = res[0].tipoSensorH;
-          this.estadoS = res[0].estadoSensorH;
+          this.estadoS = res[0].id_estado;
           this.planta = res[0].id_planta;
           this.sensorForm.patchValue({
             idSensor: [this.idSensor],

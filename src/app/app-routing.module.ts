@@ -36,64 +36,79 @@ const routes: Routes = [
   /* rutas de los sensores de humedad */
   {
     path: 'graficaPolarH',
-    component: GraficaPolarareaHComponent
+    component: GraficaPolarareaHComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'graficaDoughnutH',
-    component: GraficaDoughnutHComponent
+    component: GraficaDoughnutHComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'graficaHorizontalH',
-    component: GraficaHorizontalbarHComponent
+    component: GraficaHorizontalbarHComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'graficaBarrasH',
-    component: GraficaBarHComponent
+    component: GraficaBarHComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'graficaLinealH',
-    component: GraficaLineHComponent
+    component: GraficaLineHComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'graficaRadarH',
-    component: GraficaRadarHComponent
+    component: GraficaRadarHComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   /* rutas de los sensores de temperatura */
   {
     path: 'graficaPolarT',
-    component: GraficaPolarareaTComponent
+    component: GraficaPolarareaTComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'graficaDoughnutT',
-    component: GraficaDoughnutTComponent
+    component: GraficaDoughnutTComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'graficaHorizontalT',
-    component: GraficaHorizontalbarTComponent
+    component: GraficaHorizontalbarTComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'graficaBarrasT',
-    component:  GraficaBarTComponent
+    component:  GraficaBarTComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'graficaLinealT',
-    component: GraficaLineTComponent
+    component: GraficaLineTComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'graficaRadarT',
-    component: GraficaRadarTComponent
+    component: GraficaRadarTComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'crear',
-    component: CrearUsuariosComponent
+    component: CrearUsuariosComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'editar/:uid',
-    component: CrearUsuariosComponent
+    component: CrearUsuariosComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'perfil/:uid',
-    component: PerfilComponent
+    component: PerfilComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'crud',
