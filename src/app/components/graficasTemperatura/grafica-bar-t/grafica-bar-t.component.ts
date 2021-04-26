@@ -25,7 +25,7 @@ export class GraficaBarTComponent implements OnInit {
     }
   };
   public barChartLabels: Label[] = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
-  public barChartType: ChartType = 'radar';
+  public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [pluginDataLabels];
 
@@ -76,7 +76,8 @@ export class GraficaBarTComponent implements OnInit {
       { field: 'nombreSensorT', displayName: 'Nombre Del Sensor'},
       { field: 'tipoSensorT', displayName: 'Tipo Del Sensor'},
       { field: 'id_planta', displayName: 'Id planta'},
-      { field: 'id_estado', displayName: 'Id estado'}
+      { field: 'id_estado', displayName: 'Id estado'},
+      { field: 'fechaCreacionT', displayName: 'Fecha De Creación'}
         ],
      type: 'json', header: '<h3 class="custom-h3">Sensores de temperatura</h3>',
     style: '.custom-h3 { margin-top: 50px; color: black; text-align: center;text-shadow: 2px 15px 3px #dc3545;border-left: 2px solid black; border-right: 2px solid black; font-size: 25px; }'

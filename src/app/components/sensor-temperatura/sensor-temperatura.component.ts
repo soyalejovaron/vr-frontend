@@ -13,13 +13,13 @@ import * as XLSX from 'xlsx';
   styleUrls: ['./sensor-temperatura.component.scss']
 })
 export class SensorTemperaturaComponent implements OnInit, OnDestroy {
-
   sensores: any = [];
   plantas: any;
   estados: any;
   estado: any;
   planta: any;
   color = "black";
+  fechaModificacion: Date;
   sensorForm: FormGroup;
   sensor: any;
   nombreS: string;
@@ -107,7 +107,7 @@ export class SensorTemperaturaComponent implements OnInit, OnDestroy {
             datosSensor: [this.datosS],
             colorSensor: [this.color],
             plantaSensor: [this.planta],
-            estadoSensor: [this.estado]
+            estadoSensor: [this.estado],
           });
           this.textButton = "Actualizar";
         });

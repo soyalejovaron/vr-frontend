@@ -73,7 +73,8 @@ export class GraficaRadarHComponent implements OnInit {
       { field: 'nombreSensorH', displayName: 'Nombre Del Sensor'},
       { field: 'tipoSensorH', displayName: 'Tipo Del Sensor'},
       { field: 'id_planta', displayName: 'Id planta'},
-      { field: 'id_estado', displayName: 'Id estado'}
+      { field: 'id_estado', displayName: 'Id estado'},
+      { field: 'fechaCreacionH', displayName: 'Fecha De Creación'}
         ],
      type: 'json', header: '<h3 class="custom-h3">Sensores de humedad</h3>',
     style: '.custom-h3 { margin-top: 50px; color: black; text-align: center;text-shadow: 2px 15px 3px #3971A5;border-left: 2px solid black; border-right: 2px solid black; font-size: 25px; }'

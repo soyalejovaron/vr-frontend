@@ -51,6 +51,7 @@
                     <th scope="col">Nombre sensor</th>
                     <th scope="col">Planta sensor</th>
                     <th scope="col">Estado sensor</th>
+                    <th scope="col">Fecha creación</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
@@ -62,6 +63,7 @@
                     <td>{{sensor.nombreSensorT}}</td>
                     <td>{{sensor.id_planta}}</td>
                     <td>{{sensor.id_estado}}</td>
+                    <td>{{sensor.fechaCreacionT}}</td>  
                     <td>
                     <input class="form-control" [(colorPicker)]="sensor.colorSensorT" [style.background]="sensor.colorSensorT" readonly disabled/>
                     </td>
