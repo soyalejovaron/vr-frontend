@@ -1,4 +1,430 @@
-<div class="container-fluid mt-5" *ngIf="user$ | async as user; else home">
+<!-- =========================================================================================== -->
+<!-- Esta vista, en conjunto con el *ngIf es para el usuario logueado o que ya inició sesión, sino ha iniciado
+no será mostrada esta vista -->
+<div class="container-fluid mt-3" *ngIf="user$ | async as user; else home">
+    <div class="row">
+        <div class="col-12 text-center">
+            <!-- Esta fila es para los componentes del Vivero, estos son el nombre, su presentación y su valor, el ejemplo del primero es
+            nombre: tanque, presentación: imagen de un tanque, valor: porcentaje del contenido dentro del tanque, así mismo con Válvula,
+            batería y panel -->
+            <div class="row justify-content-center">
+                <!-- ============================================================ -->
+                <div class="col-6 col-sm-auto col-md-1 py-2">
+                    <div>
+                        <h1 class="fs-5">
+                            Tanque
+                        </h1>
+                    </div>
+                    <div>
+                        <img src="../../../assets/imagenes/deposito-de-agua.png" width="50px">
+                    </div>
+                    <div>
+                        <span>
+                            97%
+                        </span>
+                    </div>
+                </div>
+                <!-- ============================================================ -->
+                <div class="col-6 col-sm-auto col-md-1 py-2">
+                    <div>
+                        <h1 class="fs-5">
+                            Válvula
+                        </h1>
+                    </div>
+                    <div>
+                        <img src="../../../assets/imagenes/gas.png" width="50px">
+                    </div>
+                    <div>
+                        <span class="text-danger">
+                            Apagada
+                        </span>
+                    </div>
+                </div>
+                <!-- ============================================================ -->
+                <div class="col-6 col-sm-auto col-md-1 py-2">
+                    <div>
+                        <h1 class="fs-5">
+                            Batería
+                        </h1>
+                    </div>
+                    <div>
+                        <img src="../../../assets/imagenes/energia.png" width="50px">
+                    </div>
+                    <div>
+                        <span class="text-danger">
+                            Apagada
+                        </span>
+                    </div>
+                </div>
+                <!-- ============================================================ -->
+                <div class="col-6 col-sm-auto col-md-1 py-2">
+                    <div>
+                        <h1 class="fs-5">
+                            Panel
+                        </h1>
+                    </div>
+                    <div>
+                        <img src="../../../assets/imagenes/poder.png" width="50px">
+                    </div>
+                    <div>
+                        <span class="text-danger">
+                            Desconectado
+                        </span>
+                    </div>
+                </div>
+                <!-- ============================================================ -->
+            </div>
+        </div>
+        <!-- =========================================================================================== -->
+        <div class="col-12 mt-2 text-center">
+            <!-- En este contenedor se tienen los dos botones que no son funcionales, son solo estáticos pero es con el fin de mostrar
+            lo que el Vivero puede hacer -->
+            <div>
+                <!-- El primer botón es para detener automáticamente el riego a las plantas, por si ocurre un problema o simplemente por decisión -->
+                <button class="btn btn-danger btn-sm px-4 rounded-pill mx-1" type="button">
+                    Stop
+                </button>
+                <!-- El segundo botón es para cortar la corriente que está bien sea por corriente local o solar a través de un panel -->
+                <button class="btn btn-info btn-sm px-4 rounded-pill mx-1" type="button">
+                    Corriente
+                </button>
+            </div>
+        </div>
+        <!-- ============================================================ -->
+        <hr class="my-2 w-75 mx-auto">
+        <!-- ============================================================ -->
+        <div class="col-12 text-center">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Título de la sección de las líneas de riego -->
+                    <h1 class="fs-2 fw-bold">
+                        Líneas de riego
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================ -->
+        <div class="col-12 mt-2 mb-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <!-- Esta final contiene las cuatro columnas que tienen la información que puede ser mostrada en un sistema automatizado
+                    Por ejemplo, la primera columna tiene el nombre de la línea que es Línea 1, su estado, apagado o encendido, temperatura,
+                    humedad y dos botones, el primero que es activar es para encender o poner en marcha esa línea de riego y el botón de las
+                    estadísticas es para mostrar sus datos en una gráfica, todo esto es igual para las demás líneas de riego -->
+                    <div class="row g-5">
+                        <!-- ============================================================ -->
+                        <div class="col-6 col-md-3">
+                            <div class="p-3 shadow-lg rounded-5" style="height: auto;">
+                                <div>
+                                    <h1 class="fs-5">
+                                        Línea 1
+                                    </h1>
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>
+                                            Estado
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
+                                    </div>
+                                    <div>
+                                        <span class="text-danger">
+                                            Apagado
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <hr class="text-secondary">
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>
+                                            Temperatura
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <img src="../../../assets/imagenes/caliente.png" width="40px">
+                                    </div>
+                                    <div>
+                                        <span>
+                                            27°
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <hr class="text-secondary">
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>
+                                            Humedad
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <img src="../../../assets/imagenes/humedad.png" width="40px">
+                                    </div>
+                                    <div>
+                                        <span>
+                                            27%
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <hr class="text-secondary">
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary btn-sm w-100 rounded-pill">
+                                        Activar
+                                    </button>
+                                </div>
+                                <div class="my-1">
+                                    <button class="btn btn-danger btn-sm w-100 rounded-pill">
+                                        Estadísticas
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============================================================ -->
+                        <div class="col-6 col-md-3">
+                            <div class="p-3 shadow-lg rounded-5" style="height: auto;">
+                                <div>
+                                    <h1 class="fs-5">
+                                        Línea 2
+                                    </h1>
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>
+                                            Estado
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
+                                    </div>
+                                    <div>
+                                        <span class="text-danger">
+                                            Apagado
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <hr class="text-secondary">
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>
+                                            Temperatura
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <img src="../../../assets/imagenes/caliente.png" width="40px">
+                                    </div>
+                                    <div>
+                                        <span>
+                                            27°
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <hr class="text-secondary">
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>
+                                            Humedad
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <img src="../../../assets/imagenes/humedad.png" width="40px">
+                                    </div>
+                                    <div>
+                                        <span>
+                                            27%
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <hr class="text-secondary">
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary btn-sm w-100 rounded-pill">
+                                        Activar
+                                    </button>
+                                </div>
+                                <div class="my-1">
+                                    <button class="btn btn-danger btn-sm w-100 rounded-pill">
+                                        Estadísticas
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============================================================ -->
+                        <div class="col-6 col-md-3">
+                            <div class="p-3 shadow-lg rounded-5" style="height: auto;">
+                                <div>
+                                    <h1 class="fs-5">
+                                        Línea 3
+                                    </h1>
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>
+                                            Estado
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
+                                    </div>
+                                    <div>
+                                        <span class="text-danger">
+                                            Apagado
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <hr class="text-secondary">
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>
+                                            Temperatura
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <img src="../../../assets/imagenes/caliente.png" width="40px">
+                                    </div>
+                                    <div>
+                                        <span>
+                                            27°
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <hr class="text-secondary">
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>
+                                            Humedad
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <img src="../../../assets/imagenes/humedad.png" width="40px">
+                                    </div>
+                                    <div>
+                                        <span>
+                                            27%
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <hr class="text-secondary">
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary btn-sm w-100 rounded-pill">
+                                        Activar
+                                    </button>
+                                </div>
+                                <div class="my-1">
+                                    <button class="btn btn-danger btn-sm w-100 rounded-pill">
+                                        Estadísticas
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============================================================ -->
+                        <div class="col-6 col-md-3">
+                            <div class="p-3 shadow-lg rounded-5" style="height: auto;">
+                                <div>
+                                    <h1 class="fs-5">
+                                        Línea 4
+                                    </h1>
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>
+                                            Estado
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
+                                    </div>
+                                    <div>
+                                        <span class="text-danger">
+                                            Apagado
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <hr class="text-secondary">
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>
+                                            Temperatura
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <img src="../../../assets/imagenes/caliente.png" width="40px">
+                                    </div>
+                                    <div>
+                                        <span>
+                                            27°
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <hr class="text-secondary">
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>
+                                            Humedad
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <img src="../../../assets/imagenes/humedad.png" width="40px">
+                                    </div>
+                                    <div>
+                                        <span>
+                                            27%
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <hr class="text-secondary">
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary btn-sm w-100 rounded-pill">
+                                        Activar
+                                    </button>
+                                </div>
+                                <div class="my-1">
+                                    <button class="btn btn-danger btn-sm w-100 rounded-pill">
+                                        Estadísticas
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============================================================ -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================ -->
+    </div>
+</div>
+<!-- =========================================================================================== -->
+
+
+
+
+
+
+
+<!-- <div class="container-fluid mt-5" *ngIf="user$ | async as user; else home">
     <div class="row">
         <div class="col-12">
             <div class="row">
@@ -9,27 +435,27 @@
                         </div>
                         <div class="col-12 mt-3 text-center border-bottom">
                             <h4>Tanque</h4>
-                            <!-- <img src="../public/img/deposito-de-agua.png" alt="" width="50px"> -->
+                            <img src="../public/img/deposito-de-agua.png" alt="" width="50px">
                             <img src="../../../assets/imagenes/deposito-de-agua.png" width="50px">
 
                             <p>97%</p>
                         </div>
                         <div class="col-12 mt-3 text-center border-bottom">
                             <h4>Válvula</h4>
-                            <!-- <img src="../public/img/gas.png" alt="" width="50px"> -->
+                            <img src="../public/img/gas.png" alt="" width="50px">
                             <img src="../../../assets/imagenes/gas.png" width="50px">
                             <p class="text-success">Encendida</p>
                         </div>
                         <div class="col-12 mt-3 text-center border-bottom">
                             <h4>Energía</h4>
-                            <!-- <img src="../public/img/energia.png" alt="" width="50px"> -->
+                            <img src="../public/img/energia.png" alt="" width="50px">
                             <img src="../../../assets/imagenes/energia.png" width="50px">
 
                             <p class="text-success">Encendida</p>
                         </div>
                         <div class="col-12 mt-3 text-center border-bottom">
                             <h4>Pánel solar</h4>
-                            <!-- <img src="../public/img/poder.png" alt="" width="50px"> -->
+                            <img src="../public/img/poder.png" alt="" width="50px">
                             <img src="../../../assets/imagenes/poder.png" width="50px">
 
                             <p class="text-success">Encendida</p>
@@ -55,17 +481,17 @@
                             <h4>Línea 1</h4>
                             <hr>
                             <h6>Estado</h6>
-                            <!-- <img src="../public/img/boton-de-inicio.png" alt="" width="25px"> -->
+                            <img src="../public/img/boton-de-inicio.png" alt="" width="25px">
                             <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
                             <p class="text-success">Encendida</p>
                             <hr>
                             <h4>Temperatura</h4>
-                            <!-- <img src="../public/img/caliente.png" alt="" width="40px"> -->
+                            <img src="../public/img/caliente.png" alt="" width="40px">
                             <img src="../../../assets/imagenes/caliente.png" width="40px">
                             <p>24°</p>
                             <hr>
                             <h4>Humedad</h4>
-                            <!-- <img src="../public/img/humedad.png" alt="" width="40px"> -->
+                            <img src="../public/img/humedad.png" alt="" width="40px">
                             <img src="../../../assets/imagenes/humedad.png" width="40px">
 
                             <p>16%</p>
@@ -81,18 +507,18 @@
                             <h4>Línea 2</h4>
                             <hr>
                             <h6>Estado</h6>
-                            <!-- <img src="../public/img/boton-de-inicio.png" alt="" width="25px"> -->
+                            <img src="../public/img/boton-de-inicio.png" alt="" width="25px">
                             <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
 
                             <p class="text-success">Encendida</p>
                             <hr>
                             <h4>Temperatura</h4>
-                            <!-- <img src="../public/img/caliente.png" alt="" width="40px"> -->
+                            <img src="../public/img/caliente.png" alt="" width="40px">
                             <img src="../../../assets/imagenes/caliente.png" width="40px">
                             <p>26°</p>
                             <hr>
                             <h4>Humedad</h4>
-                            <!-- <img src="../public/img/humedad.png" alt="" width="40px"> -->
+                            <img src="../public/img/humedad.png" alt="" width="40px">
                             <img src="../../../assets/imagenes/humedad.png" width="40px">
                             <p>13%</p>
                             <hr>
@@ -107,18 +533,18 @@
                             <h4>Línea 3</h4>
                             <hr>
                             <h6>Estado</h6>
-                            <!-- <img src="../public/img/boton-de-inicio.png" alt="" width="25px"> -->
+                            <img src="../public/img/boton-de-inicio.png" alt="" width="25px">
                             <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
 
                             <p class="text-danger">Apagada</p>
                             <hr>
                             <h4>Temperatura</h4>
-                            <!-- <img src="../public/img/caliente.png" alt="" width="40px"> -->
+                            <img src="../public/img/caliente.png" alt="" width="40px">
                             <img src="../../../assets/imagenes/caliente.png" width="40px">
                             <p>32°</p>
                             <hr>
                             <h4>Humedad</h4>
-                            <!-- <img src="../public/img/humedad.png" alt="" width="40px"> -->
+                            <img src="../public/img/humedad.png" alt="" width="40px">
                             <img src="../../../assets/imagenes/humedad.png" width="40px">
                             <p>9%</p>
                             <hr>
@@ -133,18 +559,18 @@
                             <h4>Línea 4</h4>
                             <hr>
                             <h6>Estado</h6>
-                            <!-- <img src="../public/img/boton-de-inicio.png" alt="" width="25px"> -->
+                            <img src="../public/img/boton-de-inicio.png" alt="" width="25px">
                             <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
 
                             <p class="text-warning">Peligro</p>
                             <hr>
                             <h4>Temperatura</h4>
-                            <!-- <img src="../public/img/caliente.png" alt="" width="40px"> -->
+                            <img src="../public/img/caliente.png" alt="" width="40px">
                             <img src="../../../assets/imagenes/energia.png" width="40px">
                             <p>39°</p>
                             <hr>
                             <h4>Humedad</h4>
-                            <!-- <img src="../public/img/humedad.png" alt="" width="40px"> -->
+                            <img src="../public/img/humedad.png" alt="" width="40px">
                             <img src="../../../assets/imagenes/humedad.png" width="40px">
                             <p>1%</p>
                             <hr>
@@ -161,9 +587,10 @@
             </div>
         </div>
     </div>
-</div>
-
+</div> -->
+<!-- Si el usuario no está logueado, esta será la sección mostrada -->
 <ng-template #home>
+    <!-- Se usan estilos dentro del html por facilidad y comodidad del desarrollador, esto no genera malas prácticas ni tampoco errores -->
     <style>
         .rounded-5 {
             border-radius: 2rem;
@@ -175,11 +602,12 @@
             background-repeat: no-repeat;
         }
     </style>
-
+    <!-- Contenedor de la página principal, con enlace a iniciar sesión, registrarse y servicios -->
     <main class="vh-100 text-center d-flex justify-content-center align-items-center">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10 shadow-lg rounded-5 p-5">
+                    <!-- Se hace el llamado del logo de ViveRegistro en su versión obscura -->
                     <img src="../../assets/logo/logo-dark.svg" alt="Ejemplo de VR" style="width: 65px;">
                     <h1 class="display-6 fw-bold">
                         ¿Quieres controlar los datos de tus plantas?
@@ -188,12 +616,14 @@
                         Regístrate y haz parte de esta y muchas mas funciones
                     </p>
                     <div class="mb-2">
+                        <!-- Botón que tiene como ruta el login -->
                         <a class="btn btn-primary px-3 rounded-3 mx-1" routerLink="/login">
                             <span>
                                 <i class="fas fa-sign-in-alt text-white me-1"></i>
                                 Iniciar sesión
                             </span>
                         </a>
+                        <!-- Botón que tiene como ruta el registro -->
                         <a class="btn btn-dark px-3 rounded-3 mx-1" routerLink="/register">
                             <span>
                                 <i class="fas fa-user-plus text-white me-1"></i>
@@ -220,6 +650,7 @@
         <div class="container mb-5">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-12 text-white p-5">
+                    <!-- Se hace el llamado del logo de ViveRegistro en su versión blanco -->
                     <img src="../../assets/logo/logo-light.svg" alt="Ejemplo de VR" style="width: 35px;">
                     <h1 class="display-5 fw-bold">
                         Servicios
@@ -229,6 +660,7 @@
                     </p>
                 </div>
             </div>
+            <!-- Fila de servicios que ViveRegistro presta a sus usuarios -->
             <div class="row g-3">
                 <div class="col-12 col-md-12 col-lg-4">
                     <div class="p-4 card-cover d-flex align-items-center justify-content-center text-white shadow-lg bg-info rounded-5"
@@ -275,6 +707,7 @@
             </div>
         </div>
     </section>
+    <!-- Pie de página, sección donde se describen las caracterísitcas, rutas y tecnologías que tiene ViveRegistro -->
     <footer>
         <div class="text-center rounded-0" style="background-color: #151516;">
             <div class="text-white bg-transparent">
@@ -351,6 +784,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Derechos de autor, el símbolo &copy; es la representación del icono de copyright -->
             <div class="card-footer text-muted">
                 &copy; 2021 todo los derechos reservados.
             </div>
