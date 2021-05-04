@@ -42,6 +42,7 @@ import { CrearUsuariosComponent } from './components/crear-usuarios/crear-usuari
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlantasComponent } from './components/plantas/plantas.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { RealTimeComponent } from './components/real-time/real-time.component';
 
 
 @NgModule({
@@ -72,6 +73,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     CrearUsuariosComponent,
     PlantasComponent,
     PerfilComponent,
+    RealTimeComponent,
     
   
   ],

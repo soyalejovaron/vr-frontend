@@ -12,10 +12,6 @@
                     <input type="text" class="form-control" id="nombre" formControlName="nombreSensor">
                 </div>
                 <div class="form-group">
-                    <label for="datos">Datos</label>
-                    <input type="text" class="form-control" id="datos" formControlName="datosSensor" required>
-                </div>
-                <div class="form-group">
                     <label>Planta:</label>
                     <select formControlName="plantaSensor" class="form-control">
                         <option  *ngFor="let item of plantas" value="{{item.id_planta}}">{{item.nombre_planta}}</option>

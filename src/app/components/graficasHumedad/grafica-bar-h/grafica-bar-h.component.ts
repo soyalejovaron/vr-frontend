@@ -34,32 +34,32 @@ export class GraficaBarHComponent implements OnInit {
   public barChartData: ChartDataSets[];
   public chartColors;
 
-  private categoria;
+  private sensor;
   private dato: string;
   private datos = [];
-  private nombreCategoria = [];
+  private nombreSensor = [];
   private colores = [];
   private tipo = [];
 
   constructor(protected _sensorHumedadService: SensorhumedadService, private toastr: ToastrService ) {
-    this.getCategoria();
+    this.getSensor();
   }
 
   ngOnInit() {
   }
 
-  getCategoria() {
+  getSensor() {
     this._sensorHumedadService.getSensores().subscribe(res => {
-      this.categoria = res;
-      for (const cate of this.categoria) {
-        this.dato = cate.datosSensorH.split(',');
+      this.sensor = res;
+      for (const s of this.sensor) {
+        this.dato = s.datosSensorH.split(',');
         this.datos.push(this.dato);
-        this.nombreCategoria.push(cate.nombreSensorH);
-        this.colores.push(cate.colorSensorH);
-        this.tipo.push(cate.tipoSensorH);
+        this.nombreSensor.push(s.nombreSensorH);
+        this.colores.push(s.colorSensorH);
+        this.tipo.push(s.tipoSensorH);
       }
 
-      this.cargarDatos(this.datos, this.nombreCategoria, this.colores);
+      this.cargarDatos(this.datos, this.nombreSensor, this.colores);
     });
   }
 
@@ -73,7 +73,7 @@ export class GraficaBarHComponent implements OnInit {
 
 
   printGrafica(){
-    printJS({printable: this.categoria, properties: [
+    printJS({printable: this.sensor, properties: [
       { field: 'idSensorH', displayName: 'Id'},
       { field: 'nombreSensorH', displayName: 'Nombre Del Sensor'},
       { field: 'tipoSensorH', displayName: 'Tipo Del Sensor'},
@@ -90,12 +90,12 @@ export class GraficaBarHComponent implements OnInit {
   })
   }
 
-  cargarDatos(datos, nombreCategoria, colores) {
+  cargarDatos(datos, nombreSensor, colores) {
     this.barChartData = [];
     this.chartColors = [];
 
     for (const index in datos) {
-      this.barChartData.push({ data: datos[index], label: nombreCategoria[index] });
+      this.barChartData.push({ data: datos[index], label: nombreSensor[index] });
       this.chartColors.push({backgroundColor: colores[index]});
     }
 
