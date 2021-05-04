@@ -27,6 +27,10 @@ export class PermisosAdmin implements CanActivate {
             positionClass: 'toast-bottom-left'
           });
           this.router.navigate(['/home']);
+        } else{
+          this.toastr.success('', 'Acceso concedido',{
+            positionClass: 'toast-bottom-left'
+          });
         }
       })
     );

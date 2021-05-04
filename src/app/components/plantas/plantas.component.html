@@ -1,17 +1,18 @@
 <div class="row m-5 p-1">
     <div class="card col-3">
         <div class="card-body">
+            <h4 class="text-center mb-5">¡Crea una planta!</h4>
             <form [formGroup] = "plantaForm" (ngSubmit)="agregarPlanta()">
                 <div class="form-group">
-                    <label for="nombrePlanta">Nombre de la planta</label>
+                    <label for="nombrePlanta">Nombre de la planta:</label>
                     <input type="text" class="form-control" id="nombrePlanta" formControlName="nombre_planta">
                 </div>
                 <div class="form-group">
-                    <label for="descripcionPlanta">Descripcion</label>
+                    <label for="descripcionPlanta">Descripcion:</label>
                     <input type="text" class="form-control" id="descripcionPlanta" formControlName="descripcion_planta" required>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-success" [disabled]="!plantaForm.valid">{{textButton}}</button>
+                    <button class="btn btn-success mt-1 mb-2 mx-auto rounded-3 px-5 col-12" [disabled]="!plantaForm.valid">{{textButton}}</button>
                 </div>
             </form>
         </div>

@@ -33,13 +33,12 @@ export class SensorHumedadComponent implements OnInit, OnDestroy {
   dtTrigger = new Subject();
 
   constructor(protected _sensorHumedadService: SensorhumedadService , public fb: FormBuilder, private route: ActivatedRoute, private router: Router, private _plantasService: PlantasService, private _estadosService: EstadoService) {
-    this.textButton = "Agregar";
+    this.textButton = "Añadir";
     this.obtenerParametroUrl();
     this.sensorForm = this.fb.group({
       idSensor: [''],
       tipoSensor: ['Humedad', Validators.required],
       nombreSensor: ['', Validators.required],
-      datosSensor: ['', Validators.required],
       colorSensor: [''],
       plantaSensor: [''],
       estadoSensor: ['', Validators.required],
@@ -95,7 +94,6 @@ export class SensorHumedadComponent implements OnInit, OnDestroy {
       if (this.idSensor) {
         this._sensorHumedadService.getSensor(this.idSensor).subscribe(res => {
           this.color = res[0].colorSensorH;
-          this.datosS = res[0].datosSensorH;
           this.nombreS = res[0].nombreSensorH;
           this.tipoS = res[0].tipoSensorH;
           this.estadoS = res[0].id_estado;
@@ -104,7 +102,6 @@ export class SensorHumedadComponent implements OnInit, OnDestroy {
             idSensor: [this.idSensor],
             tipoSensor: [this.tipoS],
             nombreSensor: [this.nombreS],
-            datosSensor: [this.datosS],
             colorSensor: [this.color],
             plantaSensor: [this.planta],
             estadoSensor: [this.estadoS]
