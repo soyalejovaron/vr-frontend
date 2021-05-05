@@ -36,7 +36,7 @@ no será mostrada esta vista -->
                     </div>
                     <div>
                         <span class="text-danger">
-                            Apagada
+                            {{valvula}}
                         </span>
                     </div>
                 </div>
@@ -52,7 +52,7 @@ no será mostrada esta vista -->
                     </div>
                     <div>
                         <span class="text-danger">
-                            Apagada
+                            {{bateria}}
                         </span>
                     </div>
                 </div>
@@ -68,7 +68,7 @@ no será mostrada esta vista -->
                     </div>
                     <div>
                         <span class="text-danger">
-                            Desconectado
+                            {{panel}}
                         </span>
                     </div>
                 </div>
@@ -81,11 +81,11 @@ no será mostrada esta vista -->
             lo que el Vivero puede hacer -->
             <div>
                 <!-- El primer botón es para detener automáticamente el riego a las plantas, por si ocurre un problema o simplemente por decisión -->
-                <button class="btn btn-danger btn-sm px-4 rounded-pill mx-1" type="button">
+                <button (click)="desactivarSistema()" class="btn btn-danger btn-sm px-4 rounded-pill mx-1" type="button">
                     Stop
                 </button>
                 <!-- El segundo botón es para cortar la corriente que está bien sea por corriente local o solar a través de un panel -->
-                <button class="btn btn-info btn-sm px-4 rounded-pill mx-1" type="button">
+                <button (click)="activarSistema()" class="btn btn-info btn-sm px-4 rounded-pill mx-1" type="button">
                     Corriente
                 </button>
             </div>
@@ -131,7 +131,7 @@ no será mostrada esta vista -->
                                     </div>
                                     <div>
                                         <span class="text-danger">
-                                            Apagado
+                                            {{estado1}}
                                         </span>
                                     </div>
                                 </div>
@@ -149,7 +149,7 @@ no será mostrada esta vista -->
                                     </div>
                                     <div>
                                         <span>
-                                            27°
+                                            {{temperatura1}}
                                         </span>
                                     </div>
                                 </div>
@@ -167,7 +167,7 @@ no será mostrada esta vista -->
                                     </div>
                                     <div>
                                         <span>
-                                            27%
+                                            {{humedad1}}
                                         </span>
                                     </div>
                                 </div>
@@ -175,8 +175,12 @@ no será mostrada esta vista -->
                                     <hr class="text-secondary">
                                 </div>
                                 <div>
-                                    <button class="btn btn-primary btn-sm w-100 rounded-pill">
+                                    <button *ngIf= "estado1=='Apagado'" (click)="activarLinea1()" class="btn btn-primary btn-sm w-100 rounded-pill mb-2">
                                         Activar
+                                    </button>
+
+                                    <button *ngIf= "estado1=='Activado'" (click)="desactivarLinea1()" class="btn btn-warning btn-sm w-100 rounded-pill mb-2">
+                                        Desactivar
                                     </button>
                                 </div>
                                 <div class="my-1">
@@ -205,7 +209,7 @@ no será mostrada esta vista -->
                                     </div>
                                     <div>
                                         <span class="text-danger">
-                                            Apagado
+                                            {{estado2}}
                                         </span>
                                     </div>
                                 </div>
@@ -223,7 +227,7 @@ no será mostrada esta vista -->
                                     </div>
                                     <div>
                                         <span>
-                                            27°
+                                            {{temperatura2}}
                                         </span>
                                     </div>
                                 </div>
@@ -241,7 +245,7 @@ no será mostrada esta vista -->
                                     </div>
                                     <div>
                                         <span>
-                                            27%
+                                            {{humedad2}}
                                         </span>
                                     </div>
                                 </div>
@@ -249,8 +253,12 @@ no será mostrada esta vista -->
                                     <hr class="text-secondary">
                                 </div>
                                 <div>
-                                    <button class="btn btn-primary btn-sm w-100 rounded-pill">
+                                    <button *ngIf= "estado2=='Apagado'" (click)="activarLinea2()" class="btn btn-primary btn-sm w-100 rounded-pill mb-2">
                                         Activar
+                                    </button>
+
+                                    <button *ngIf= "estado2=='Activado'" (click)="desactivarLinea2()" class="btn btn-warning btn-sm w-100 rounded-pill mb-2">
+                                        Desactivar
                                     </button>
                                 </div>
                                 <div class="my-1">
@@ -279,7 +287,7 @@ no será mostrada esta vista -->
                                     </div>
                                     <div>
                                         <span class="text-danger">
-                                            Apagado
+                                            {{estado3}}
                                         </span>
                                     </div>
                                 </div>
@@ -297,7 +305,7 @@ no será mostrada esta vista -->
                                     </div>
                                     <div>
                                         <span>
-                                            27°
+                                            {{temperatura3}}
                                         </span>
                                     </div>
                                 </div>
@@ -315,7 +323,7 @@ no será mostrada esta vista -->
                                     </div>
                                     <div>
                                         <span>
-                                            27%
+                                            {{humedad3}}
                                         </span>
                                     </div>
                                 </div>
@@ -323,8 +331,12 @@ no será mostrada esta vista -->
                                     <hr class="text-secondary">
                                 </div>
                                 <div>
-                                    <button class="btn btn-primary btn-sm w-100 rounded-pill">
+                                    <button *ngIf= "estado3=='Apagado'" (click)="activarLinea3()" class="btn btn-primary btn-sm w-100 rounded-pill mb-2">
                                         Activar
+                                    </button>
+
+                                    <button *ngIf= "estado3=='Activado'" (click)="desactivarLinea3()" class="btn btn-warning btn-sm w-100 rounded-pill mb-2">
+                                        Desactivar
                                     </button>
                                 </div>
                                 <div class="my-1">
@@ -353,7 +365,7 @@ no será mostrada esta vista -->
                                     </div>
                                     <div>
                                         <span class="text-danger">
-                                            Apagado
+                                            {{estado4}}
                                         </span>
                                     </div>
                                 </div>
@@ -371,7 +383,7 @@ no será mostrada esta vista -->
                                     </div>
                                     <div>
                                         <span>
-                                            27°
+                                            {{temperatura4}}
                                         </span>
                                     </div>
                                 </div>
@@ -389,7 +401,7 @@ no será mostrada esta vista -->
                                     </div>
                                     <div>
                                         <span>
-                                            27%
+                                            {{humedad4}}
                                         </span>
                                     </div>
                                 </div>
@@ -397,8 +409,12 @@ no será mostrada esta vista -->
                                     <hr class="text-secondary">
                                 </div>
                                 <div>
-                                    <button class="btn btn-primary btn-sm w-100 rounded-pill">
+                                    <button *ngIf= "estado4=='Apagado'" (click)="activarLinea4()" class="btn btn-primary btn-sm w-100 rounded-pill mb-2">
                                         Activar
+                                    </button>
+
+                                    <button *ngIf= "estado4=='Activado'" (click)="desactivarLinea4()" class="btn btn-warning btn-sm w-100 rounded-pill mb-2">
+                                        Desactivar
                                     </button>
                                 </div>
                                 <div class="my-1">

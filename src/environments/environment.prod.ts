@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
   firebase : {
-    apiKey: "AIzaSyB_d1nvgDtP57fxPIU_kX_nrXQoWlvcKW4",
-    authDomain: "usuariosbase-df667.firebaseapp.com",
-    projectId: "usuariosbase-df667",
-    storageBucket: "usuariosbase-df667.appspot.com",
-    messagingSenderId: "488858419667",
-    appId: "1:488858419667:web:e53d292842720c4c6eaf26"
+    apiKey: "AIzaSyC24kCP2PZ8QRn96GXOsAcDcjcoPy7Gs4I",
+    authDomain: "viveregistros.firebaseapp.com",
+    projectId: "viveregistros",
+    storageBucket: "viveregistros.appspot.com",
+    messagingSenderId: "838006397702",
+    appId: "1:838006397702:web:98172208faa9c856a95c87"
   }
 };

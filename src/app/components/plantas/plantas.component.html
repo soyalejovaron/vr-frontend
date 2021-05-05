@@ -37,8 +37,10 @@
                     <td>{{planta.nombre_planta}}</td>
                     <td>{{planta.descripcion_planta}}</td>
                     <td>
-                        <i class="fas fa-edit fa-2x text-info mr-3" [routerLink]="['/plantas', planta.id_planta]"></i>
-                        <i class="fas fa-minus fa-2x text-danger" (click)="borrarPlanta(planta.id_planta)"></i>
+                        <img class="mr-3" src="../../../assets/imagenes/editarPlanta.png" alt="" [routerLink]="['/plantas', planta.id_planta]" width="40px">
+                        <img class="mr-3" src="../../../assets/imagenes/eliminarPlanta.png" alt="" (click)="borrarPlanta(planta.id_planta)" width="40px">
+                        <!-- <i class="fas fa-edit fa-2x text-info mr-3" [routerLink]="['/plantas', planta.id_planta]"></i>
+                        <i class="fas fa-minus fa-2x text-danger" (click)="borrarPlanta(planta.id_planta)"></i> -->
                     </td>
                 </tr>
             </tbody>
