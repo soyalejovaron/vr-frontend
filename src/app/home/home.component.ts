@@ -128,4 +128,86 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  validarEstadisticasH1(){
+    if(this.estado1=="Apagado"){
+      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego apagada',{
+        positionClass: 'toast-bottom-right'
+      });
+    }else{
+      this.router.navigate(['/graficaRadarH']);
+    }
+  }
+
+  validarEstadisticasH2(){
+    if(this.estado2=="Apagado"){
+      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego apagada',{
+        positionClass: 'toast-bottom-right'
+      });
+    }else{
+      this.router.navigate(['/graficaRadarH']);
+    }
+  }
+
+  validarEstadisticasH3(){
+    if(this.estado3=="Apagado"){
+      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego apagada',{
+        positionClass: 'toast-bottom-right'
+      });
+    }else{
+      this.router.navigate(['/graficaRadarH']);
+    }
+  }
+
+  validarEstadisticasH4(){
+    if(this.estado4=="Apagado"){
+      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego apagada',{
+        positionClass: 'toast-bottom-right'
+      });
+    }else{
+      this.router.navigate(['/graficaRadarH']);
+    }
+  }
+
+  /* Validar las estadisticas de temperatura */
+
+  validarEstadisticasT1(){
+    if(this.estado1=="Apagado"){
+      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego apagada',{
+        positionClass: 'toast-bottom-right'
+      });
+    }else{
+      this.router.navigate(['/graficaRadarT']);
+    }
+  }
+
+  validarEstadisticasT2(){
+    if(this.estado2=="Apagado"){
+      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego apagada',{
+        positionClass: 'toast-bottom-right'
+      });
+    }else{
+      this.router.navigate(['/graficaRadarT']);
+    }
+  }
+
+  validarEstadisticasT3(){
+    if(this.estado3=="Apagado"){
+      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego apagada',{
+        positionClass: 'toast-bottom-right'
+      });
+    }else{
+      this.router.navigate(['/graficaRadarT']);
+    }
+  }
+
+  validarEstadisticasT4(){
+    if(this.estado4=="Apagado"){
+      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego apagada',{
+        positionClass: 'toast-bottom-right'
+      });
+    }else{
+      this.router.navigate(['/graficaRadarT']);
+    }
+  }
+
 }
