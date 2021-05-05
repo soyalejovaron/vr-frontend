@@ -35,7 +35,10 @@ no será mostrada esta vista -->
                         <img src="../../../assets/imagenes/gas.png" width="50px">
                     </div>
                     <div>
-                        <span class="text-danger">
+                        <span *ngIf="valvula=='Apagado'" class="text-danger">
+                            {{valvula}}
+                        </span>
+                        <span *ngIf="valvula=='Activado'" class="text-success">
                             {{valvula}}
                         </span>
                     </div>
@@ -51,7 +54,10 @@ no será mostrada esta vista -->
                         <img src="../../../assets/imagenes/energia.png" width="50px">
                     </div>
                     <div>
-                        <span class="text-danger">
+                        <span *ngIf="bateria=='Apagado'" class="text-danger">
+                            {{bateria}}
+                        </span>
+                        <span *ngIf="bateria=='Activado'" class="text-success">
                             {{bateria}}
                         </span>
                     </div>
@@ -67,7 +73,10 @@ no será mostrada esta vista -->
                         <img src="../../../assets/imagenes/poder.png" width="50px">
                     </div>
                     <div>
-                        <span class="text-danger">
+                        <span *ngIf="panel=='Desconectado'" class="text-danger">
+                            {{panel}}
+                        </span>
+                        <span *ngIf="panel=='Conectado'" class="text-success">
                             {{panel}}
                         </span>
                     </div>
@@ -130,7 +139,10 @@ no será mostrada esta vista -->
                                         <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
                                     </div>
                                     <div>
-                                        <span class="text-danger">
+                                        <span *ngIf="estado1=='Apagado'" class="text-danger">
+                                            {{estado1}}
+                                        </span>
+                                        <span *ngIf="estado1=='Activado'" class="text-success">
                                             {{estado1}}
                                         </span>
                                     </div>
@@ -211,7 +223,10 @@ no será mostrada esta vista -->
                                         <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
                                     </div>
                                     <div>
-                                        <span class="text-danger">
+                                        <span *ngIf="estado2=='Apagado'" class="text-danger">
+                                            {{estado2}}
+                                        </span>
+                                        <span *ngIf="estado2=='Activado'" class="text-success">
                                             {{estado2}}
                                         </span>
                                     </div>
@@ -292,7 +307,10 @@ no será mostrada esta vista -->
                                         <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
                                     </div>
                                     <div>
-                                        <span class="text-danger">
+                                        <span *ngIf="estado3=='Apagado'" class="text-danger">
+                                            {{estado3}}
+                                        </span>
+                                        <span *ngIf="estado3=='Activado'" class="text-success">
                                             {{estado3}}
                                         </span>
                                     </div>
@@ -373,7 +391,10 @@ no será mostrada esta vista -->
                                         <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
                                     </div>
                                     <div>
-                                        <span class="text-danger">
+                                        <span *ngIf="estado4=='Apagado'" class="text-danger">
+                                            {{estado4}}
+                                        </span>
+                                        <span *ngIf="estado4=='Activado'" class="text-success">
                                             {{estado4}}
                                         </span>
                                     </div>

@@ -130,7 +130,7 @@ export class HomeComponent implements OnInit {
 
   validarEstadisticasH1(){
     if(this.estado1=="Apagado"){
-      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego apagada',{
+      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego 1 apagada',{
         positionClass: 'toast-bottom-right'
       });
     }else{
@@ -140,7 +140,7 @@ export class HomeComponent implements OnInit {
 
   validarEstadisticasH2(){
     if(this.estado2=="Apagado"){
-      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego apagada',{
+      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego 2 apagada',{
         positionClass: 'toast-bottom-right'
       });
     }else{
@@ -150,7 +150,7 @@ export class HomeComponent implements OnInit {
 
   validarEstadisticasH3(){
     if(this.estado3=="Apagado"){
-      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego apagada',{
+      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego 3 apagada',{
         positionClass: 'toast-bottom-right'
       });
     }else{
@@ -160,7 +160,7 @@ export class HomeComponent implements OnInit {
 
   validarEstadisticasH4(){
     if(this.estado4=="Apagado"){
-      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego apagada',{
+      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego 4 apagada',{
         positionClass: 'toast-bottom-right'
       });
     }else{
@@ -172,7 +172,7 @@ export class HomeComponent implements OnInit {
 
   validarEstadisticasT1(){
     if(this.estado1=="Apagado"){
-      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego apagada',{
+      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego 1 apagada',{
         positionClass: 'toast-bottom-right'
       });
     }else{
@@ -182,7 +182,7 @@ export class HomeComponent implements OnInit {
 
   validarEstadisticasT2(){
     if(this.estado2=="Apagado"){
-      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego apagada',{
+      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego 2 apagada',{
         positionClass: 'toast-bottom-right'
       });
     }else{
@@ -192,7 +192,7 @@ export class HomeComponent implements OnInit {
 
   validarEstadisticasT3(){
     if(this.estado3=="Apagado"){
-      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego apagada',{
+      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego 3 apagada',{
         positionClass: 'toast-bottom-right'
       });
     }else{
@@ -202,7 +202,7 @@ export class HomeComponent implements OnInit {
 
   validarEstadisticasT4(){
     if(this.estado4=="Apagado"){
-      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego apagada',{
+      this.toastr.error('Necesitas encenderla primero ', 'Linea de riego 4 apagada',{
         positionClass: 'toast-bottom-right'
       });
     }else{
