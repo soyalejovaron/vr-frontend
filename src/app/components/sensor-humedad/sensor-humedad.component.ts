@@ -15,6 +15,7 @@ import * as XLSX from 'xlsx';
 export class SensorHumedadComponent implements OnInit, OnDestroy {
 
   sensores: any = [];
+  registros: any = [];
   plantas: any;
   planta: any;
   estados: any;
@@ -32,7 +33,7 @@ export class SensorHumedadComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
   dtTrigger = new Subject();
 
-  constructor(protected _sensorHumedadService: SensorhumedadService , public fb: FormBuilder, private route: ActivatedRoute, private router: Router, private _plantasService: PlantasService, private _estadosService: EstadoService) {
+  constructor(protected _sensorHumedadService: SensorhumedadService , public fb: FormBuilder, private route: ActivatedRoute, private router: Router, private _plantasService: PlantasService) {
     this.textButton = "Añadir";
     this.obtenerParametroUrl();
     this.sensorForm = this.fb.group({
@@ -41,7 +42,6 @@ export class SensorHumedadComponent implements OnInit, OnDestroy {
       nombreSensor: ['', Validators.required],
       colorSensor: [''],
       plantaSensor: [''],
-      estadoSensor: ['', Validators.required],
     });
   }
 
@@ -50,12 +50,6 @@ export class SensorHumedadComponent implements OnInit, OnDestroy {
     
     this._plantasService.getPlantas().subscribe(resp => {
       this.plantas = resp;
-    },
-      error => { console.error(error) }
-    );
-
-    this._estadosService.getEstados().subscribe(resp => {
-      this.estados = resp;
     },
       error => { console.error(error) }
     );
@@ -96,7 +90,6 @@ export class SensorHumedadComponent implements OnInit, OnDestroy {
           this.color = res[0].colorSensorH;
           this.nombreS = res[0].nombreSensorH;
           this.tipoS = res[0].tipoSensorH;
-          this.estadoS = res[0].id_estado;
           this.planta = res[0].id_planta;
           this.sensorForm.patchValue({
             idSensor: [this.idSensor],
@@ -104,7 +97,6 @@ export class SensorHumedadComponent implements OnInit, OnDestroy {
             nombreSensor: [this.nombreS],
             colorSensor: [this.color],
             plantaSensor: [this.planta],
-            estadoSensor: [this.estadoS]
           });
           this.textButton = "Actualizar";
         });
@@ -119,6 +111,8 @@ export class SensorHumedadComponent implements OnInit, OnDestroy {
     });
   }
 
+ 
+
   agregarSensor() {
       this.sensorForm.controls['colorSensor'].setValue(this.color);
 
@@ -129,18 +123,26 @@ export class SensorHumedadComponent implements OnInit, OnDestroy {
       });
     }
     else {
+    let confirmar = window.confirm("¿Realmente quieres actualizar este sensor? \n Recuerda que los cambios seran permanentes");
+    if(confirmar == true){
       this._sensorHumedadService.actualizarSensor(this.sensorForm.value).subscribe(res =>{
         this.getSensores();
         this.router.navigate(['/humedad']);
       });
+    }else{
+      this.router.navigate(['/humedad']);
+    }
     }
   }
 
   borrarSensor(idSensor) {
-    this._sensorHumedadService.borrarSensor(idSensor).subscribe(res => {
-      this.getSensores();
-      window.location.reload();
-    })
+    let confirmar = window.confirm("¿Realmente quieres eliminar este sensor? \n Recuerda que los cambios seran permanentes");
+    if(confirmar == true){
+      this._sensorHumedadService.borrarSensor(idSensor).subscribe(res => {
+        this.getSensores();
+        window.location.reload();
+      })
+    }
   }
 
 }

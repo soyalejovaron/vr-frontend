@@ -4,6 +4,7 @@ import * as pluginDataLabels from 'chartjs-plugin-annotation';
 import { Label } from 'ng2-charts';
 import { SensorhumedadService } from 'src/app/services/sensorhumedad.service';
 import * as printJS from 'print-js';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-grafica-polararea-h',
@@ -31,30 +32,57 @@ export class GraficaPolarareaHComponent implements OnInit {
   public barChartData: ChartDataSets[];
   public chartColors;
 
-  private categoria;
+  private sensor;
+  private registro;
   private dato: string;
   private datos = [];
-  private nombreCategoria = [];
+  private nombreSensor = [];
   private colores = [];
+  private tipo = [];
 
-  constructor(protected _sensorHumedadService: SensorhumedadService ) {
-    this.getCategoria();
+  private r: string;
+  private registros = [];
+  
+
+  constructor(protected _sensorHumedadService: SensorhumedadService, private toastr: ToastrService ) {
+    this.getSensor();
+    this.getRegistro();
   }
 
   ngOnInit() {
   }
 
-  getCategoria() {
-    this._sensorHumedadService.getSensores().subscribe(res => {
-      this.categoria = res;
-      for (const cate of this.categoria) {
-        this.dato = cate.datosSensorH.split(',');
-        this.datos.push(this.dato);
-        this.nombreCategoria.push(cate.nombreSensorH);
-        this.colores.push(cate.colorSensorH);
+  getRegistro() {
+    this._sensorHumedadService.getRegistros().subscribe(res => {
+      this.registro = res;
+      for (const s of this.registro) {
+        this.registros.push(s.porcentajeH);
       }
-     
-      this.cargarDatos(this.datos, this.nombreCategoria, this.colores);
+    });
+  }
+
+
+
+  getSensor() {
+    this._sensorHumedadService.getSensores().subscribe(res => {
+      this.sensor = res;
+      for (const s of this.sensor) {
+        if (s.idSensorH == 1) {
+          this.datos.push(this.registros);
+          this.nombreSensor.push(s.nombreSensorH);
+          this.colores.push(s.colorSensorH);
+          this.tipo.push(s.tipoSensorH);
+        }else{
+        this.dato = s.datosSensorH.split(',');
+        this.datos.push(this.dato);
+        this.nombreSensor.push(s.nombreSensorH);
+        this.colores.push(s.colorSensorH);
+        this.tipo.push(s.tipoSensorH);
+        }
+        
+      }
+
+      this.cargarDatos(this.datos, this.nombreSensor, this.colores);
     });
   }
 
@@ -68,7 +96,7 @@ export class GraficaPolarareaHComponent implements OnInit {
 
 
   printGrafica(){
-    printJS({printable: this.categoria, properties: [
+    printJS({printable: this.sensor, properties: [
       { field: 'idSensorH', displayName: 'Id'},
       { field: 'nombreSensorH', displayName: 'Nombre Del Sensor'},
       { field: 'tipoSensorH', displayName: 'Tipo Del Sensor'},
@@ -85,12 +113,12 @@ export class GraficaPolarareaHComponent implements OnInit {
   })
   }
 
-  cargarDatos(datos, nombreCategoria, colores) {
+  cargarDatos(datos, nombreSensor, colores) {
     this.barChartData = [];
     this.chartColors = [];
 
     for (const index in datos) {
-      this.barChartData.push({ data: datos[index], label: nombreCategoria[index] });
+      this.barChartData.push({ data: datos[index], label: nombreSensor[index] });
       this.chartColors.push({backgroundColor: colores[index]});
     }
 

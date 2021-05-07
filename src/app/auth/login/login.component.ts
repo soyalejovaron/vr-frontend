@@ -64,7 +64,7 @@ export class LoginComponent {
     if (user && user.emailVerified) {
       this.router.navigate(['/home']);
     } else{
-      this.router.navigate(['/login']);
+      this.router.navigate(['/verificar']);
     }
   }
 }

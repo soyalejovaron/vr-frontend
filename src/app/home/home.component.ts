@@ -4,6 +4,9 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../auth/services/auth.service';
 import { User } from '../shared/models/user.interface';
 import { ToastrService } from 'ngx-toastr';
+import { SensorhumedadService } from '../services/sensorhumedad.service';
+import { SensorTemperaturaService } from '../services/sensor-temperatura.service';
+import { SensorLluviaService } from '../services/sensor-lluvia.service';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +16,16 @@ import { ToastrService } from 'ngx-toastr';
 export class HomeComponent implements OnInit {
   public user$: Observable<User> = this.authSvc.afAuth.user;
   public secciones: Array<string> = ['primera'];
-  constructor(public authSvc: AuthService, private router: Router, private toastr: ToastrService) { }
+  constructor(public authSvc: AuthService, private router: Router, private toastr: ToastrService, protected _sensorHumedadService: SensorhumedadService,
+     protected _sensorTemperaturaService: SensorTemperaturaService, protected _sensorLluviaService: SensorLluviaService) { }
 
   valvula:string = "Apagado"
   bateria:string = "Apagado"
   panel:string = "Desconectado"
+  idSensor:string = "1";
+  estadoLluvia:string = "Desconectado";
+  lluvia:string = "No";
+  tanqueAgua:string = "50%" 
 
   temperatura1:string = "0°c";
   temperatura2:string = "0°c";
@@ -36,9 +44,19 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
+   
   }
+  
 
   activarSistema(){
+    
+    this._sensorLluviaService.getRegistrosLluvia().subscribe(res => {
+      this.estadoLluvia = res[0].descripcionL;
+      if(this.estadoLluvia != "No se ha detectado lluvia"){
+        this.tanqueAgua="Llenando...";
+      }
+    });
+    this.lluvia= "Si";
     this.valvula = "Activado";
     this.bateria = "Activado";
     this.panel = "Conectado";
@@ -48,6 +66,9 @@ export class HomeComponent implements OnInit {
   }
 
   desactivarSistema(){
+    this.tanqueAgua="50%";
+    this.estadoLluvia="Desconectado";
+    this.lluvia="No";
     this.valvula = "Apagado";
     this.bateria = "Apagado";
     this.panel = "Desconectado";
@@ -57,9 +78,14 @@ export class HomeComponent implements OnInit {
   }
 
   activarLinea1(){
+    this._sensorHumedadService.getRegistro().subscribe(res => {
+      this.humedad1 = res[0].porcentajeH + "%";
+    });
+    this._sensorTemperaturaService.getRegistro().subscribe(res => {
+      this.temperatura1 = res[0].porcentajeT + "°c";
+    });
+    
     this.estado1 = "Activado";
-    this.temperatura1 = "20°c";
-    this.humedad1 = "35%";
     this.toastr.success('', 'Linea de riego 1 encendida',{
       positionClass: 'toast-bottom-right'
     });

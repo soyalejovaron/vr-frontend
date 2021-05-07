@@ -18,12 +18,6 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Estado:</label>
-                    <select formControlName="estadoSensor" class="form-control">
-                        <option  *ngFor="let item of estados" value="{{item.id_estado}}">{{item.nombre_estado}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
                     <label for="color">Color de la gráfica</label>
                     <!-- Input que permite seleccionar el color de la paleta -->
                     <input class="form-control" [(colorPicker)]="color" [style.background]="color" id="color" formControlName="colorSensor" readonly/>
@@ -46,8 +40,8 @@
                     <th scope="col">Tipo sensor</th>
                     <th scope="col">Nombre sensor</th>
                     <th scope="col">Planta sensor</th>
-                    <th scope="col">Estado sensor</th>
                     <th scope="col">Fecha Creación</th>
+                    <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -57,11 +51,11 @@
                     <td>{{sensor.tipoSensorH}}</td>
                     <td>{{sensor.nombreSensorH}}</td>
                     <td>{{sensor.id_planta}}</td>
-                    <td>{{sensor.id_estado}}</td>
                     <td>{{sensor.fechaCreacionH}}</td>
+                    <td><button style="border: none; background: transparent; cursor: pointer;" [routerLink]="['/datosHumedad']">Ver datos</button></td>
                     <td>
                         <img class="mr-3" src="../../../assets/imagenes/editarHumedad.png" alt="" [routerLink]="['/humedad', sensor.idSensorH]" width="30px">
-                        <img class="mr-3" src="../../../assets/imagenes/eliminarHumedad.png" alt="" (click)="borrarSensor(sensor.idSensorT)" width="30px">
+                        <img class="mr-3" src="../../../assets/imagenes/eliminarHumedad.png" alt="" (click)="borrarSensor(sensor.idSensorH)" width="30px">
                         <!-- <i class="fas fa-edit fa-2x text-info mr-3" [routerLink]="['/humedad', sensor.idSensorH]"></i> -->
                         <!-- <i class="fas fa-minus fa-2x text-danger" (click)="borrarSensor(sensor.idSensorH)"></i> -->
                     </td>

@@ -19,8 +19,11 @@ no será mostrada esta vista -->
                         <img src="../../../assets/imagenes/deposito-de-agua.png" width="50px">
                     </div>
                     <div>
-                        <span>
-                            97%
+                        <span *ngIf="tanqueAgua=='50%' || tanqueAgua=='60%'" class="text-danger">
+                            {{tanqueAgua}}
+                        </span>
+                        <span *ngIf="tanqueAgua=='Llenando...'" class="text-success">
+                            {{tanqueAgua}}
                         </span>
                     </div>
                 </div>
@@ -78,6 +81,24 @@ no será mostrada esta vista -->
                         </span>
                         <span *ngIf="panel=='Conectado'" class="text-success">
                             {{panel}}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-auto col-md-1 py-2">
+                    <div>
+                        <h1 class="fs-5">
+                            Estado de lluvia
+                        </h1>
+                    </div>
+                    <div>
+                        <img src="../../assets/imagenes/lluvia.jpg" width="50px">
+                    </div>
+                    <div>
+                        <span *ngIf="estadoLluvia=='Desconectado'" class="text-danger">
+                            {{estadoLluvia}}
+                        </span>
+                        <span *ngIf="lluvia=='Si'" class="text-success">
+                            {{estadoLluvia}}
                         </span>
                     </div>
                 </div>

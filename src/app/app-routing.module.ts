@@ -28,6 +28,8 @@ import { PermisosJardineroAdmin } from './auth/guards/permisos-jardinero';
 import { PermisosAdmin } from './auth/guards/permisos-admin';
 import { PlantasComponent } from './components/plantas/plantas.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { DatosHumedadComponent } from './components/datos-humedad/datos-humedad.component';
+import { DatosTemperaturaComponent } from './components/datos-temperatura/datos-temperatura.component';
 
 
 
@@ -150,6 +152,14 @@ const routes: Routes = [
   {
     path: 'verificar',
     component: SendEmailComponent
+  },
+  {
+    path: 'datosHumedad',
+    component: DatosHumedadComponent
+  },
+  {
+    path: 'datosTemperatura',
+    component: DatosTemperaturaComponent
   },
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'login', loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule) },

@@ -14,8 +14,16 @@ export class SensorTemperaturaService {
     return this.http.get(`${this.baseUrl}/sensoresT`);
   }
 
+  getRegistros() {
+    return this.http.get(`${this.baseUrl}/registrosTemperatura`);
+  } 
+
   getSensor(idSensor: string){
    return this.http.get(`${this.baseUrl}/sensoresT/${idSensor}`);
+  }
+
+  getRegistro() {
+    return this.http.get(`${this.baseUrl}/registroTemperatura`);
   }
 
   guardarSensor(sensor: any) {

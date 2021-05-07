@@ -43,6 +43,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlantasComponent } from './components/plantas/plantas.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { RealTimeComponent } from './components/real-time/real-time.component';
+import { DatosHumedadComponent } from './components/datos-humedad/datos-humedad.component';
+import { DatosTemperaturaComponent } from './components/datos-temperatura/datos-temperatura.component';
 
 
 @NgModule({
@@ -74,6 +76,8 @@ import { RealTimeComponent } from './components/real-time/real-time.component';
     PlantasComponent,
     PerfilComponent,
     RealTimeComponent,
+    DatosHumedadComponent,
+    DatosTemperaturaComponent,
     
   
   ],

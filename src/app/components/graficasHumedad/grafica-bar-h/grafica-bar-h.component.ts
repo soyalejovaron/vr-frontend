@@ -26,7 +26,7 @@ export class GraficaBarHComponent implements OnInit {
       }
     }
   };
-  public barChartLabels: Label[] = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
+  public barChartLabels: Label[] = ['Lunes'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [pluginDataLabels];
@@ -35,28 +35,53 @@ export class GraficaBarHComponent implements OnInit {
   public chartColors;
 
   private sensor;
+  private registro;
   private dato: string;
   private datos = [];
   private nombreSensor = [];
   private colores = [];
   private tipo = [];
 
+  private r: string;
+  private registros = [];
+  
+
   constructor(protected _sensorHumedadService: SensorhumedadService, private toastr: ToastrService ) {
     this.getSensor();
+    this.getRegistro();
   }
 
   ngOnInit() {
   }
 
+  getRegistro() {
+    this._sensorHumedadService.getRegistros().subscribe(res => {
+      this.registro = res;
+      for (const s of this.registro) {
+        this.registros.push(s.porcentajeH);
+      }
+    });
+  }
+
+
+
   getSensor() {
     this._sensorHumedadService.getSensores().subscribe(res => {
       this.sensor = res;
       for (const s of this.sensor) {
+        if (s.idSensorH == 1) {
+          this.datos.push(this.registros);
+          this.nombreSensor.push(s.nombreSensorH);
+          this.colores.push(s.colorSensorH);
+          this.tipo.push(s.tipoSensorH);
+        }else{
         this.dato = s.datosSensorH.split(',');
         this.datos.push(this.dato);
         this.nombreSensor.push(s.nombreSensorH);
         this.colores.push(s.colorSensorH);
         this.tipo.push(s.tipoSensorH);
+        }
+        
       }
 
       this.cargarDatos(this.datos, this.nombreSensor, this.colores);
@@ -100,6 +125,5 @@ export class GraficaBarHComponent implements OnInit {
     }
 
   }
-
 
 }

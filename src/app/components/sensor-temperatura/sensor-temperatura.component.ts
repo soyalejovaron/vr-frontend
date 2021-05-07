@@ -41,7 +41,6 @@ export class SensorTemperaturaComponent implements OnInit, OnDestroy {
       nombreSensor: ['', Validators.required],
       colorSensor: [''],
       plantaSensor: [''],
-      estadoSensor: [''],
     });
   }
 
@@ -97,14 +96,12 @@ export class SensorTemperaturaComponent implements OnInit, OnDestroy {
           this.nombreS = res[0].nombreSensorT;
           this.tipoS = res[0].tipoSensorT;
           this.planta = res[0].id_planta;
-          this.estado = res[0].id_estado;
           this.sensorForm.patchValue({
             idSensor: [this.idSensor],
             tipoSensor: [this.tipoS],
             nombreSensor: [this.nombreS],
             colorSensor: [this.color],
             plantaSensor: [this.planta],
-            estadoSensor: [this.estado],
           });
           this.textButton = "Actualizar";
         });

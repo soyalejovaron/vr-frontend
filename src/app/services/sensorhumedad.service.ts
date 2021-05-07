@@ -15,9 +15,17 @@ export class SensorhumedadService {
     return this.http.get(`${this.baseUrl}/sensores`);
   }
 
+  getRegistros() {
+    return this.http.get(`${this.baseUrl}/registrosHumedad`);
+  } 
+
   getSensor(idSensor: string){
    return this.http.get(`${this.baseUrl}/sensores/${idSensor}`);
   }
+
+  getRegistro() {
+    return this.http.get(`${this.baseUrl}/registroHumedad`);
+  } 
 
   guardarSensor(sensor: any) {
     return this.http.post(`${this.baseUrl}/addSensor`, sensor);

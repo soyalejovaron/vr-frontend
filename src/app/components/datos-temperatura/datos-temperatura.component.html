@@ -1,0 +1,29 @@
+<!-- Creación de la tabla  -->
+<div class="container mt-5">
+    <h1 class="text-center">Datos del sensor: 1</h1>
+    <div class="col-12">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="tablaRegistros" class="table table-striped table-bordered row-border hover" >
+            <thead class="thead-dark text-center">
+                <tr class="">
+                    <th scope="col">ID</th>
+                    <th scope="col">ID sensor temperatura</th>
+                    <th scope="col">Porcentaje temperatura</th>
+                    <th scope="col">Estado del sensor</th>
+                    <th scope="col">Descripcion temperatura</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                <tr *ngFor="let registro of registros">
+                    <th>{{registro.idT}}</th>
+                    <td>{{registro.idSensorT}}</td>
+                    <td>{{registro.porcentajeT}}</td>
+                    <td>{{registro.estadoT}}</td>
+                    <td>{{registro.descripcionT}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-success" (click)="exportarExcel()"><img class="mr-2 mb-1" src="../../../assets/imagenes/excel.png" alt="" width="20px">informe Excel</button>
+        <button type="button" class="btn btn-dark float-right" [routerLink]="['/temperatura']">Volver</button>
+    </div>
+
+</div>
