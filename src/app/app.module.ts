@@ -6,7 +6,6 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
-import { ListarUsuariosComponent } from './components/listar-usuarios/listar-usuarios.component';
 import { environment } from 'src/environments/environment.prod';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ToastrModule } from 'ngx-toastr';
@@ -45,12 +44,18 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { RealTimeComponent } from './components/real-time/real-time.component';
 import { DatosHumedadComponent } from './components/datos-humedad/datos-humedad.component';
 import { DatosTemperaturaComponent } from './components/datos-temperatura/datos-temperatura.component';
+import { CrudUsuarioComponent } from './components/crud-usuario/crud-usuario.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { HomeComponent } from './components/home/home.component';
+import { ValidacionInformacionComponent } from './components/validacion-informacion/validacion-informacion.component';
+import { ManualUsuarioComponent } from './components/manual-usuario/manual-usuario.component';
+import { ComprobarCredencialesComponent } from './components/comprobar-credenciales/comprobar-credenciales.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListarUsuariosComponent,
     SensorHumedadComponent,
     SensorTemperaturaComponent,
     GraficaBarTComponent,
@@ -78,6 +83,12 @@ import { DatosTemperaturaComponent } from './components/datos-temperatura/datos-
     RealTimeComponent,
     DatosHumedadComponent,
     DatosTemperaturaComponent,
+    CrudUsuarioComponent,
+    InicioComponent,
+    HomeComponent,
+    ValidacionInformacionComponent,
+    ManualUsuarioComponent,
+    ComprobarCredencialesComponent,
     
   
   ],

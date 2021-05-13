@@ -5,13 +5,12 @@ export interface User {
   documento?: number;
   email: string;
   displayName?: string;
+  nombreCompleto?: string;
   emailVerified: boolean;
   password?: string;
   photoURL?: string;
   role?: Roles;
-  phoneNumber?: string;
   estado?: string;
-  apellidos?: string;
   fechaActualización?: Date,
   fechaCreacion?: Date,
 }

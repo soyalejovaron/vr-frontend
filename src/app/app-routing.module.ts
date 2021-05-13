@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListarUsuariosComponent } from './components/listar-usuarios/listar-usuarios.component';
 import { CrearUsuariosComponent } from './components/crear-usuarios/crear-usuarios.component';
 /* Rutas de los sensores de humedad */
 
@@ -30,7 +29,11 @@ import { PlantasComponent } from './components/plantas/plantas.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { DatosHumedadComponent } from './components/datos-humedad/datos-humedad.component';
 import { DatosTemperaturaComponent } from './components/datos-temperatura/datos-temperatura.component';
-
+import { CrudUsuarioComponent } from './components/crud-usuario/crud-usuario.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { HomeComponent } from './components/home/home.component';
+import { ValidacionInformacionComponent } from './components/validacion-informacion/validacion-informacion.component';
+import { ManualUsuarioComponent } from './components/manual-usuario/manual-usuario.component';
 
 
 
@@ -113,11 +116,6 @@ const routes: Routes = [
     canActivate: [PermisosJardineroAdmin],
   },
   {
-    path: 'crud',
-    component: ListarUsuariosComponent,
-    canActivate: [PermisosAdmin],
-  },
-  {
     path: 'temperatura',
     component: SensorTemperaturaComponent,
     canActivate: [PermisosJardineroAdmin],
@@ -161,11 +159,30 @@ const routes: Routes = [
     path: 'datosTemperatura',
     component: DatosTemperaturaComponent
   },
-  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+  {
+    path: 'crud',
+    component: CrudUsuarioComponent
+  },
+  {
+    path: 'inicio',
+    component: InicioComponent
+  },
+  {
+    path: 'manual',
+    component: ManualUsuarioComponent
+  },
+  {
+    path: 'validarInformacion/:uid',
+    component: ValidacionInformacionComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
   { path: 'login', loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule) },
   { path: 'contraseñaOlvidada', loadChildren: () => import('./auth/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule) },
-  { path: '', pathMatch: 'full', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-  { path: '**', pathMatch: 'full', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+  { path: '**',   redirectTo: '/home', pathMatch: 'full' },
 
 ];
 

@@ -4,6 +4,7 @@ import * as pluginDataLabels from 'chartjs-plugin-annotation';
 import { Label } from 'ng2-charts';
 import { SensorTemperaturaService } from 'src/app/services/sensor-temperatura.service';
 import * as printJS from 'print-js';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-grafica-line-t',
@@ -32,30 +33,54 @@ export class GraficaLineTComponent implements OnInit {
   public chartColors;
 
   private sensor;
+  private registro;
   private dato: string;
   private datos = [];
   private nombreSensor = [];
   private colores = [];
   private tipo = [];
 
-  constructor(protected _sensorTemperaturaService: SensorTemperaturaService ) {
+  private r: string;
+  private registros = [];
+
+  constructor(protected _sensorTemperaturaService: SensorTemperaturaService, private toastr: ToastrService ) {
     this.getSensor();
+    this.getRegistro();
   }
 
   ngOnInit() {
   }
 
+  getRegistro() {
+    this._sensorTemperaturaService.getRegistros().subscribe(res => {
+      this.registro = res;
+      for (const s of this.registro) {
+        this.registros.push(s.porcentajeT);
+      }
+    });
+  }
+
+
+
   getSensor() {
     this._sensorTemperaturaService.getSensores().subscribe(res => {
       this.sensor = res;
       for (const s of this.sensor) {
+        if (s.idSensorT == 1) {
+          this.datos.push(this.registros);
+          this.nombreSensor.push(s.nombreSensorT);
+          this.colores.push(s.colorSensorT);
+          this.tipo.push(s.tipoSensorT);
+        }else{
         this.dato = s.datosSensorT.split(',');
         this.datos.push(this.dato);
         this.nombreSensor.push(s.nombreSensorT);
         this.colores.push(s.colorSensorT);
         this.tipo.push(s.tipoSensorT);
+        }
+        
       }
-     
+
       this.cargarDatos(this.datos, this.nombreSensor, this.colores);
     });
   }
@@ -97,6 +122,4 @@ export class GraficaLineTComponent implements OnInit {
     }
 
   }
-
-
 }

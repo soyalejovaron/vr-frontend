@@ -5,6 +5,7 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { User } from '../../shared/models/user.interface';
 import { Observable } from 'rxjs';
+import { UsuarioService } from 'src/app/services/usuario.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +18,7 @@ export class LoginComponent {
   usuarioLogin: FormGroup;
 
   
-  constructor(private authSvc: AuthService, private router: Router, private toastr: ToastrService, private fb: FormBuilder) {
+  constructor(private _usuarioService: UsuarioService ,private authSvc: AuthService, private router: Router, private toastr: ToastrService, private fb: FormBuilder) {
     this.usuarioLogin = this.fb.group({
       email: ['', Validators.required, Validators.email],
       password: ['', Validators.required],
@@ -29,7 +30,7 @@ export class LoginComponent {
       const user = await this.authSvc.loginGoogle();
       if (user) {
         this.checkUserIsVerified(user);
-        this.toastr.success('Bienvenido a ViveRegistro!', 'Te has logueado con Gmail',{
+        this.toastr.success(user.displayName,'!Bienvenido a ViveRegistro!',{
           positionClass: 'toast-bottom-right'
         });
       } 
@@ -57,14 +58,22 @@ export class LoginComponent {
       console.log(error);
     }
     
-   
   }
 
   private checkUserIsVerified(user: User) {
-    if (user && user.emailVerified) {
-      this.router.navigate(['/home']);
-    } else{
-      this.router.navigate(['/verificar']);
-    }
+    let uid=user.uid;
+    this._usuarioService.getUsuario(uid).subscribe(data => {
+      let verificacionU= data.payload.data()['verificacion'];
+      if(user && user.emailVerified && verificacionU=='verificado'){
+        this.router.navigate(['/home']);
+      }else if(user && user.emailVerified && verificacionU!=='verificado'){
+        this.router.navigate(['/inicio']);
+      }else{
+        this.router.navigate(['/verificar']);
+      }
+    })
+    
   }
+
+
 }

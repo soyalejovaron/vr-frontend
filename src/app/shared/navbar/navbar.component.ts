@@ -24,7 +24,7 @@ export class NavbarComponent {
   async onLogout() {
     try {
       await this.authSvc.logout();
-      this.router.navigate(['/login']);
+      this.router.navigate(['/home']);
       this.toastr.info('Gracias por visitarnos!', 'Tu sesión ha finalizado',{
         positionClass: 'toast-bottom-right'
       });

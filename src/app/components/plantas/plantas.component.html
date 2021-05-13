@@ -11,8 +11,16 @@
                     <label for="descripcionPlanta">Descripcion:</label>
                     <input type="text" class="form-control" id="descripcionPlanta" formControlName="descripcion_planta" required>
                 </div>
-                <div class="form-group">
-                    <button class="btn btn-success mt-1 mb-2 mx-auto rounded-3 px-5 col-12" [disabled]="!plantaForm.valid">{{textButton}}</button>
+                <div class="form-group  mt-4">
+                    <button class="btn col-12" [disabled]="!plantaForm.valid">
+                        <a class="mt-0 mb-0 col-12">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            {{textButton}}
+                        </a>
+                    </button>
                 </div>
             </form>
         </div>

@@ -28,11 +28,12 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
             <li class="nav-item mx-0 mx-lg-2">
                <!-- El routerLinkActive sirve para añadir una clase (estilo) para identiicar en cuál enlace está el usuario para
                diferenciarlo de los demás enlaces -->
-               <a class="nav-link" href="#home" [routerLinkActive]="['active']">
+               <a class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['active']">
                   <span>
                      <!-- En el nav se usa iconología de acuerdo al texto, en este caso la etiqueta <i></i> sirve como contenedor del icono referente
                      al inicio -->
-                     <i class="fas fa-home text-white me-1"></i>
+                     <!-- <i class="fas fa-home text-white me-1"></i> -->
+                     <img src="../../../assets/imagenes/home.png" class="mb-1 mr-1" alt="" width="20px">
                      Inicio
                   </span>
                </a>
@@ -41,7 +42,8 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
                <!-- El routerLink es una función que siendo precionado el enlace te localiza en la ruta a la que estés dando click -->
                <a class="nav-link" [routerLink]="['/crud']" [routerLinkActive]="['active']">
                   <span>
-                     <i class="fas fa-user-cog text-white me-1"></i>
+                     <!-- <i class="fas fa-user-cog text-white me-1"></i> -->
+                     <img src="../../../assets/imagenes/gestionar.png" class="mb-1 mr-1" alt="" width="20px">
                      Gestionar Usuarios
                   </span>
                </a>
@@ -51,7 +53,8 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                   data-bs-toggle="dropdown" aria-expanded="true">
                   <span>
-                     <i class="fas fa-temperature-high text-white me-1"></i>
+                     <!-- <i class="fas fa-temperature-high text-white me-1"></i> -->
+                     <img src="../../../assets/imagenes/sensor.png" class="mb-1 mr-1" alt="" width="20px">
                      Tipo de Sensor
                   </span>
                </a>
@@ -60,7 +63,8 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
                   <li>
                      <a class="dropdown-item" [routerLink]="['/humedad']" [routerLinkActive]="['active']">
                         <span>
-                           <i class="fas fa-tint text-dark me-1"></i>
+                           <!-- <i class="fas fa-tint text-dark me-1"></i> -->
+                           <img src="../../../assets/imagenes/humedad.png" class="mb-1 mr-1" alt="" width="20px">
                            Humedad
                         </span>
                      </a>
@@ -68,7 +72,8 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
                   <li>
                      <a class="dropdown-item" [routerLink]="['/temperatura']" [routerLinkActive]="['active']">
                         <span>
-                           <i class="fas fa-thermometer-full text-dark me-1"></i>
+                           <!-- <i class="fas fa-thermometer-full text-dark me-1"></i> -->
+                           <img src="../../../assets/imagenes/temperatura.png" class="mb-1 mr-1" alt="" width="20px">
                            Temperatura
                         </span>
                      </a>
@@ -78,7 +83,8 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
             <li class="nav-item mx-0 mx-lg-2">
                <a class="nav-link" [routerLink]="['/plantas']" [routerLinkActive]="['active']">
                   <span>
-                     <i class="fas fa-seedling text-white me-1"></i>
+                     <!-- <i class="fas fa-seedling text-white me-1"></i> -->
+                     <img src="../../../assets/imagenes/plantas.png" class="mb-1 mr-1" alt="" width="20px">
                      Plantas
                   </span>
                </a>
@@ -86,13 +92,15 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
             <li class="nav-item mx-0 mx-lg-2">
                <a class="nav-link">
                   <span>
-                     <i class="fas fa-user-tag text-white me-1"></i>
+                     <!-- <i class="fas fa-user-tag text-white me-1"></i> -->
+                     <img src="../../../assets/imagenes/role.png" class="mb-1 mr-1" alt="" width="20px">
                      <!-- Esta sentencia trae el dato rol del usuario logueado y este se muestra en pantalla con su
                      respectivo icono -->
                      Rol: {{user.role}}
                   </span>
                </a>
             </li>
+        
          </ul>
          <!-- ===================================================== -->
          <ul class="navbar-nav ms-auto" *ngIf="user$ | async as user">
@@ -100,7 +108,8 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                   data-bs-toggle="dropdown" aria-expanded="true">
                   <span>
-                     <i class="fas fa-user text-white me-1"></i>
+                     <!-- <i class="fas fa-user text-white me-1"></i> -->
+                     <img src="../../../assets/imagenes/configuracion.png" class="mb-1 mr-1" alt="" width="24px">
                      <!-- Esta sentencia trae el dato email del usuario logueado y este se muestra en pantalla con su
                      respectivo icono -->
                      {{user.email}}
@@ -110,8 +119,18 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
                   <li>
                      <a class="dropdown-item" [routerLink]="['/perfil/', user.uid]" [routerLinkActive]="['active']">
                         <span>
-                           <i class="fas fa-user-edit text-dark me-1"></i>
+                           <!-- <i class="fas fa-user-edit text-dark me-1"></i> -->
+                           <img src="../../../assets/imagenes/perfil.png" class="mb-1 mr-1" alt="" width="20px">
                            Perfil
+                        </span>
+                     </a>
+                  </li>
+                  <li>
+                     <a class="dropdown-item" [routerLink]="['/manual']" [routerLinkActive]="['active']">
+                        <span>
+                           <!-- <i class="fas fa-user-edit text-dark me-1"></i> -->
+                           <img src="../../../assets/imagenes/manual.png" class="mb-1 mr-1" alt="" width="20px">
+                           Manual Usuario
                         </span>
                      </a>
                   </li>
@@ -122,7 +141,8 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
                      <!-- Por último la función cerrar sesión, que es para indicar que siendo accionada, quedas fuera del sistema interno -->
                      <a class="dropdown-item" (click)="onLogout()">
                         <span>
-                           <i class="fas fa-sign-out-alt text-dark me-1"></i>
+                           <!-- <i class="fas fa-sign-out-alt text-dark me-1"></i> -->
+                           <img src="../../../assets/imagenes/cerrar.png" class="mb-1 mr-1" alt="" width="20px">
                            Cerrar sesión
                         </span>
                      </a>

@@ -1,0 +1,20 @@
+
+<div class="card mt-5" *ngIf="user$ | async as user">
+    <div class="card-body">
+      <h3 class="card-title text-center">Hola usuario: <strong>{{ user.email }}</strong>   </h3>
+      <div class="form-group mt-2">
+        <p class="text-center">
+          En breve, podras navegar y gestionar todo el sistema
+        </p>
+        <p class="text-center">
+            Antes de empezar, te sugerimos que veas primero el <strong> Manual de usuario.</strong>
+        </p>
+      </div>
+    </div>
+</div>
+
+<div class="container text-center mt-5" *ngIf="user$ | async as user">
+    <a [routerLink]="['/validarInformacion/', user.uid]" class="btn-flip m-5" data-back="Empezar" data-front="Ir al sistema"></a>
+    <a  class="btn-flip m-5" data-back="Empezar" data-front="Ir al manual de usuario"></a>
+</div>
+

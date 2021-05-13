@@ -15,7 +15,7 @@
                 </div>
             </h3>
 
-            <form class="mt-4" [formGroup]="createUsuario" (ngSubmit)="editarEmpleado()">
+            <form class="mt-4" [formGroup]="editarPerfil" (ngSubmit)="editarUsuario()">
                 <div class="row">
                     <div class="col">
                         <label class="float-left h6" for="doc">Documento:</label>
@@ -24,10 +24,10 @@
                     </div>
                 </div>
                 <label class="float-left h6 mt-4" for="nombre">Nombre:</label>
-                <input type="text" id="nombre" class="form-control form-control-lg mt-4" formControlName="displayName"
+                <input type="text" id="displayName" class="form-control form-control-lg mt-4" formControlName="displayName"
                     placeholder="Nombre Completo">
                 <div class="mt-4">
-                    <button type="text" class="btn btn-secondary mx-2 px-3" routerLink="/inicio">
+                    <button type="text" class="btn btn-secondary mx-2 px-3" routerLink="/home">
                         Volver
                     </button>
                     <button type="submit" class="btn btn-dark mx-2 px-3">

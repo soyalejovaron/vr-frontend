@@ -113,15 +113,16 @@ export class AuthService extends RoleValidator {
       `users/${user.uid}`
     );
 
+
+
     const data: User = {
       uid: user.uid,
       email: user.email,
       emailVerified: user.emailVerified,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
       role: 'Administrador',
       estado: 'Activo',
     };
+    
 
     return userRef.set(data, { merge: true });
   }

@@ -9,54 +9,38 @@ import { Router } from '@angular/router';
 import * as XLSX from 'xlsx';
 
 @Component({
-  selector: 'app-listar-usuarios',
-  templateUrl: './listar-usuarios.component.html',
-  styleUrls: ['./listar-usuarios.component.scss']
+  selector: 'app-crud-usuario',
+  templateUrl: './crud-usuario.component.html',
+  styleUrls: ['./crud-usuario.component.scss']
 })
-export class ListarUsuariosComponent implements OnInit, OnDestroy {
-  
-  usuarios: any[] = [];
+export class CrudUsuarioComponent implements OnInit, OnDestroy {
 
   dtOptions: DataTables.Settings = {};
   dtTrigger = new Subject();
+  usuarios: any[]= [];
   fileName= 'InformeUsuarios_ViveRegistro.xlsx';
-
+  
   constructor(private _usuarioService: UsuarioService, private toastr: ToastrService, private router: Router) { 
     
   }
 
   ngOnInit(): void {
     this.getUsuarios();
+
     this.dtOptions = {
       pagingType: 'full_numbers',
       retrieve: true,
-      pageLength: 4,
+      pageLength: 3,
       language: {
         url: '//cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json'
       }
     };
-
   }
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
   }
 
-  exportarExcel(): void
-  {
-    
-    let element = document.getElementById('tablaUsuarios');
-    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
- 
-    
-    const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
- 
-    XLSX.writeFile(wb, this.fileName);
- 
-  }
-  
-  
   getUsuarios() {
     this._usuarioService.getUsuarios().subscribe(data => {
       this.usuarios = [];
@@ -65,14 +49,26 @@ export class ListarUsuariosComponent implements OnInit, OnDestroy {
           uid: element.payload.doc.uid,
           ...element.payload.doc.data()
         },
-        )
-      });
+        )});
       this.dtTrigger.next();
       
-      
+
     });
   }
-  
+
+  exportarExcel(): void
+    {
+      
+      let element = document.getElementById('tablaUsuarios');
+      const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+   
+      
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+   
+      XLSX.writeFile(wb, this.fileName);
+   
+    }
   
   print(){
     printJS({printable: this.usuarios, properties: ['documento', 'displayName', 'email', 'role', 'estado'],
@@ -91,5 +87,7 @@ export class ListarUsuariosComponent implements OnInit, OnDestroy {
       console.log(error);
     })
   }
+
+
 
 }

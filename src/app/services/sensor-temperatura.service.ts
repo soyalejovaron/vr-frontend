@@ -24,7 +24,7 @@ export class SensorTemperaturaService {
 
   getRegistro() {
     return this.http.get(`${this.baseUrl}/registroTemperatura`);
-  }
+  } 
 
   guardarSensor(sensor: any) {
     return this.http.post(`${this.baseUrl}/addSensorT`, sensor);

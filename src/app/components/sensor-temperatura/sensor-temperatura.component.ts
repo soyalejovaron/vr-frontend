@@ -33,14 +33,14 @@ export class SensorTemperaturaComponent implements OnInit, OnDestroy {
   dtTrigger = new Subject();
 
   constructor(protected _sensorTemperaturaService: SensorTemperaturaService , public fb: FormBuilder, private route: ActivatedRoute, private router: Router, private _plantasService: PlantasService, private _estadosService: EstadoService) {
-    this.textButton = "Añadir";
+    this.textButton = "Crear";
     this.obtenerParametroUrl();
     this.sensorForm = this.fb.group({
       idSensor: [''],
       tipoSensor: ['Temperatura', Validators.required],
       nombreSensor: ['', Validators.required],
       colorSensor: [''],
-      plantaSensor: [''],
+      plantaSensor: ['', Validators.required],
     });
   }
 
@@ -139,5 +139,4 @@ export class SensorTemperaturaComponent implements OnInit, OnDestroy {
       window.location.reload();
     })
   }
-
 }

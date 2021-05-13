@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {  ActivatedRoute , Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../auth/services/auth.service';
-import { User } from '../shared/models/user.interface';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { User } from 'src/app/shared/models/user.interface';
+import { SensorTemperaturaService } from 'src/app/services/sensor-temperatura.service';
+import { SensorLluviaService } from 'src/app/services/sensor-lluvia.service';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { SensorhumedadService } from '../services/sensorhumedad.service';
-import { SensorTemperaturaService } from '../services/sensor-temperatura.service';
-import { SensorLluviaService } from '../services/sensor-lluvia.service';
+import { SensorhumedadService } from 'src/app/services/sensorhumedad.service';
 
 @Component({
   selector: 'app-home',
@@ -14,16 +16,26 @@ import { SensorLluviaService } from '../services/sensor-lluvia.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
   public user$: Observable<User> = this.authSvc.afAuth.user;
-  public secciones: Array<string> = ['primera'];
-  constructor(public authSvc: AuthService, private router: Router, private toastr: ToastrService, protected _sensorHumedadService: SensorhumedadService,
-     protected _sensorTemperaturaService: SensorTemperaturaService, protected _sensorLluviaService: SensorLluviaService) { }
+  
+  editarPerfil: FormGroup;
+  submitted = false;
+  loading = false;
+  uid: string | null;
+  titulo:String;
+  perfil=false;
+  botonEmpezar=true;
+  doc=false;
+  nombre=false;
+
+  
 
   valvula:string = "Apagado"
   bateria:string = "Apagado"
-  panel:string = "Desconectado"
+  panel:string = "Apagado"
   idSensor:string = "1";
-  estadoLluvia:string = "Desconectado";
+  estadoLluvia:string = "Apagado";
   lluvia:string = "No";
   tanqueAgua:string = "50%" 
 
@@ -41,13 +53,73 @@ export class HomeComponent implements OnInit {
   estado2:string = "Apagado";
   estado3:string = "Apagado";
   estado4:string = "Apagado";
+  
+  constructor(private _usuarioService: UsuarioService, private fb: FormBuilder,private aRoute: ActivatedRoute, private route: ActivatedRoute, private router: Router, public authSvc: AuthService, private toastr: ToastrService, protected _sensorHumedadService: SensorhumedadService,
+     protected _sensorTemperaturaService: SensorTemperaturaService, protected _sensorLluviaService: SensorLluviaService) {
+      this.editarPerfil = this.fb.group({
+        documento: ['', Validators.required],
+        displayName: ['', Validators.required],
+      })
+      this.uid = this.aRoute.snapshot.paramMap.get('uid');
+      }
 
 
   ngOnInit(): void {
-   
+    this.esEditar();
   }
-  
 
+  editarUsuario() {
+
+    const usuario: any = {
+      documento: this.editarPerfil.value.documento,
+      nombreCompleto: this.editarPerfil.value.displayName,     
+      fechaActualizacion: new Date()
+    }
+
+    this.loading = true;
+
+    this._usuarioService.actualizarUsuario(this.uid, usuario).then(() => {
+      this.loading = false;
+      this.toastr.info('Haz editado tu perfil con exito!', 'Usuario modificado', {
+        positionClass: 'toast-bottom-right'
+      })
+      this.router.navigate(['/home']);
+    })
+  }
+
+
+  esEditar() {
+    this.titulo = 'Perfil de usuario'
+    if (this.uid !== null) {
+      this.loading = true;
+      this._usuarioService.getUsuario(this.uid).subscribe(data => {
+        this.loading = false;
+        let documentoU = data.payload.data()['documento'];
+        let displayNameU  = data.payload.data()['displayName'];
+        let nombreCompletoU  = data.payload.data()['nombreCompleto'];
+        
+      if(documentoU == null && displayNameU==null){
+        this.perfil=true;
+        this.botonEmpezar=false;
+        this.doc=true;
+        this.nombre=true;
+      }else if(documentoU == null || documentoU==""){
+        this.perfil=true;
+        this.botonEmpezar=false;
+        this.doc=true;
+      }else{
+        this.botonEmpezar=false;
+      }
+
+      })
+    }
+  }
+
+
+ 
+
+  
+  
   activarSistema(){
     
     this._sensorLluviaService.getRegistrosLluvia().subscribe(res => {
@@ -67,11 +139,11 @@ export class HomeComponent implements OnInit {
 
   desactivarSistema(){
     this.tanqueAgua="50%";
-    this.estadoLluvia="Desconectado";
+    this.estadoLluvia="Apagado";
     this.lluvia="No";
     this.valvula = "Apagado";
     this.bateria = "Apagado";
-    this.panel = "Desconectado";
+    this.panel = "Apagado";
     this.toastr.error('El sistema ha sido desactivado', 'Sistema del vivero apagado',{
       positionClass: 'toast-bottom-right'
     });
@@ -235,5 +307,6 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/graficaRadarT']);
     }
   }
+
 
 }

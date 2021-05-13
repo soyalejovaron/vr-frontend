@@ -31,7 +31,7 @@ export class PermisosAdmin implements CanActivate {
           this.toastr.success('', 'Acceso concedido',{
             positionClass: 'toast-bottom-left'
           });
-        }
+        } 
       })
     );
   }

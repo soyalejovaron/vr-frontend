@@ -51,25 +51,7 @@ export class CrearUsuariosComponent implements OnInit {
   }
 
   agregarEmpleado() {
-    const empleado: any = {
-      documento: this.createUsuario.value.documento,
-      displayName: this.createUsuario.value.displayName,
-      role: this.createUsuario.value.role,
-      estado: this.createUsuario.value.estado,
-      fechaCreacion: new Date(),
-      fechaActualizacion: new Date()
-    }
-    this.loading = true;
-    this._usuarioService.agregarUsuario(empleado).then(() => {
-      this.toastr.success('El empleado fue registrado con exito!', 'Empleado Registrado', {
-        positionClass: 'toast-bottom-right'
-      });
-      this.loading = false;
-      this.router.navigate(['/crud']);
-    }).catch(error => {
-      console.log(error);
-      this.loading = false;
-    })
+    
   }
 
   editarEmpleado(uid: string) {

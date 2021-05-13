@@ -23,7 +23,16 @@
                     <input class="form-control" [(colorPicker)]="color" [style.background]="color" id="color" formControlName="colorSensor" readonly/>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary mt-1 mb-2 mx-auto rounded-3 px-5 col-12" [disabled]="!sensorForm.valid">{{textButton}}</button>
+                    <button style="outline: none;  " class="btn col-12" [disabled]="!sensorForm.valid">
+                        <a class="mt-0 mb-0 col-12">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            {{textButton}}
+                        </a>
+                    </button>
+                    
                 </div>
             </form>
         </div>
@@ -63,12 +72,6 @@
             </tbody>
         </table>
         <button type="button" class="btn btn-success" (click)="exportarExcel()"><img class="mr-2 mb-1" src="../../../assets/imagenes/excel.png" alt="" width="20px">informe Excel</button>
-        <a [routerLink]="['/graficaRadarH']" class="float-right ">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Estadisticas
-        </a>
+        
     </div>
 </div>

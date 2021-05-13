@@ -24,7 +24,7 @@ export class PlantasComponent implements OnInit, OnDestroy {
   dtTrigger = new Subject();
 
   constructor(protected _plantasService: PlantasService , public fb: FormBuilder, private route: ActivatedRoute, private router: Router) {
-    this.textButton = "Agregar";
+    this.textButton = "Crear";
     this.obtenerParametroUrl();
     this.plantaForm = this.fb.group({
       id_planta: [''],

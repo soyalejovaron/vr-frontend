@@ -11,21 +11,20 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class PerfilComponent implements OnInit {
 
-  createUsuario: FormGroup;
+  editarPerfil: FormGroup;
   submitted = false;
   loading = false;
   uid: string | null;
-  titulo = 'Agregar Usuario';
+  titulo:String;
 
   constructor(private fb: FormBuilder,
     private _usuarioService: UsuarioService,
     private router: Router,
     private toastr: ToastrService,
     private aRoute: ActivatedRoute) {
-    this.createUsuario = this.fb.group({
+    this.editarPerfil = this.fb.group({
       documento: ['', Validators.required],
       displayName: ['', Validators.required],
-
     })
     this.uid = this.aRoute.snapshot.paramMap.get('uid');
   }
@@ -34,24 +33,26 @@ export class PerfilComponent implements OnInit {
     this.esEditar();
   }
 
-  editarEmpleado() {
+  editarUsuario() {
 
-    const empleado: any = {
-      documento: this.createUsuario.value.documento,
-      displayName: this.createUsuario.value.displayName,     
+    const usuario: any = {
+      documento: this.editarPerfil.value.documento,
+      displayName: this.editarPerfil.value.displayName,
+      nombreCompleto: this.editarPerfil.value.displayName,     
       fechaActualizacion: new Date()
     }
 
+
     this.loading = true;
 
-    this._usuarioService.actualizarUsuario(this.uid, empleado).then(() => {
+    this._usuarioService.actualizarUsuario(this.uid, usuario).then(() => {
       this.loading = false;
       this.toastr.info('Haz editado tu perfil con exito!', 'Usuario modificado', {
         positionClass: 'toast-bottom-right'
       })
-      this.router.navigate(['/inicio']);
+      this.router.navigate(['/home']);
     })
-  }
+    }
 
 
   esEditar() {
@@ -60,10 +61,18 @@ export class PerfilComponent implements OnInit {
       this.loading = true;
       this._usuarioService.getUsuario(this.uid).subscribe(data => {
         this.loading = false;
-        this.createUsuario.setValue({
-          documento: data.payload.data()['documento'],
-          displayName: data.payload.data()['displayName'],
-        })
+        let documentoU = data.payload.data()['documento'];
+        let displayNameU  = data.payload.data()['displayName'];
+        let nombreCompletoU  = data.payload.data()['nombreCompleto'];
+
+        if(displayNameU == null){
+          displayNameU = nombreCompletoU;
+        }
+        this.editarPerfil.setValue({
+          documento: documentoU,
+          displayName: displayNameU,
+        });
+        
       })
     }
   }

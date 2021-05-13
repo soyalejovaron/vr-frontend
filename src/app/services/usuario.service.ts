@@ -16,7 +16,7 @@ export class UsuarioService {
   }
 
   getUsuarios(): Observable<any>{
-    return this.firestore.collection('users', ref => ref.orderBy('fechaCreacion', 'asc')).snapshotChanges();
+    return this.firestore.collection('users').snapshotChanges();
   }
 
   eliminarUsuario(uid: string): Promise<any>{
@@ -32,6 +32,10 @@ export class UsuarioService {
   }
 
   actualizarUsuario(uid: string, data:any): Promise<any> {
+    return this.firestore.collection('users').doc(uid).update(data);
+  }
+
+  actualizarUsuarioPorCorreo(uid: string, data:any): Promise<any> {
     return this.firestore.collection('users').doc(uid).update(data);
   }
 
