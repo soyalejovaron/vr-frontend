@@ -118,12 +118,12 @@ const routes: Routes = [
   {
     path: 'temperatura',
     component: SensorTemperaturaComponent,
-    canActivate: [PermisosJardineroAdmin],
+    canActivate: [PermisosAdmin],
   },
   {
     path: 'humedad',
     component: SensorHumedadComponent,
-    canActivate: [PermisosJardineroAdmin],
+    canActivate: [PermisosAdmin],
   },
   {
     path: 'plantas',
@@ -133,10 +133,12 @@ const routes: Routes = [
   {
     path: 'humedad/:idSensor',
     component: SensorHumedadComponent,
+    canActivate: [PermisosAdmin],
   },
   {
     path: 'temperatura/:idSensor',
-    component: SensorTemperaturaComponent
+    component: SensorTemperaturaComponent,
+    canActivate: [PermisosAdmin],
   },
   {
     path: 'plantas/:id_planta',
@@ -144,7 +146,7 @@ const routes: Routes = [
     canActivate: [PermisosJardineroAdmin],
   },
   {
-    path: 'register',
+    path: 'register', 
     component: RegisterComponent
   },
   {
@@ -153,27 +155,33 @@ const routes: Routes = [
   },
   {
     path: 'datosHumedad',
-    component: DatosHumedadComponent
+    component: DatosHumedadComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'datosTemperatura',
-    component: DatosTemperaturaComponent
+    component: DatosTemperaturaComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'crud',
-    component: CrudUsuarioComponent
+    component: CrudUsuarioComponent,
+    canActivate: [PermisosAdmin],
   },
   {
     path: 'inicio',
-    component: InicioComponent
+    component: InicioComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'manual',
-    component: ManualUsuarioComponent
+    component: ManualUsuarioComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'validarInformacion/:uid',
-    component: ValidacionInformacionComponent
+    component: ValidacionInformacionComponent,
+    canActivate: [PermisosJardineroAdmin],
   },
   {
     path: 'home',
