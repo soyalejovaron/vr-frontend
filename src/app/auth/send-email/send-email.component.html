@@ -1,25 +1,52 @@
-<div class="card mt-5" *ngIf="user$ | async as user; else loading">
-  <div class="card-body">
-    <h3 class="card-title text-center">Estas ha un solo paso | confirma tu correo para registrarte</h3>
-    <div class="form-group mt-2">
-      <p class="text-center">
-        Te hemos enviado el link de restablecimiento al correo: <strong>{{ user?.email }}</strong> donde podras terminar tu registro
-      </p>
-      <p class="text-center">
-        Por favor, revisa tu correo y haz click en el enlace enviado.
-      </p>
-    </div>
-    <div class="form-group text-center mt-5">
-      <button class="btn btn-primary mr-4" (click)="onSendEmail()">
-        Enviar de nuevo
-      </button>
-      <button class="btn btn-secondary " [routerLink]="['/login']">
-        Presiona cuando hayas hecho la verificación
-      </button>
-    </div>
-  </div>
+<style>
+	/* Estilo para el contenedor con un borde redondenado */
+	.rounded-5 {
+		border-radius: 2rem;
+	}
+</style>
+<!-- Contenedor que adjunta toda la información sobre la bienvenida del usuario al sistema por haberse unido -->
+<div class="container mt-5">
+	<div class="row justify-content-center">
+		<div class="col-12 col-md-10">
+			<div class="shadow-lg rounded-5 p-3 text-center">
+				<div class="" *ngIf="user$ | async as user; else loading">
+					<!-- Título que indica el estado del usuario, donde le falta un paso para continuar -->
+					<h1 class="fs-1 fw-bold">
+						Estás a un solo paso
+					</h1>
+					<!-- Mensaje informativo -->
+					<h1 class="fs-3">
+						Confirma tu correo para continuar con tu registro
+					</h1>
+					<div class="card-body">
+						<div class="mt-1">
+							<!-- Texto informativo -->
+							<p class="w-75 mx-auto">
+								Te hemos enviado un enlace de restablecimiento al correo: <strong>{{ user?.email }}</strong>
+								donde
+								podrás terminar tu registro.
+							</p>
+							<!-- Indicador de acción. El usuario deberá revisar el correo con el que se registró para continuar. -->
+							<p class="">
+								Por favor, revisa tu correo y haz click en el enlace enviado.
+							</p>
+						</div>
+						<div class="form-group mt-2">
+							<!-- Botón de reenviar el enlace -->
+							<button class="btn btn-primary mx-1" (click)="onSendEmail()">
+								Enviar de nuevo
+							</button>
+							<!-- Botón que verifica que sí ha llegado un enlace al correo -->
+							<button class="btn btn-secondary mx-1" [routerLink]="['/login']">
+								Presiona cuando hayas hecho la verificación
+							</button>
+						</div>
+					</div>
+				</div>
+				<ng-template #loading>
+					Cargando...
+				</ng-template>
+			</div>
+		</div>
+	</div>
 </div>
-
-<ng-template #loading>
-  Cargando...
-</ng-template>

@@ -87,11 +87,11 @@ no será mostrada esta vista -->
                 <div class="col-6 col-sm-auto py-2">
                     <div>
                         <h1 class="fs-5">
-                            Estado de lluvia
+                            Lluvia
                         </h1>
                     </div>
                     <div>
-                        <img src="../../assets/imagenes/lluvia.jpg" width="50px">
+                        <img src="../../assets/imagenes/raining.png" width="50px">
                     </div>
                     <div>
                         <span *ngIf="estadoLluvia=='Apagado'" class="text-danger">
@@ -111,7 +111,8 @@ no será mostrada esta vista -->
             lo que el Vivero puede hacer -->
             <div>
                 <!-- El primer botón es para detener automáticamente el riego a las plantas, por si ocurre un problema o simplemente por decisión -->
-                <button (click)="desactivarSistema()" class="btn btn-danger btn-sm px-4 rounded-pill mx-1" type="button">
+                <button (click)="desactivarSistema()" class="btn btn-danger btn-sm px-4 rounded-pill mx-1"
+                    type="button">
                     Stop
                 </button>
                 <!-- El segundo botón es para cortar la corriente que está bien sea por corriente local o solar a través de un panel -->
@@ -137,7 +138,7 @@ no será mostrada esta vista -->
         <div class="col-12 mt-2 mb-5">
             <div class="row">
                 <div class="col-12 text-center">
-                    <!-- Esta final contiene las cuatro columnas que tienen la información que puede ser mostrada en un sistema automatizado
+                    <!-- Esta fila contiene las cuatro columnas que tienen la información que puede ser mostrada en un sistema automatizado
                     Por ejemplo, la primera columna tiene el nombre de la línea que es Línea 1, su estado, apagado o encendido, temperatura,
                     humedad y dos botones, el primero que es activar es para encender o poner en marcha esa línea de riego y el botón de las
                     estadísticas es para mostrar sus datos en una gráfica, todo esto es igual para las demás líneas de riego -->
@@ -147,19 +148,26 @@ no será mostrada esta vista -->
                             <div class="p-3 shadow-lg rounded-5" style="height: auto;">
                                 <div>
                                     <h1 class="fs-5">
+                                        <!-- Indicador de la línea -->
                                         Línea 1
                                     </h1>
                                 </div>
                                 <div>
                                     <div>
                                         <span>
+                                            <!-- Referencia de actividad -->
                                             Estado
                                         </span>
                                     </div>
                                     <div>
+                                        <!-- Por diseño se implementan iconos para indicar de modo gráfico la información, en
+                                        este caso es de un icono de "turn off" -->
                                         <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
                                     </div>
                                     <div>
+                                        <!-- En este espacio se indica el estado de cada línea utilizando el ngIf para
+                                        validar el estado, si es apagado que muestre un texto, si es activado que
+                                        muestre un texto -->
                                         <span *ngIf="estado1=='Apagado'" class="text-danger">
                                             {{estado1}}
                                         </span>
@@ -174,14 +182,17 @@ no será mostrada esta vista -->
                                 <div>
                                     <div>
                                         <span>
+                                            <!-- Sección de dato temperatura. Se muestra con un dato la temperatura de la línea a la que pertenece -->
                                             Temperatura
                                         </span>
                                     </div>
                                     <div>
+                                        <!-- Icono de temperatura -->
                                         <img src="../../../assets/imagenes/caliente.png" width="40px">
                                     </div>
                                     <div>
                                         <span>
+                                            <!-- Dato de la temperatura -->
                                             {{temperatura1}}
                                         </span>
                                     </div>
@@ -192,6 +203,7 @@ no será mostrada esta vista -->
                                 <div>
                                     <div>
                                         <span>
+                                            <!-- Sección de dato humedad. Se muestra con un dato la temperatura de la línea a la que pertenece -->
                                             Humedad
                                         </span>
                                     </div>
@@ -200,6 +212,7 @@ no será mostrada esta vista -->
                                     </div>
                                     <div>
                                         <span>
+                                            <!-- Dato de la humedad -->
                                             {{humedad1}}
                                         </span>
                                     </div>
@@ -207,26 +220,36 @@ no será mostrada esta vista -->
                                 <div>
                                     <hr class="text-secondary">
                                 </div>
+                                <!-- Acciones. En esta sección se muestran diferentes secciones las cuales pertenecen a cada una de las líneas, esto para tener más control. -->
                                 <div>
-                                    <button *ngIf= "estado1=='Apagado'" (click)="activarLinea1()" class="btn btn-primary btn-sm w-100 rounded-pill mb-2">
+                                    <!-- Botón activar. Este botón activa la línea, su función es poner en marcha la línea mostrando sus datos correspondientes. -->
+                                    <button *ngIf="estado1=='Apagado'" (click)="activarLinea1()"
+                                        class="btn btn-primary btn-sm w-100 rounded-pill mb-2">
                                         Activar
                                     </button>
-
-                                    <button *ngIf= "estado1=='Activado'" (click)="desactivarLinea1()" class="btn btn-warning btn-sm w-100 rounded-pill mb-2">
+                                    <!-- Botón desactivar. Este botón desactiva la línea, su función es detener el estado activo a inactivo en conjunto con sus datos correspondientes. -->
+                                    <button *ngIf="estado1=='Activado'" (click)="desactivarLinea1()"
+                                        class="btn btn-warning btn-sm w-100 rounded-pill mb-2">
                                         Desactivar
                                     </button>
                                 </div>
+                                <!-- Datos de temperatura y humedad (Estadísticas/gráficas) -->
                                 <div class="my-1">
-                                    <button (click)="validarEstadisticasH1()" class="btn btn-info btn-sm w-100 rounded-pill mb-2">
+                                    <!-- Botón estadísticas humedad. Este botón muestra los datos que el sensor humedad almacena en la base de datos. -->
+                                    <button (click)="validarEstadisticasH1()"
+                                        class="btn btn-info btn-sm w-100 rounded-pill mb-2">
                                         Estadísticas: humedad
                                     </button>
-                                    <button (click)="validarEstadisticasT1()" class="btn btn-danger btn-sm w-100 rounded-pill ">
+                                    <!-- Botón estadísticas temperatura. Este botón muestra los datos que el sensor temperatura almacena en la base de datos. -->
+                                    <button (click)="validarEstadisticasT1()"
+                                        class="btn btn-danger btn-sm w-100 rounded-pill ">
                                         Estadísticas: temperatura
                                     </button>
                                 </div>
                             </div>
                         </div>
                         <!-- ============================================================ -->
+                        <!-- EN LAS DEMÁS LÍNEAS ES LO MISMO, PERO CON DIFERENTES VALORES, MISMA ICONOLOGÍA, MISMOS REFERENTES DE DATOS Y MISMAS FUNCIONES DE LOS BOTONES -->
                         <div class="col-6 col-md-3">
                             <div class="p-3 shadow-lg rounded-5" style="height: auto;">
                                 <div>
@@ -292,19 +315,23 @@ no será mostrada esta vista -->
                                     <hr class="text-secondary">
                                 </div>
                                 <div>
-                                    <button *ngIf= "estado2=='Apagado'" (click)="activarLinea2()" class="btn btn-primary btn-sm w-100 rounded-pill mb-2">
+                                    <button *ngIf="estado2=='Apagado'" (click)="activarLinea2()"
+                                        class="btn btn-primary btn-sm w-100 rounded-pill mb-2">
                                         Activar
                                     </button>
 
-                                    <button *ngIf= "estado2=='Activado'" (click)="desactivarLinea2()" class="btn btn-warning btn-sm w-100 rounded-pill mb-2">
+                                    <button *ngIf="estado2=='Activado'" (click)="desactivarLinea2()"
+                                        class="btn btn-warning btn-sm w-100 rounded-pill mb-2">
                                         Desactivar
                                     </button>
                                 </div>
                                 <div class="my-1">
-                                    <button (click)="validarEstadisticasH2()" class="btn btn-info btn-sm w-100 rounded-pill mb-2">
+                                    <button (click)="validarEstadisticasH2()"
+                                        class="btn btn-info btn-sm w-100 rounded-pill mb-2">
                                         Estadísticas: humedad
                                     </button>
-                                    <button (click)="validarEstadisticasT2()" class="btn btn-danger btn-sm w-100 rounded-pill ">
+                                    <button (click)="validarEstadisticasT2()"
+                                        class="btn btn-danger btn-sm w-100 rounded-pill ">
                                         Estadísticas: temperatura
                                     </button>
                                 </div>
@@ -376,19 +403,23 @@ no será mostrada esta vista -->
                                     <hr class="text-secondary">
                                 </div>
                                 <div>
-                                    <button *ngIf= "estado3=='Apagado'" (click)="activarLinea3()" class="btn btn-primary btn-sm w-100 rounded-pill mb-2">
+                                    <button *ngIf="estado3=='Apagado'" (click)="activarLinea3()"
+                                        class="btn btn-primary btn-sm w-100 rounded-pill mb-2">
                                         Activar
                                     </button>
 
-                                    <button *ngIf= "estado3=='Activado'" (click)="desactivarLinea3()" class="btn btn-warning btn-sm w-100 rounded-pill mb-2">
+                                    <button *ngIf="estado3=='Activado'" (click)="desactivarLinea3()"
+                                        class="btn btn-warning btn-sm w-100 rounded-pill mb-2">
                                         Desactivar
                                     </button>
                                 </div>
                                 <div class="my-1">
-                                    <button (click)="validarEstadisticasH3()" class="btn btn-info btn-sm w-100 rounded-pill mb-2">
+                                    <button (click)="validarEstadisticasH3()"
+                                        class="btn btn-info btn-sm w-100 rounded-pill mb-2">
                                         Estadísticas: humedad
                                     </button>
-                                    <button (click)="validarEstadisticasT3()" class="btn btn-danger btn-sm w-100 rounded-pill ">
+                                    <button (click)="validarEstadisticasT3()"
+                                        class="btn btn-danger btn-sm w-100 rounded-pill ">
                                         Estadísticas: temperatura
                                     </button>
                                 </div>
@@ -460,19 +491,23 @@ no será mostrada esta vista -->
                                     <hr class="text-secondary">
                                 </div>
                                 <div>
-                                    <button *ngIf= "estado4=='Apagado'" (click)="activarLinea4()" class="btn btn-primary btn-sm w-100 rounded-pill mb-2">
+                                    <button *ngIf="estado4=='Apagado'" (click)="activarLinea4()"
+                                        class="btn btn-primary btn-sm w-100 rounded-pill mb-2">
                                         Activar
                                     </button>
 
-                                    <button *ngIf= "estado4=='Activado'" (click)="desactivarLinea4()" class="btn btn-warning btn-sm w-100 rounded-pill mb-2">
+                                    <button *ngIf="estado4=='Activado'" (click)="desactivarLinea4()"
+                                        class="btn btn-warning btn-sm w-100 rounded-pill mb-2">
                                         Desactivar
                                     </button>
                                 </div>
                                 <div class="my-1">
-                                    <button (click)="validarEstadisticasH4()" class="btn btn-info btn-sm w-100 rounded-pill mb-2">
+                                    <button (click)="validarEstadisticasH4()"
+                                        class="btn btn-info btn-sm w-100 rounded-pill mb-2">
                                         Estadísticas: humedad
                                     </button>
-                                    <button (click)="validarEstadisticasT4()" class="btn btn-danger btn-sm w-100 rounded-pill ">
+                                    <button (click)="validarEstadisticasT4()"
+                                        class="btn btn-danger btn-sm w-100 rounded-pill ">
                                         Estadísticas: temperatura
                                     </button>
                                 </div>

@@ -1,1 +1,1518 @@
-<p>manual-usuario works!</p>
+<style>
+    .img-size-gc {
+        width: 2rem;
+    }
+
+    .img-1 {
+        width: 100%;
+    }
+
+    .img-2 {
+        width: 50%;
+    }
+
+    .rounded-5 {
+        border-radius: 2rem;
+    }
+</style>
+<main>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-12 col-lg-3">
+                <div class="list-group rounded-5 shadow-lg fw-bold" id="list-tab" role="tablist">
+                    <a class="list-group-item p-3 list-group-item-action active" id="list-welcome-list"
+                        data-bs-toggle="list" href="#list-welcome" role="tab" aria-controls="list-welcome">
+                        Bienvenida al Manual
+                    </a>
+                    <a class="list-group-item p-3 list-group-item-action" id="list-onSistem-list" data-bs-toggle="list"
+                        href="#list-onSistem" role="tab" aria-controls="list-onSistem">
+                        Activar el sistema
+                    </a>
+                    <a class="list-group-item p-3 list-group-item-action" id="list-userGestion-list"
+                        data-bs-toggle="list" href="#list-userGestion" role="tab" aria-controls="list-userGestion">
+                        Gestionar usuarios
+                    </a>
+                    <a class="list-group-item p-3 list-group-item-action" id="list-humedad-list" data-bs-toggle="list"
+                        href="#list-humedad" role="tab" aria-controls="list-humedad">
+                        Estadísticas de humedad
+                    </a>
+                    <a class="list-group-item list-group-item-action" id="list-temperatura-list" data-bs-toggle="list"
+                        href="#list-temperatura" role="tab" aria-controls="list-temperatura">
+                        Estadísticas de temperatura
+                    </a>
+                    <a class="list-group-item list-group-item-action" id="list-sensores-list" data-bs-toggle="list"
+                        href="#list-sensores" role="tab" aria-controls="list-sensores">
+                        Sensores
+                    </a>
+                    <a class="list-group-item list-group-item-action" id="list-plantas-list" data-bs-toggle="list"
+                        href="#list-plantas" role="tab" aria-controls="list-plantas">
+                        Plantas
+                    </a>
+                    <a class="list-group-item list-group-item-action" id="list-editprofile-list" data-bs-toggle="list"
+                        href="#list-editprofile" role="tab" aria-controls="list-editprofile">
+                        Editar perfil
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-lg-9 mt-5 mt-lg-0">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="list-welcome" role="tabpanel"
+                        aria-labelledby="list-welcome-list">
+                        <section class="shadow-lg rounded-5 p-4 text-center">
+                            <div>
+                                <img class="img-size-gc" src="../../../assets/logo/logo-dark.svg"
+                                    alt="Logo ilustrativo">
+                                <h1 class="display-5 fw-bold">
+                                    Manual de Usuario
+                                </h1>
+                            </div>
+                            <div>
+                                <span class="fs-4 fw-bold">
+                                    En este manual podrás aprender desde activar el sistema hasta realizar reportes en
+                                    Excel.
+                                </span>
+                            </div>
+                            <div class="mt-3">
+                                <div class="row justify-content-center">
+                                    <div class="col-4">
+                                        <div class="p-3 rounded-5 bg-primary">
+                                            <span class="fs-5 fw-bold text-white">
+                                                Interactivo y dinámico
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="p-3 rounded-5 bg-danger">
+                                            <span class="fs-5 fw-bold text-white">
+                                                Moderno y elegante
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3 w-75 mx-auto">
+                                <span class="fs-5 fw-bold">
+                                    El manual tiene ilustraciones como imágenes, enlaces y botones para máximizar la
+                                    experiencia de usuario y ayudarlo al aprendizaje del sistema.
+                                </span>
+                            </div>
+                            <div class="mt-4">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <span class="fs-6 text-secondary">
+                                            Este manual está orientado tanto al usuario final como a los posibles
+                                            desarrolladores del sistema.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="shadow-lg rounded-5 p-4 text-center my-5">
+                            <div>
+                                <h1 class="display-5 fw-bold">
+                                    Soporte técnico
+                                </h1>
+                            </div>
+                            <div>
+                                <span class="fs-4 fw-bold">
+                                    En caso de reportar fallas del sistema hacerlo saber al siguiente correo
+                                </span>
+                                <span class="fs-4">
+                                    viveregistro.contacto@gmail.com
+                                </span>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="tab-pane fade" id="list-onSistem" role="tabpanel" aria-labelledby="list-onSistem-list">
+                        <section class="shadow-lg rounded-5 p-4">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Conociendo el sistema
+                                </h1>
+                            </div>
+                            <div class="mt-3">
+                                <div class="row">
+                                    <div class="col-12 col-lg-5">
+                                        <div>
+                                            <span>
+                                                Cuando hayas iniciado sesión, estarás dentro del sistema donde podrás
+                                                ver la barra de navegación o el menú el cual tiene algunas funciones, el
+                                                rol y el correo, los componentes como el tanque, la válvula, batería,
+                                                las funciones de la corriente que activa los componentes y a su vez el
+                                                de stop que desactiva estos componentes y por último las líneas de riego
+                                                con sus funciones correspondientes como es activar la línea y ver las
+                                                estadísticas tanto de humedad como de temperatura.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-7">
+                                        <div>
+                                            <img class="img-1" src="../../../assets/mu/images/Captura10.PNG" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="shadow-lg rounded-5 p-4 my-5">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Activar los componentes
+                                </h1>
+                            </div>
+                            <div class="mt-3">
+                                <div class="row">
+                                    <div class="col-12 col-lg-6">
+                                        <img class="img-1" src="../../../assets/mu/images/componentes1.PNG" alt="">
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div>
+                                            <div>
+                                                <span>
+                                                    Los componentes son aquellos que hacen parte del sistema, estos
+                                                    proveen
+                                                    información concisa que ayuda al funcionamiento de las líneas. Se
+                                                    pueden
+                                                    activar estos componentes precionando el botón azul.
+                                                </span>
+                                            </div>
+                                            <div class="my-1">
+                                                <button class="btn btn-info btn-sm px-4 rounded-pill mx-1"
+                                                    type="button">
+                                                    Corriente
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="shadow-lg rounded-5 p-4 my-5">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Desactivar los componentes
+                                </h1>
+                            </div>
+                            <div class="mt-3">
+                                <div class="row">
+                                    <div class="col-12 col-lg-6">
+                                        <img class="img-1" src="../../../assets/mu/images/componentes2.PNG" alt="">
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div>
+                                            <div>
+                                                <span>
+                                                    Para desactivar los componentes se preciona el botón rojo.
+                                                </span>
+                                            </div>
+                                            <div class="my-1">
+                                                <button class="btn btn-danger btn-sm px-4 rounded-pill mx-1"
+                                                    type="button">
+                                                    Stop
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="shadow-lg rounded-5 p-4 my-5">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Líneas de riego
+                                </h1>
+                            </div>
+                            <div class="mt-3">
+                                <div class="row">
+                                    <div class="col-12 col-lg-6">
+                                        <div>
+                                            <span>
+                                                Las líneas de riego tienen datos que son el número de la línea
+                                                correspondiente, el estado, la temperatura y la humedad.
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                También tienen funcionalidades como activar la línea y ver las
+                                                estadísitcas
+                                                tanto de humedad como de temperatura.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-3 mt-3 mt-lg-0">
+                                        <div>
+                                            <img class="img-1" src="../../../assets/mu/images/linea1.PNG" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-3 mt-3 mt-lg-0">
+                                        <div>
+                                            <img class="img-1" src="../../../assets/mu/images/linea2.PNG" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="shadow-lg rounded-5 p-4 my-5">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Funciones de las líneas de riego
+                                </h1>
+                            </div>
+                            <div class="mt-3">
+                                <div class="row justify-content-center text-center">
+                                    <div class="col-12 col-lg-4">
+                                        <div class="p-3 shadow-lg rounded-5" style="height: 330px;">
+                                            <div>
+                                                <span class="fs-5 fw-bold">
+                                                    Botón activar/desactivar
+                                                </span>
+                                            </div>
+                                            <div class="my-1">
+                                                <button class="btn btn-primary btn-sm px-4 rounded-pill mx-1 my-1">
+                                                    Activar
+                                                </button>
+                                                <button class="btn btn-warning btn-sm px-4 rounded-pill mx-1 my-1">
+                                                    Desactivar
+                                                </button>
+                                            </div>
+                                            <hr class="text-secondary">
+                                            <div class="mt-2">
+                                                <span>
+                                                    El botón <span
+                                                        class="badge fw-light rounded-5 px-3 bg-primary">Activar</span>
+                                                    que corresponde a cada línea hace que
+                                                    el estado cambie de <span class="text-danger">Apagado</span> a <span
+                                                        class="text-success">Activado</span>.
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    A su vez, cuando se acciona ese botón, cambia también de
+                                                    estado <span
+                                                        class="badge fw-light rounded-5 px-3 bg-primary">Activar</span>
+                                                    a
+                                                    un
+                                                    estado
+                                                    <span
+                                                        class="badge text-dark fw-light rounded-5 px-3 bg-warning">Desactivar</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 mt-5 mt-lg-0">
+                                        <div class="p-3 shadow-lg rounded-5" style="height: 330px;">
+                                            <div>
+                                                <span class="fs-5 fw-bold">
+                                                    Botón ver humedad
+                                                </span>
+                                            </div>
+                                            <div class="my-1">
+                                                <button class="btn btn-info btn-sm px-4 rounded-pill my-1">
+                                                    Estadísticas humedad
+                                                </button>
+                                            </div>
+                                            <hr class="text-secondary">
+                                            <div class="mt-2">
+                                                <span>
+                                                    El botón <span class="badge fw-light rounded-5 px-3 bg-info">E.
+                                                        humedad</span> te redirecciona a una sección del
+                                                    sistema que es para ver las estadísticas de la línea
+                                                    siendo la humedad el dato a ver.
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span class="text-secondary">
+                                                    (Funciona si la línea está activada).
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 mt-5 mt-lg-0">
+                                        <div class="p-3 shadow-lg rounded-5" style="height: 330px;">
+                                            <div>
+                                                <span class="fs-5 fw-bold">
+                                                    Botón ver temperatura
+                                                </span>
+                                            </div>
+                                            <div class="my-1">
+                                                <button class="btn btn-danger btn-sm px-4 rounded-pill my-1">
+                                                    Estadísticas temperatura
+                                                </button>
+                                            </div>
+                                            <hr class="text-secondary">
+                                            <div class="mt-2">
+                                                <span>
+                                                    El botón <span class="badge fw-light rounded-5 px-3 bg-danger">E.
+                                                        temperatura</span> te redirecciona a una sección del
+                                                    sistema que es para ver las estadísticas de la línea
+                                                    siendo la temperatura el dato a ver.
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span class="text-secondary">
+                                                    (Funciona si la línea está activada).
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mt-5 mb-2">
+                                        <a class="btn btn-primary w-50 rounded-pill px-4 mx-auto"
+                                            [routerLink]="['/home']">
+                                            Ver funcionalidades
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="tab-pane fade" id="list-userGestion" role="tabpanel"
+                        aria-labelledby="list-userGestion-list">
+                        <section class="shadow-lg rounded-5 p-4">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Permisos para gestionar usuarios
+                                </h1>
+                            </div>
+                            <div class="mt-3">
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div>
+                                            <span>
+                                                Para gestionar los usuarios registrados debes ser administrador. Puedes
+                                                identificar si eres administrador en la parte superior donde está la
+                                                barra de navegación o el manú así como en el siguiente ejemplo.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="mt-2">
+                                            <img class="img-1 rounded-3" src="../../../assets/mu/images/rol.PNG" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <div class="mt-5 text-center mb-3">
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <section class="shadow-lg rounded-5 p-4" style="height: 250px;">
+                                        <div>
+                                            <h1 class="fw-bold">
+                                                Gestionar usuarios
+                                            </h1>
+                                        </div>
+                                        <div class="mt-3">
+                                            <div class="row justify-content-center">
+                                                <div class="col-12">
+                                                    <div>
+                                                        <span>
+                                                            Para empezar a gestionar a los usuarios registrados, en la
+                                                            parte superior donde está la barra de navegación o el menú,
+                                                            debes de darle en el siguiente enlace.
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="mt-3">
+                                                        <img class="img-1 rounded-pill"
+                                                            src="../../../assets/mu/images/gestionarusuarios.PNG"
+                                                            alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-12 col-lg-6 mt-5 mt-lg-0">
+                                    <section class="shadow-lg rounded-5 p-4" style="height: 250px;">
+                                        <div>
+                                            <h1 class="fw-bold">
+                                                Acceso directo
+                                            </h1>
+                                        </div>
+                                        <div class="mt-3">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div>
+                                                        <span>
+                                                            Si quieres gestionar los usuarios de una vez, puedes darle
+                                                            al siguiente botón.
+                                                        </span>
+                                                    </div>
+                                                    <div class="mt-3">
+                                                        <a
+                                                            class="btn btn-primary btn-block rounded-pill px-4 w-75 mx-auto">
+                                                            Gestionar usuarios
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <section class="shadow-lg rounded-5 p-4 mt-5 mb-3">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Acciones
+                                </h1>
+                            </div>
+                            <div>
+                                <span>
+                                    Puedes realizar estas acciones en la interfaz de gestionar usuarios
+                                </span>
+                            </div>
+                            <div class="mt-3 text-center text-white">
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <div class="p-3 bg-info rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Editar
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Puedes edtiar los datos de un usuario, su documento, nombre,
+                                                    entre otros.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="p-3 bg-danger rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Elimiar
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    También puedes elimiar el registro de un usuario, hay que
+                                                    ser cuidadoso a quien se elimina.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="tab-pane fade" id="list-humedad" role="tabpanel" aria-labelledby="list-humedad-list">
+                        <section class="shadow-lg rounded-5 p-4">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Estadísitcas humedad
+                                </h1>
+                            </div>
+                            <div class="mt-3">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-8">
+                                        <div>
+                                            <span>
+                                                Para ver las estadísticas debes activar primero la línea a la que
+                                                quieres acceder a esa función.
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                Activar cada línea te da acceso tanto a sus datos como estado,
+                                                temperatura y humedad como también acceso a ver las estadísticas de
+                                                humedad y temperatura.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto mt-5 mt-lg-0">
+                                        <div>
+                                            <img class="img-1" src="../../../assets/mu/images/activarhumedad.PNG"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="shadow-lg rounded-5 p-4 my-5">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Interfaz estadísitcas humedad
+                                </h1>
+                            </div>
+                            <div class="mt-3">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div>
+                                            <span>
+                                                Esta es la interfaz de las estadísitcas de humedad la cual está
+                                                conectada a la base de datos y a su vez la base de datos está conectada
+                                                a los sensores que están orientados a la humedad, de ellos se sacan los
+                                                datos y es en este interfaz donde se muestran de forma gráfica.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto mt-5 mt-lg-0">
+                                        <div>
+                                            <img class="img-1" src="../../../assets/mu/images/interfazhumedad.PNG"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="shadow-lg rounded-5 p-4 mb-3">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Funciones
+                                </h1>
+                            </div>
+                            <div>
+                                <span>
+                                    Hay cinco funciones en esta interfaz las cuales son:
+                                </span>
+                            </div>
+                            <div class="mt-3 text-center text-white">
+                                <div class="row g-2 justify-content-center">
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-info rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Tipo de gráfica
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Puedes seleccionar entre seis diseños de gráficas.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-danger rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Tiempo real
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Los datos se irán actualizando constantemente.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-primary rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Descargar informe
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Se descargará una tabla con la información del instante.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-warning rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Descargar gráfica
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Podrás descargar la gráfica en formato de imagen.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-dark rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Volver
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Puedes regresar al inicio con las demás líneas.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="tab-pane fade" id="list-temperatura" role="tabpanel"
+                        aria-labelledby="list-temperatura-list">
+                        <section class="shadow-lg rounded-5 p-4">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Estadísitcas temperatura
+                                </h1>
+                            </div>
+                            <div class="mt-3">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-8">
+                                        <div>
+                                            <span>
+                                                Para ver las estadísticas debes activar primero la línea a la que
+                                                quieres acceder a esa función.
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                Activar cada línea te da acceso tanto a sus datos como estado,
+                                                temperatura y humedad como también acceso a ver las estadísticas de
+                                                humedad y temperatura.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto mt-5 mt-lg-0">
+                                        <div>
+                                            <img class="img-1" src="../../../assets/mu/images/activarhumedad.PNG"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="shadow-lg rounded-5 p-4 my-5">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Interfaz estadísitcas temperatura
+                                </h1>
+                            </div>
+                            <div class="mt-3">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div>
+                                            <span>
+                                                Esta es la interfaz de las estadísitcas de temperatura la cual está
+                                                conectada a la base de datos y a su vez la base de datos está conectada
+                                                a los sensores que están orientados a la temperatura, de ellos se sacan
+                                                los
+                                                datos y es en este interfaz donde se muestran de forma gráfica.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto mt-5 mt-lg-0">
+                                        <div>
+                                            <img class="img-1" src="../../../assets/mu/images/interfaztemperatura.PNG"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="shadow-lg rounded-5 p-4 mb-3">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Funciones
+                                </h1>
+                            </div>
+                            <div>
+                                <span>
+                                    Hay cinco funciones en esta interfaz las cuales son:
+                                </span>
+                            </div>
+                            <div class="mt-3 text-center text-white">
+                                <div class="row g-2 justify-content-center">
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-info rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Tipo de gráfica
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Puedes seleccionar entre seis diseños de gráficas.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-primary rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Descargar informe
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Se descargará una tabla con la información del instante.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-warning rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Descargar gráfica
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Podrás descargar la gráfica en formato de imagen.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-dark rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Volver
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Puedes regresar al inicio con las demás líneas.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="tab-pane fade" id="list-sensores" role="tabpanel" aria-labelledby="list-sensores-list">
+                        <section class="shadow-lg rounded-5 p-4">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Permisos para acceder a los sensores
+                                </h1>
+                            </div>
+                            <div class="mt-3">
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div>
+                                            <span>
+                                                Para gestionar los sensores registrados debes ser administrador. Puedes
+                                                identificar si eres administrador en la parte superior donde está la
+                                                barra de navegación o el manú así como en el siguiente ejemplo.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="mt-2">
+                                            <img class="img-1 rounded-3" src="../../../assets/mu/images/rol.PNG" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <div class="mt-5 text-center">
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <section class="shadow-lg rounded-5 p-4" style="height: 250px;">
+                                        <div>
+                                            <h1 class="fw-bold">
+                                                Gestionar sensores
+                                            </h1>
+                                        </div>
+                                        <div class="mt-3">
+                                            <div class="row justify-content-center">
+                                                <div class="col-12">
+                                                    <div>
+                                                        <span>
+                                                            Para empezar a gestionar los sensores registrados, en la
+                                                            parte superior donde está la barra de navegación o el menú,
+                                                            debes de darle en el siguiente enlace.
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="mt-3">
+                                                        <img class="img-1 rounded-pill"
+                                                            src="../../../assets/mu/images/sensores.PNG" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-12 col-lg-6 mt-5 mt-lg-0">
+                                    <section class="shadow-lg rounded-5 p-4" style="height: 250px;">
+                                        <div>
+                                            <h1 class="fw-bold">
+                                                Acceso directo
+                                            </h1>
+                                        </div>
+                                        <div class="mt-3">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div>
+                                                        <span>
+                                                            Si quieres gestionar los sensores de una vez, puedes darle
+                                                            al siguiente botón.
+                                                        </span>
+                                                    </div>
+                                                    <div class="mt-3">
+                                                        <a
+                                                            class="btn btn-primary btn-block rounded-pill px-4 w-75 mx-auto">
+                                                            Gestionar sensores
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-5">
+                            <div class="row">
+                                <div class="col-12">
+                                    <section class="shadow-lg rounded-5 p-4">
+                                        <div>
+                                            <h1 class="fw-bold">
+                                                Tipo de sensor
+                                            </h1>
+                                        </div>
+                                        <div class="mt-3">
+                                            <div class="row justify-content-center">
+                                                <div class="col-auto">
+                                                    <div>
+                                                        <span>
+                                                            Hay dos tipos de sensores, está el de humedad y el de
+                                                            temperatura, los dos sensores tienen las mismas
+                                                            funcionalidades pero para diferente fin. Cuando le hayas
+                                                            dado clic al enalce Tipo de Sensor, allí se desplegará una
+                                                            lista que contiene los dos tipos de sensores así como se
+                                                            muestra en la imagen.
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="mt-3">
+                                                        <img class="img-1"
+                                                            src="../../../assets/mu/images/tipodesensor.PNG" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <section class="shadow-lg rounded-5 p-4 mt-5 mb-3">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Acciones
+                                </h1>
+                            </div>
+                            <div>
+                                <span>
+                                    Estas acciones son compartidas tanto para el sensor de humedad como para el sensor
+                                    de temperatura.
+                                </span>
+                            </div>
+                            <div class="mt-3 text-center text-white">
+                                <div class="row g-2 justify-content-center">
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-info rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Crear
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Puedes crear un nuevo sensor, dependiendo en qué sección de la
+                                                    interfaz estés, puedes crear uno nuevo.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-primary rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Editar
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Puedes editar el sensor que quieras, partiendo de que puedes cambiar
+                                                    el nombre o la planta a la que pertenece.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-warning rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Elimiar
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Puedes eliminar el sensor que quieras teniendo en cuenta que ya no
+                                                    se va a usar o que fue un error haberlo creado.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-danger rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Informe en Excel
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    También puedes descargar un informe en Excel mostrándote los
+                                                    registros en las celdas de Excel.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-dark rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Listar
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Puedes elegir la cantidad de sensores a mostrar en la interfaz
+                                                    partiendo de la base hasta 100 registros.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-info rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Buscar
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Si estás desubicado, puedes buscar un sensor en particular en el
+                                                    campo buscar.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="tab-pane fade" id="list-plantas" role="tabpanel" aria-labelledby="list-plantas-list">
+                        <section class="shadow-lg rounded-5 p-4 mb-5">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Permisos para acceder a las plantas
+                                </h1>
+                            </div>
+                            <div class="mt-3">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div>
+                                            <span>
+                                                En esta interfaz no necesitas ser administrador, puedes ingresar con el
+                                                rol de jardinero sin problema.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="shadow-lg rounded-5 p-4 my-5">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Interfaz plantas
+                                </h1>
+                            </div>
+                            <div class="mt-3">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div>
+                                            <span>
+                                                Esta es la interfaz de las plantas, donde se puede crear, listar, editar
+                                                y eliminar la variedad de plantas que puedan haber en un vivero.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div>
+                                            <img class="img-1" src="../../../assets/mu/images/plantas.PNG" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="shadow-lg rounded-5 p-4 mt-5 mb-3">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Acciones
+                                </h1>
+                            </div>
+                            <div>
+                                <span>
+                                    Estas son las acciones que se pueden ejecutar en la interfaz plantas.
+                                </span>
+                            </div>
+                            <div class="mt-3 text-center text-white">
+                                <div class="row g-2 justify-content-center">
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-info rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Crear
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Puedes crear una nueva planta proporcionando el nombre y una
+                                                    descripción.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-primary rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Editar
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Puedes editar los datos de las plantas registradas en la interfaz.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-warning rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Elimiar
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Puedes eliminar las plantas que estén registradas en esta interfaz.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-danger rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Informe en Excel
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    También puedes descargar un informe en Excel mostrándote los
+                                                    registros en las celdas de Excel.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-dark rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Listar
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Puedes elegir la cantidad de plantas a mostrar en la interfaz
+                                                    partiendo de la base hasta 100 registros.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-4">
+                                        <div class="p-3 bg-info rounded-5">
+                                            <div>
+                                                <h1 clasS="fs-4 fw-bold">
+                                                    Buscar
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    Si estás desubicado, puedes buscar una planta en particular en el
+                                                    campo buscar.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="tab-pane fade" id="list-editprofile" role="tabpanel"
+                        aria-labelledby="list-editprofile-list">
+                        <section class="shadow-lg rounded-5 p-4 mb-5">
+                            <div>
+                                <h1 class="fw-bold">
+                                    Editar perfil
+                                </h1>
+                            </div>
+                            <div class="mt-3">
+                                <div class="row">
+                                    <div class="col-12 col-lg-9">
+                                        <div>
+                                            <span>
+                                                Para editar tu perfil, en la parte superior derecha, está el usuario
+                                                (correo) con el que te registraste, dándole clic ahí se desplegará una
+                                                lista que contiene varias funciones, entre ellas Perfil así como se
+                                                muestra en la siguiente imagen.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="mt-3 mt-lg-0">
+                                            <img class="img-1" src="../../../assets/mu/images/perfil.PNG" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <hr class="text-secondary">
+                                    </div>
+                                    <div class="col-12 col-lg-11">
+                                        <div>
+                                            <span>
+                                                Si no te aparece de esta manera, posiblemente estés en una resolución de
+                                                pantalla inferior a la de un computador o laptop. Para este caso, en la
+                                                parte superior derecha, hay un icono en diseño de lista así como se
+                                                muestra en la siguiente imagen.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="mt-3">
+                                            <img class="img-1" src="../../../assets/mu/images/icononav.PNG" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-9">
+                                        <div>
+                                            <span>
+                                                Una vez dado el clic sobre el icono, se desplegará una lista, identifica
+                                                que en la lista esté tu correo con el que te registraste así como se
+                                                muestra en la siguiente imagen.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="mt-3">
+                                            <img class="img-1" src="../../../assets/mu/images/listanav.PNG" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <div class="mt-5 mb-3">
+                            <div class="row gy-5 justify-content-center">
+                                <div class="col-4">
+                                    <div class="p-4 text-center shadow-lg rounded-5 bg-light">
+                                        <div>
+                                            <h1 class="fw-bold">
+                                                Formulario
+                                            </h1>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                Este es el formulario donde puedes actualizar tus datos así como
+                                                se
+                                                muestra en la siguiente imagen.
+                                            </span>
+                                        </div>
+                                        <div class="mt-3 w-100 mx-auto">
+                                            <img class="img-1" src="../../../assets/mu/images/perfilform.PNG" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="p-4 text-center shadow-lg rounded-5 bg-light">
+                                        <div>
+                                            <h1 class="fw-bold">
+                                                Acceso directo
+                                            </h1>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                Si aún no has actualizado tus datos como el documento o el nombre,
+                                                puedes ingresar a través del siguiente botón y así bien ingresar los
+                                                datos por primera vez o actualizarlos.
+                                            </span>
+                                        </div>
+                                        <div class="mt-3">
+                                            <a class="btn btn-primary btn-sm px-4 rounded-pill w-75 mx-auto"
+                                                href="">Actualizar datos</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- <style>
+    .img-size-gc {
+        width: 3rem;
+    }
+
+    .img-1 {
+        width: 100%;
+    }
+
+    .rounded-5 {
+        border-radius: 2rem;
+    }
+</style>
+<main>
+    <hr>
+    <section class="vh-auto">
+        <div class="container">
+            <div class="shadow-lg rounded-5 p-4">
+                <div class="col-12">
+                    <div class="shadow-lg rounded-5 p-4 my-5">
+                        <div class="row">
+                            <div class="col-12">
+                                <h1 class="fs-3">
+                                    ¿Cómo registrarme en el sistema?
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h1 class="fs-3">
+                                    Opción 1: registro desde cero.
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <p>
+                                    Para registrarse desde cero, deberás de darle al botón <a
+                                        class="btn btn-dark btn-sm px-3 rounded-3 mx-1" routerLink="/register">
+                                        <span>
+                                            <img src="../../../assets/imagenes/registrarse.png" class="mr-1" alt=""
+                                                width="20px">
+                                            Regístrate
+                                        </span>
+                                    </a> y te enviará a un formulario, donde te piden solo dos datos, un correo y una
+                                    contraseña así como se muestra en la imagen.
+                                </p>
+                                <p>
+                                    Decir que esta primera opción hace que te registres como administrador, dándote
+                                    ventajas dentro del sistema.
+                                </p>
+                                <p>
+                                    Una vez ya hayas puesto tus datos personales, le dal al botón <button
+                                        class="btn btn-primary btn-sm rounded-3 mx-auto px-5">
+                                        Registrarme
+                                    </button> para continuar con el registro.
+                                </p>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <img class="img-1" src="../../../assets/mu/images/Captura4.PNG"
+                                    alt="Captura demostrativa de la interfaz de inicio de VR">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p>
+                                    Luego de haberse registrado, te enviará a una interfaz donde hay que verificar tu
+                                    correo así como se muestra en la imagen.
+
+                                </p>
+                            </div>
+                            <div class="col-12">
+                                <img class="img-1" src="../../../assets/mu/images/Captura8.PNG"
+                                    alt="Captura demostrativa de la interfaz de inicio de VR">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p>
+                                    Debes dirigirte al Gmail donde te debió de haber llegado un
+                                    correo, así como se muestra en la imagen.
+                                </p>
+                            </div>
+                            <div class="col-12">
+                                <img class="img-1" src="../../../assets/mu/images/Captura6.PNG"
+                                    alt="Captura demostrativa de la interfaz de inicio de VR">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-12 col-lg-6">
+
+                                <p>
+                                    Le das a ese correo y allí, hay un enlace el cual debes de abrir, cuando abras el
+                                    enlace, te mostrará una ventana así como se muestra en la imagen.
+                                </p>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <img class="img-1" src="../../../assets/mu/images/Captura7.PNG"
+                                    alt="Captura demostrativa de la interfaz de inicio de VR">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <p>
+                                    Esa ventana indica que ya está tu correo verificado y ya puedes continuar con el
+                                    registro.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p>
+                                    Vuelves a la interfaz de "Estás a un solo paso" y le das en el botón "Presiona
+                                    cuando hayas hecho la verificación", si no te llegó un un correo al Gmail para
+                                    verificarlo, puedes darle en el botón "Enviar de nuevo" y esperas a que llegue,
+                                    luego haces el mismo procedimiento anterior.
+                                </p>
+                            </div>
+                            <div class="col-12">
+                                <img class="img-1" src="../../../assets/mu/images/Captura8.PNG"
+                                    alt="Captura demostrativa de la interfaz de inicio de VR">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <p>
+                                    Luego cuando le hayas dado al botón "Presiona
+                                    cuando hayas hecho la verificación" te enviará a esta interfaz así como se muestra
+                                    en la imagen donde podrás ya iniciar sesión con las dos credenciales, el correo y la
+                                    contraseña con las que te registraste. Si se te olvidó la contraseña, le das en el
+                                    enalce <span class="text-primary">Olvidé mi contraseña</span>, si este es tu caso,
+                                    en un formulario te piden tu correo, allí ingresas tu correo y le das en el botón
+                                    "Enviar" y al correo te llega el enlace para restablecer la contraseña.
+                                </p>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <img class="img-1" src="../../../assets/mu/images/Captura5.PNG"
+                                    alt="Captura demostrativa de la interfaz de inicio de VR">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p>
+                                    Ya cuando hayas ingresado tus datos para iniciar sesión, te enviará a otra interfaz
+                                    donde te dan una bienvenida junto a tu correo donde te dan dos opciones, ir al
+                                    sistema, es decir, empezar a laborar o ir al manual de usuario en caso tal de que no
+                                    cuentes con los conocimientos del sistema.
+                                </p>
+                            </div>
+                            <div class="col-12">
+                                <img class="img-1" src="../../../assets/mu/images/Captura9.PNG"
+                                    alt="Captura demostrativa de la interfaz de inicio de VR">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p>
+                                    Si le das en el botón "Ir al sistema" te llevará al inicio del sistema donde están
+                                    las líneas con sus datos,
+                                    algunas funcionalidades y otros apartados de información así como se muestra en la
+                                    imagen.
+                                </p>
+                            </div>
+                            <div class="col-12">
+                                <img class="img-1" src="../../../assets/mu/images/Captura10.PNG"
+                                    alt="Captura demostrativa de la interfaz de inicio de VR">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <h1 class="fs-3">
+                                    Opción 2: iniciar con Google.
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <p>
+                                    Para iniciar con Google, deberás de darle al botón <a
+                                        class="btn btn-primary btn-sm px-3 rounded-3 mx-1" routerLink="/login">
+                                        <span>
+                                            <img src="../../../assets/imagenes/iniciar-sesion.png" class="mr-1" alt=""
+                                                width="20px">
+                                            Iniciar sesión
+                                        </span>
+                                    </a> y te enviará a un formulario y al lado la opción de iniciar sesión con Google,
+                                    esto evita que tengas que realizar un registro desde cero ya que el sistema toma los
+                                    datos de la
+                                    cuenta que creaste directamente con Google.
+                                </p>
+                                <p>
+                                    Decir que esta segunda opción hace que te registres como jardinero donde solo tienes
+                                    acceso a algunas funcionalidades del sistema.
+                                </p>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <img class="img-1" src="../../../assets/mu/images/Captura5.PNG"
+                                    alt="Captura demostrativa de la interfaz de inicio de VR">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section class="vh-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="fs-1 fw-bold">
+                        Paso 2.
+                    </h1>
+                    <h1 class="fs-5">
+                        En este Paso se verá cómo registrarse en el sistema y cómo iniciar sesión. Si ya
+                        tienes una cuenta y ya sabes iniciar sesión, ve al <a href="">Paso 2</a>.
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section class="vh-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="fs-1 fw-bold">
+                        Paso 3.
+                    </h1>
+                    <h1 class="fs-5">
+                        En este Paso se verá cómo registrarse en el sistema y cómo iniciar sesión. Si ya
+                        tienes una cuenta y ya sabes iniciar sesión, ve al <a href="">Paso 2</a>.
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+</main> -->
