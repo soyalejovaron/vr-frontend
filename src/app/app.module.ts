@@ -49,6 +49,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { HomeComponent } from './components/home/home.component';
 import { ValidacionInformacionComponent } from './components/validacion-informacion/validacion-informacion.component';
 import { ManualUsuarioComponent } from './components/manual-usuario/manual-usuario.component';
+import { RealTimeTemperaturaComponent } from './components/real-time-temperatura/real-time-temperatura.component';
 
 
 
@@ -86,7 +87,8 @@ import { ManualUsuarioComponent } from './components/manual-usuario/manual-usuar
     InicioComponent,
     HomeComponent,
     ValidacionInformacionComponent,
-    ManualUsuarioComponent,    
+    ManualUsuarioComponent,
+    RealTimeTemperaturaComponent,    
 
   ],
   imports: [
