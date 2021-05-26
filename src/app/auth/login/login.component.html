@@ -16,7 +16,9 @@
             <div class="col-12 col-md-6 my-2 col-lg-6">
                <div class="row">
                   <div class="col-12">
-                     <img src="../../../assets/logo/logo-dark.svg" alt="" style="width: 35px;">
+                     <!-- Iconología, logo del proyecto -->
+                     <img src="../../../assets/logo/logo-dark.svg" alt="Logo del proyecto como presentación"
+                        style="width: 35px;">
                      <h1 class="display-6 fw-bold mb-4">
                         Iniciar sesión
                      </h1>
@@ -24,14 +26,18 @@
                </div>
                <div class="row justify-content-center">
                   <div class="col-11">
+                     <!-- Formulario para iniciar sesión -->
                      <form [formGroup]="usuarioLogin" (ngSubmit)="onLogin()">
+                        <!-- Alerta que si los campos no son llenados, se activa y muestra el mensaje informativo -->
                         <div *ngIf="submitted && usuarioLogin.invalid" class="alert alert-warning" role="alert">
                            Todos los campos deben ser llenados
                         </div>
+                        <!-- Si las credenciales son incorrectas, esta alerta se activa -->
                         <div *ngIf="confirmarLogin" class="alert alert-warning" role="alert">
                            El correo y/o la contraseña son incorrectos
                         </div>
                         <div class="Form-fields text-start">
+                           <!-- Campo del email -->
                            <input type="email" id="email" class="ControlInput ControlInput--email rounded-3"
                               placeholder="alguien@example.com" formControlName="email" required>
                            <label for="email" class="Control-label Control-label--email">
@@ -56,24 +62,29 @@
                                     class="closed-eye" />
                               </svg>
                            </label>
+                           <!-- Campo de la contraseña -->
                            <input type="text" id="password" placeholder="*********" autocomplete="off"
                               autocapitalize="off" autocorrect="off" required pattern=".{5,}"
                               class="ControlInput ControlInput--password rounded-3" formControlName="password">
                            <label for="password" class="Control-label Control-label--password">
                               Contraseña:
                            </label>
+                           <!-- Alerta en caso tal de que la contraseña que se ingresó sea inferior a 6 caracteres -->
                            <div class="Control-requirements">
                               Recuerda que la contraseña tiene como mínimo 6 caracteres.
                            </div>
+                           <!-- Botón para iniciar sesión -->
                            <button (click)="onLogin()" type="submit"
                               class="btn btn-primary mt-1 mb-2 mx-auto rounded-3 px-5">
                               Iniciar sesión
                            </button>
+                           <!-- Alternativa de ingreso, por si no porta con una cuenta  -->
                            <div class="my-2 text-center">
                               <a [routerLink]="['/register']">
                                  ¿Aun no tienes cuenta?
                               </a>
                            </div>
+                           <!-- Alternativa de recuperar contraseña en caso tal de olvido de la misma -->
                            <div class="text-center">
                               <a [routerLink]="['/contraseñaOlvidada']">
                                  Olvidé mi contraseña
@@ -89,15 +100,16 @@
                style="background-image: url('https://images.unsplash.com/photo-1502239608882-93b729c6af43?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');">
                <div class="form-group mt-3 text-white">
                   <div class="mt-5">
+                     <!-- Texto informativo alternativo de inicio de sesión -->
                      <h1 class="fs-1 fw-bold">
-                        O logueate con Google
+                        O ingresa con Google
                      </h1>
                   </div>
                   <div class="mt-5">
-                     <button (click)="onGoogleLogin()" class="btn btn-lg btn-danger px-5 rounded-3 py-3">
+                     <!-- Botón que acciona la función de iniciar sesión con una cuenta Google -->
+                     <button (click)="onGoogleLogin()" class="btn btn-lg btn-danger px-3 rounded-3 py-3">
                         <span>
-                           <i class="fab fa-google text-white me-1"></i>
-                           Google
+                           Iniciar sesión con Google
                         </span>
                      </button>
                   </div>

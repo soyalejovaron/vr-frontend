@@ -1,56 +1,71 @@
 <style>
+    /* Estilo para el contenedor con un borde redondenado */
     .rounded-5 {
         border-radius: 2rem;
     }
 </style>
-
-<div class="card mt-5" *ngIf="user$ | async as user">
-    <div class="card-body">
-      <h3 class="card-title text-center">Hola usuario: <strong>{{ user.email }}</strong>   </h3>
-      <div class="form-group mt-2">
-        <p class="text-center">
-          Para iniciar, te pedimos por favor y proporciones los siguientes datos | Si lo prefieres, luego podras actualizar tus datos en tu perfil de usuario.
-        </p>
-        <p class="text-center">
-        </p>
-      </div>
-    </div>
-</div>
-
-<div class="d-flex text-center mt-5 align-items-center justify-content-center">
-    <div class="shadow-lg rounded-5 p-4" style="width: 30rem;">
-        <div class="card-body">
-            <h3>
-                {{titulo}}
-                <div *ngIf="loading" class="spinner-border float-right" role="status">
-                    <span class="sr-only">
-                        Loading...
-                    </span>
-                </div>
-            </h3>
-
-            <form class="mt-4" [formGroup]="editarPerfil" (ngSubmit)="editarUsuario()">
-                <div class="row">
-                    <div class="col">
-                        <label class="float-left h6" for="doc">Documento:</label>
-                        <input type="number" id="doc" class="form-control form-control-lg" formControlName="documento"
-                            placeholder="Documento">
+<!-- Contenedor que adjunta toda la información sobre la bienvenida del usuario al sistema por haberse unido -->
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10">
+            <div class="shadow-lg rounded-5 p-3 text-center">
+                <div class="" *ngIf="user$ | async as user">
+                    <div class="card-body">
+                        <h1 class="fs-3 fw-bold">
+                            <span>
+                                <!-- Mensaje de bievenida con el correo -->
+                                Hola, usuario <strong>{{ user.email }}</strong>
+                            </span>
+                        </h1>
+                        <div class="mt-2">
+                            <!-- Texto informativo, se le da al usuario la opción de llenar datos adicionales o saltearse este paso. -->
+                            <p class="w-75 mx-auto">
+                                Para iniciar, te pedimos por favor y proporciones los siguientes datos o si lo
+                                prefieres, luego podrás actualizar tus datos en tu perfil de usuario.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div *ngIf="nombre">
-                    <label class="float-left h6 mt-4" for="nombre">Nombre:</label>
-                    <input type="text" id="displayName" class="form-control form-control-lg mt-4" formControlName="displayName"
-                        placeholder="Nombre Completo">
+                <div class="d-flex text-center align-items-center justify-content-center">
+                    <div class="shadow-lg rounded-5 p-4" style="width: 30rem;">
+                        <div class="card-body">
+                            <h3>
+                                {{titulo}}
+                                <div *ngIf="loading" class="spinner-border float-right" role="status">
+                                    <span class="sr-only">
+                                        Loading...
+                                    </span>
+                                </div>
+                            </h3>
+                            <!-- Formulario para llenar los datos adicionales del usuario -->
+                            <form class="mt-4" [formGroup]="editarPerfil" (ngSubmit)="editarUsuario()">
+                                <div class="row">
+                                    <div class="col">
+                                        <label class="float-left h6" for="doc">Documento:</label>
+                                        <input type="number" id="doc" class="form-control form-control-lg"
+                                            formControlName="documento" placeholder="Documento">
+                                    </div>
+                                </div>
+                                <div *ngIf="nombre">
+                                    <label class="float-left h6 mt-4" for="nombre">Nombre:</label>
+                                    <input type="text" id="displayName" class="form-control form-control-lg mt-4"
+                                        formControlName="displayName" placeholder="Nombre Completo">
+                                </div>
+                                <div class="mt-4">
+                                    <!-- Botón aceptar para continuar con el formulario -->
+                                    <button type="submit" class="btn btn-dark mx-1 px-3">
+                                        Aceptar
+                                    </button>
+                                    <!-- Botón recordar más tarde, función que salta este paso. -->
+                                    <button type="text" class="btn btn-secondary mx-1 px-3" routerLink="/home">
+                                        Recordarmelo más tarde
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="mt-4">
-                    <button type="text" class="btn btn-secondary mx-2 px-3" routerLink="/home">
-                        Recordarmelo más tarde
-                    </button>
-                    <button type="submit" class="btn btn-dark mx-2 px-3">
-                        Aceptar
-                    </button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
