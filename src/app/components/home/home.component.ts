@@ -19,18 +19,6 @@ export class HomeComponent implements OnInit {
 
   public user$: Observable<User> = this.authSvc.afAuth.user;
   
-  editarPerfil: FormGroup;
-  submitted = false;
-  loading = false;
-  uid: string | null;
-  titulo:String;
-  perfil=false;
-  botonEmpezar=true;
-  doc=false;
-  nombre=false;
-
-  
-
   valvula:string = "Apagado"
   bateria:string = "Apagado"
   panel:string = "Apagado"
@@ -53,75 +41,19 @@ export class HomeComponent implements OnInit {
   estado2:string = "Apagado";
   estado3:string = "Apagado";
   estado4:string = "Apagado";
+
   
   constructor(private _usuarioService: UsuarioService, private fb: FormBuilder,private aRoute: ActivatedRoute, private route: ActivatedRoute, private router: Router, public authSvc: AuthService, private toastr: ToastrService, protected _sensorHumedadService: SensorhumedadService,
      protected _sensorTemperaturaService: SensorTemperaturaService, protected _sensorLluviaService: SensorLluviaService) {
-      this.editarPerfil = this.fb.group({
-        documento: ['', Validators.required],
-        displayName: ['', Validators.required],
-      })
-      this.uid = this.aRoute.snapshot.paramMap.get('uid');
+  
       }
 
 
   ngOnInit(): void {
-    this.esEditar();
-  }
-
-  editarUsuario() {
-
-    const usuario: any = {
-      documento: this.editarPerfil.value.documento,
-      nombreCompleto: this.editarPerfil.value.displayName,     
-      fechaActualizacion: new Date()
-    }
-
-    this.loading = true;
-
-    this._usuarioService.actualizarUsuario(this.uid, usuario).then(() => {
-      this.loading = false;
-      this.toastr.info('Haz editado tu perfil con exito!', 'Usuario modificado', {
-        positionClass: 'toast-bottom-right'
-      })
-      this.router.navigate(['/home']);
-    })
-  }
-
-
-  esEditar() {
-    this.titulo = 'Perfil de usuario'
-    if (this.uid !== null) {
-      this.loading = true;
-      this._usuarioService.getUsuario(this.uid).subscribe(data => {
-        this.loading = false;
-        let documentoU = data.payload.data()['documento'];
-        let displayNameU  = data.payload.data()['displayName'];
-        let nombreCompletoU  = data.payload.data()['nombreCompleto'];
-        
-      if(documentoU == null && displayNameU==null){
-        this.perfil=true;
-        this.botonEmpezar=false;
-        this.doc=true;
-        this.nombre=true;
-      }else if(documentoU == null || documentoU==""){
-        this.perfil=true;
-        this.botonEmpezar=false;
-        this.doc=true;
-      }else{
-        this.botonEmpezar=false;
-      }
-
-      })
-    }
-  }
-
-
- 
-
-  
-  
-  activarSistema(){
     
+  }
+
+  activarSistema(){  
     this._sensorLluviaService.getRegistrosLluvia().subscribe(res => {
       this.estadoLluvia = res[0].descripcionL;
       if(this.estadoLluvia != "No se ha detectado lluvia"){
