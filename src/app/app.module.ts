@@ -49,7 +49,6 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { HomeComponent } from './components/home/home.component';
 import { ValidacionInformacionComponent } from './components/validacion-informacion/validacion-informacion.component';
 import { ManualUsuarioComponent } from './components/manual-usuario/manual-usuario.component';
-import { ComprobarCredencialesComponent } from './components/comprobar-credenciales/comprobar-credenciales.component';
 
 
 
@@ -87,10 +86,8 @@ import { ComprobarCredencialesComponent } from './components/comprobar-credencia
     InicioComponent,
     HomeComponent,
     ValidacionInformacionComponent,
-    ManualUsuarioComponent,
-    ComprobarCredencialesComponent,
-    
-  
+    ManualUsuarioComponent,    
+
   ],
   imports: [
     BrowserModule,

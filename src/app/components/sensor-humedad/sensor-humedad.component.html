@@ -51,7 +51,6 @@
                     <th scope="col">Planta sensor</th>
                     <th scope="col">Fecha Creación</th>
                     <th scope="col"></th>
-                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody class="text-center">
@@ -61,7 +60,6 @@
                     <td>{{sensor.nombreSensorH}}</td>
                     <td>{{sensor.id_planta}}</td>
                     <td>{{sensor.fechaCreacionH}}</td>
-                    <td><button style="border: none; background: transparent; cursor: pointer;" [routerLink]="['/datosHumedad']">Ver datos</button></td>
                     <td>
                         <img class="mr-3" src="../../../assets/imagenes/editarHumedad.png" alt="" [routerLink]="['/humedad', sensor.idSensorH]" width="30px">
                         <img class="mr-3" src="../../../assets/imagenes/eliminarHumedad.png" alt="" (click)="borrarSensor(sensor.idSensorH)" width="30px">

@@ -62,7 +62,6 @@ export class CrudUsuarioComponent implements OnInit, OnDestroy {
       let element = document.getElementById('tablaUsuarios');
       const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
    
-      
       const wb: XLSX.WorkBook = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
    
@@ -79,10 +78,10 @@ export class CrudUsuarioComponent implements OnInit, OnDestroy {
 
   eliminarUsuario(uid: string) {
     this._usuarioService.eliminarUsuario(uid).then(() =>{
-      window.location.reload();
       this.toastr.error('Usuario eliminado', 'Todo ha ido con exito!',{
         positionClass: 'toast-bottom-right'
       });
+      window.location.reload();
     }).catch(error => {
       console.log(error);
     })

@@ -17,7 +17,7 @@ const EXCEL_EXT = '.xlsx';
 @Injectable({ providedIn: 'root' })
 export class AuthService extends RoleValidator {
   public user$: Observable<User>;
-
+  
   constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore) {
     super();
     this.user$ = this.afAuth.authState.pipe(

@@ -50,7 +50,6 @@
                     <th scope="col">Planta sensor</th>
                     <th scope="col">Fecha creación</th>
                     <th scope="col"></th>
-                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody class="text-center">
@@ -60,7 +59,6 @@
                     <td>{{sensor.nombreSensorT}}</td>
                     <td>{{sensor.id_planta}}</td>
                     <td>{{sensor.fechaCreacionT}}</td>
-                    <td><button style="border: none; background: transparent; cursor: pointer;" [routerLink]="['/datosTemperatura']">Ver datos</button></td>  
                     <td>
                         <img class="mr-3" src="../../../assets/imagenes/editarTemperatura.png" alt="" [routerLink]="['/temperatura', sensor.idSensorT]" width="30px">
                         <img class="mr-3" src="../../../assets/imagenes/eliminarHumedad.png" alt="" (click)="borrarSensor(sensor.idSensorT)" width="30px">
