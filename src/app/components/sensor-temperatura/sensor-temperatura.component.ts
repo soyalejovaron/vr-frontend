@@ -95,7 +95,7 @@ export class SensorTemperaturaComponent implements OnInit, OnDestroy {
           this.color = res[0].colorSensorT;
           this.nombreS = res[0].nombreSensorT;
           this.tipoS = res[0].tipoSensorT;
-          this.planta = res[0].id_planta;
+          this.planta = res[0].plantaSensorT;
           this.sensorForm.patchValue({
             idSensor: [this.idSensor],
             tipoSensor: [this.tipoS],
