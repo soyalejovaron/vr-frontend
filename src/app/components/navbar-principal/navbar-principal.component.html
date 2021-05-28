@@ -38,7 +38,7 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
                    </span>
                 </a>
              </li>
-             <li class="nav-item mx-0 mx-lg-2">
+             <li class="nav-item mx-0 mx-lg-2" *ngIf="user.emailVerified">
                 <!-- El routerLink es una función que siendo precionado el enlace te localiza en la ruta a la que estés dando click -->
                 <a class="nav-link" [routerLink]="['/crud']" [routerLinkActive]="['active']">
                    <span>
@@ -48,7 +48,7 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
                    </span>
                 </a>
              </li>
-             <li class="nav-item dropdown mx-0 mx-lg-2">
+             <li class="nav-item dropdown mx-0 mx-lg-2" *ngIf="user.emailVerified">
                 <!-- En la etiqueta <a href=""></a> está el id="" que hace referencia al contenido a mostrar como lista -->
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                    data-bs-toggle="dropdown" aria-expanded="true">
@@ -59,7 +59,7 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
                    </span>
                 </a>
                 <!-- Este es el contenido a mostrar de la anterior mención -->
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" *ngIf="user.emailVerified">
                    <li>
                       <a class="dropdown-item" [routerLink]="['/humedad']" [routerLinkActive]="['active']">
                          <span>
@@ -80,7 +80,7 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
                    </li>
                 </ul>
              </li>
-             <li class="nav-item mx-0 mx-lg-2">
+             <li class="nav-item mx-0 mx-lg-2" *ngIf="user.emailVerified">
                 <a class="nav-link" [routerLink]="['/plantas']" [routerLinkActive]="['active']">
                    <span>
                       <!-- <i class="fas fa-seedling text-white me-1"></i> -->
@@ -89,7 +89,7 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
                    </span>
                 </a>
              </li>
-             <li class="nav-item mx-0 mx-lg-2">
+             <li class="nav-item mx-0 mx-lg-2" *ngIf="user.emailVerified">
                 <a class="nav-link">
                    <span>
                       <!-- <i class="fas fa-user-tag text-white me-1"></i> -->
@@ -116,7 +116,7 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
                    </span>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                   <li>
+                   <li *ngIf="user.emailVerified">
                       <a class="dropdown-item" [routerLink]="['/perfil/', user.uid]" [routerLinkActive]="['active']">
                          <span>
                             <!-- <i class="fas fa-user-edit text-dark me-1"></i> -->
@@ -125,7 +125,7 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
                          </span>
                       </a>
                    </li>
-                   <li>
+                   <li *ngIf="user.emailVerified">
                       <a class="dropdown-item" [routerLink]="['/manual']" [routerLinkActive]="['active']">
                          <span>
                             <!-- <i class="fas fa-user-edit text-dark me-1"></i> -->
