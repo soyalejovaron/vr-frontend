@@ -1,0 +1,272 @@
+<!-- ===================================================== -->
+<!-- Navbar es el contenedor de la barra de navegación, acá es donde el usuario a travéz de botones
+puede iniciar sesión, registrarse o redireccionarse al inicio. -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1 d-flex align-items-center">
+    <div class="container-fluid">
+       <!-- ===================================================== -->
+       <a class="navbar-brand" routerLink="/home">
+          <!-- Se toma en una url el logo de ViveRegistro para ser mostrado en el nav -->
+          <img class="mb-1" src="../../../assets/logo/logo-light.svg" alt="Ejemplo de VR" style="width: 35px;">
+          <span style="text-shadow: 0px 0px 15px #969696eb;">
+             ViveRegistro
+          </span>
+       </a>
+       <!-- Este botón sirve para que cuando esté en dispositivos móviles se muestre un icono de lista indicando que existe una lista de contenido
+       Esto se muestra cuando está en resoluciones pequeñas como tablets o celulares -->
+       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+       </button>
+       <!-- ===================================================== -->
+       <!-- Este es el contenido que en dispositivos con resolución pequeña se muestra como lista vertical si se acciona el anterior botón -->
+       <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+          <!-- ===================================================== -->
+          <!-- El *ngIf sirve para identificar si el usuario está logueado, si está logueado, la etiqueta que tenga esta función será
+          mostrada en pantalla siempre y cuando esté logueado el usuario -->
+          <ul class="navbar-nav" *ngIf="user$ | async as user; else login">
+             <li class="nav-item mx-0 mx-lg-2">
+                <!-- El routerLinkActive sirve para añadir una clase (estilo) para identiicar en cuál enlace está el usuario para
+                diferenciarlo de los demás enlaces -->
+                <a class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['active']">
+                   <span>
+                      <!-- En el nav se usa iconología de acuerdo al texto, en este caso la etiqueta <i></i> sirve como contenedor del icono referente
+                      al inicio -->
+                      <!-- <i class="fas fa-home text-white me-1"></i> -->
+                      <img src="../../../assets/imagenes/home.png" class="mb-1 mr-1" alt="" width="20px">
+                      Inicio
+                   </span>
+                </a>
+             </li>
+             <li class="nav-item mx-0 mx-lg-2">
+                <!-- El routerLink es una función que siendo precionado el enlace te localiza en la ruta a la que estés dando click -->
+                <a class="nav-link" [routerLink]="['/crud']" [routerLinkActive]="['active']">
+                   <span>
+                      <!-- <i class="fas fa-user-cog text-white me-1"></i> -->
+                      <img src="../../../assets/imagenes/gestionar.png" class="mb-1 mr-1" alt="" width="20px">
+                      Gestionar Usuarios
+                   </span>
+                </a>
+             </li>
+             <li class="nav-item dropdown mx-0 mx-lg-2">
+                <!-- En la etiqueta <a href=""></a> está el id="" que hace referencia al contenido a mostrar como lista -->
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                   data-bs-toggle="dropdown" aria-expanded="true">
+                   <span>
+                      <!-- <i class="fas fa-temperature-high text-white me-1"></i> -->
+                      <img src="../../../assets/imagenes/sensor.png" class="mb-1 mr-1" alt="" width="20px">
+                      Tipo de Sensor
+                   </span>
+                </a>
+                <!-- Este es el contenido a mostrar de la anterior mención -->
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                   <li>
+                      <a class="dropdown-item" [routerLink]="['/humedad']" [routerLinkActive]="['active']">
+                         <span>
+                            <!-- <i class="fas fa-tint text-dark me-1"></i> -->
+                            <img src="../../../assets/imagenes/humedad.png" class="mb-1 mr-1" alt="" width="20px">
+                            Humedad
+                         </span>
+                      </a>
+                   </li>
+                   <li>
+                      <a class="dropdown-item" [routerLink]="['/temperatura']" [routerLinkActive]="['active']">
+                         <span>
+                            <!-- <i class="fas fa-thermometer-full text-dark me-1"></i> -->
+                            <img src="../../../assets/imagenes/temperatura.png" class="mb-1 mr-1" alt="" width="20px">
+                            Temperatura
+                         </span>
+                      </a>
+                   </li>
+                </ul>
+             </li>
+             <li class="nav-item mx-0 mx-lg-2">
+                <a class="nav-link" [routerLink]="['/plantas']" [routerLinkActive]="['active']">
+                   <span>
+                      <!-- <i class="fas fa-seedling text-white me-1"></i> -->
+                      <img src="../../../assets/imagenes/plantas.png" class="mb-1 mr-1" alt="" width="20px">
+                      Plantas
+                   </span>
+                </a>
+             </li>
+             <li class="nav-item mx-0 mx-lg-2">
+                <a class="nav-link">
+                   <span>
+                      <!-- <i class="fas fa-user-tag text-white me-1"></i> -->
+                      <img src="../../../assets/imagenes/role.png" class="mb-1 mr-1" alt="" width="20px">
+                      <!-- Esta sentencia trae el dato rol del usuario logueado y este se muestra en pantalla con su
+                      respectivo icono -->
+                      Rol: {{user.role}}
+                   </span>
+                </a>
+             </li>
+         
+          </ul>
+          <!-- ===================================================== -->
+          <ul class="navbar-nav ms-auto" *ngIf="user$ | async as user">
+             <li class="nav-item dropdown mx-0 mx-lg-2">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                   data-bs-toggle="dropdown" aria-expanded="true">
+                   <span>
+                      <!-- <i class="fas fa-user text-white me-1"></i> -->
+                      <img src="../../../assets/imagenes/configuracion.png" class="mb-1 mr-1" alt="" width="24px">
+                      <!-- Esta sentencia trae el dato email del usuario logueado y este se muestra en pantalla con su
+                      respectivo icono -->
+                      {{user.email}}
+                   </span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                   <li>
+                      <a class="dropdown-item" [routerLink]="['/perfil/', user.uid]" [routerLinkActive]="['active']">
+                         <span>
+                            <!-- <i class="fas fa-user-edit text-dark me-1"></i> -->
+                            <img src="../../../assets/imagenes/perfil.png" class="mb-1 mr-1" alt="" width="20px">
+                            Perfil
+                         </span>
+                      </a>
+                   </li>
+                   <li>
+                      <a class="dropdown-item" [routerLink]="['/manual']" [routerLinkActive]="['active']">
+                         <span>
+                            <!-- <i class="fas fa-user-edit text-dark me-1"></i> -->
+                            <img src="../../../assets/imagenes/manual.png" class="mb-1 mr-1" alt="" width="20px">
+                            Manual Usuario
+                         </span>
+                      </a>
+                   </li>
+                   <li>
+                      <hr class="dropdown-divider">
+                   </li>
+                   <li>
+                      <!-- Por último la función cerrar sesión, que es para indicar que siendo accionada, quedas fuera del sistema interno -->
+                      <a class="dropdown-item" (click)="onLogout()">
+                         <span>
+                            <!-- <i class="fas fa-sign-out-alt text-dark me-1"></i> -->
+                            <img src="../../../assets/imagenes/cerrar.png" class="mb-1 mr-1" alt="" width="20px">
+                            Cerrar sesión
+                         </span>
+                      </a>
+                   </li>
+                </ul>
+             </li>
+          </ul>
+          <!-- ===================================================== -->
+          <!-- Si el usuario no se ha logueado, esta es la sección que será mostrada -->
+          <ng-template #login>
+             <!-- ===================================================== -->
+             <ul class="navbar-nav">
+                <li class="nav-item mx-0 mx-lg-2">
+                   <a class="nav-link" routerLink="/home">
+                      <span>
+                         <img src="../../../assets/imagenes/home.png" class="mb-1 mr-1" alt="" width="20px">
+                         Inicio
+                      </span>
+                   </a>
+                </li>
+             </ul>
+             <!-- ===================================================== -->
+             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item mx-0 mx-lg-2 my-1 my-lg-0">
+                   <a class="btn btn-primary btn-sm text-white rounded-pill px-3" routerLink="/login">
+                      <span>
+                         <img src="../../../assets/imagenes/iniciar-sesion.png" class="mr-1" alt="" width="20px">
+                         Iniciar sesión
+                      </span>
+                   </a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-2 my-1 my-lg-0">
+                   <a class="btn btn-secondary btn-sm text-white rounded-pill px-3" routerLink="/register">
+                      <span>
+                         <img src="../../../assets/imagenes/registrarse.png" class="mr-1" alt="" width="20px">
+                         Regístrate
+                      </span>
+                   </a>
+                </li>
+             </ul>
+             <!-- ===================================================== -->
+          </ng-template>
+          <!-- ===================================================== -->
+       </div>
+    </div>
+ </nav>
+ <!-- <nav class="navbar navbar-expand-lg mb-5 navbar-dark bg-success">
+    <div class="container-fluid">
+       <h1 style="font-size: 20px;color: #f16c0d;text-shadow: 0px 0px 15px #969696eb;">Vive<span
+             style="color: white;">Registro</span></h1>
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav" *ngIf="user$ | async as user; else login">
+             <li class="nav-item ml-4 mr-3">
+                <i class="fas fa-home mt-3"></i>
+                <a class="nav-link float-right" [routerLink]="['/home']" [routerLinkActive]="['active']">Inicio</a>
+             </li>
+             <li class="nav-item mr-3">
+                <i class="fas fa-tasks mt-3"></i>
+                <a class="nav-link float-right" [routerLink]="['/crud']" [routerLinkActive]="['active']">Gestionar
+                   Usuarios</a>
+             </li>
+             <li class="nav-item dropdown">
+                <i class="fas fa-microchip mt-3"></i>
+                <a class="nav-link dropdown-toggle float-right" href="#" id="navbarDropdownMenuLink" role="button"
+                   data-bs-toggle="dropdown" aria-expanded="true">
+                   Tipo Sensor
+                </a>
+                <ul class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
+                   <li>
+                      <a class="dropdown-item" [routerLink]="['/humedad']" [routerLinkActive]="['active']"><i
+                            class="fas fa-tint mr-3"></i>Humedad</a>
+                   </li>
+                   <li>
+                      <a class="dropdown-item" [routerLink]="['/temperatura']" [routerLinkActive]="['active']"><i
+                            class="fas fa-temperature-high mr-2"></i>Temperatura</a>
+                   </li>
+                </ul>
+             </li>
+             <li class="nav-item ml-2 mr-3">
+                <i class="fas fa-leaf mr-1 mt-3"></i>
+                <a class="nav-link float-right" [routerLink]="['/plantas']" [routerLinkActive]="['active']">Plantas</a>
+             </li>
+          </ul>
+          <ul class="navbar-nav navbar-nav-login" *ngIf="user$ | async as user">
+             <li class="nav-item dropdown">
+                <i class="fas fa-user-cog mt-3"></i>
+                <a class="nav-link dropdown-toggle float-right " href="#" id="navbarDropdownMenuLink" role="button"
+                   data-bs-toggle="dropdown" aria-expanded="true">
+                   {{user.email}}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                   <li><a class="dropdown-item" [routerLink]="['/profile']" [routerLinkActive]="['active']"> <i
+                            class="fas fa-user-edit mr-2"></i>Perfil</a></li>
+                   <li>
+                      <hr class="dropdown-divider">
+                   </li>
+                   <li><a class="dropdown-item" (click)="onLogout()"><i class="fas fa-sign-out-alt mr-2"></i>
+ 
+                         Cerrar Sesión</a></li>
+                </ul>
+             </li>
+          </ul>
+ 
+          <ng-template #login>
+             <ul class="navbar-nav">
+                <li class="nav-item mr-3 ml-4">
+                   <i class="fas fa-home mt-3"></i>
+                   <a class="nav-link float-right" routerLink="/home">Inicio</a>
+                </li>
+                <li class="nav-item mr-3">
+                   <i class="fas fa-sign-in-alt mt-3"></i>
+                   <a class="nav-link float-right" routerLink="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                   <i class="fas fa-registered mt-3"></i>
+                   <a class="nav-link float-right" routerLink="/register">Registro</a>
+                </li>
+ 
+             </ul>
+          </ng-template>
+       </div>
+    </div>
+ </nav> -->

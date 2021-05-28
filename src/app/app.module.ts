@@ -31,7 +31,6 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireAuthGuardModule  } from '@angular/fire/auth-guard';
 import { SendEmailComponent } from './auth/send-email/send-email.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CrearUsuariosComponent } from './components/crear-usuarios/crear-usuarios.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlantasComponent } from './components/plantas/plantas.component';
@@ -46,6 +45,7 @@ import { ValidacionInformacionComponent } from './components/validacion-informac
 import { ManualUsuarioComponent } from './components/manual-usuario/manual-usuario.component';
 import { RealTimeTemperaturaComponent } from './components/real-time-temperatura/real-time-temperatura.component';
 import { GraficaRadarTComponent } from './components/graficasTemperatura/grafica-radar-t/grafica-radar-t.component';
+import { NavbarPrincipalComponent } from './components/navbar-principal/navbar-principal.component';
 
 
 
@@ -67,7 +67,6 @@ import { GraficaRadarTComponent } from './components/graficasTemperatura/grafica
     TipoBarTemperaturaComponent,
     SendEmailComponent,
     RegisterComponent,
-    NavbarComponent,
     CrearUsuariosComponent,
     PlantasComponent,
     PerfilComponent,
@@ -81,7 +80,7 @@ import { GraficaRadarTComponent } from './components/graficasTemperatura/grafica
     ManualUsuarioComponent,
     RealTimeTemperaturaComponent,
     GraficaRadarTComponent,
-
+    NavbarPrincipalComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +97,8 @@ import { GraficaRadarTComponent } from './components/graficasTemperatura/grafica
     AngularFireAuthModule,
     FormsModule,
     AngularFireAuthGuardModule,
-    DataTablesModule
+    DataTablesModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
