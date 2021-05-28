@@ -90,9 +90,9 @@ export class SensorHumedadComponent implements OnInit, OnDestroy {
           this.color = res[0].colorSensorH;
           this.nombreS = res[0].nombreSensorH;
           this.tipoS = res[0].tipoSensorH;
-          this.planta = res[0].id_planta;
+          this.planta = res[0].plantaSensorH;
           this.sensorForm.patchValue({
-            idSensor: [this.idSensor],
+            idSensor: [this.idSensor],  
             tipoSensor: [this.tipoS],
             nombreSensor: [this.nombreS],
             colorSensor: [this.color],

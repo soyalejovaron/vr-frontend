@@ -24,7 +24,8 @@ export class GraficaRadarHComponent implements OnInit {
       }
     }
   };
-  public barChartLabels: Label[] = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
+  private fechas = [];
+  public barChartLabels: Label[] = this.fechas;
   public barChartType: ChartType = 'radar';
   public barChartLegend = true;
   public barChartPlugins = [pluginDataLabels];
@@ -39,6 +40,10 @@ export class GraficaRadarHComponent implements OnInit {
   private nombreSensor = [];
   private colores = [];
   private tipo = [];
+  private registroSensor1 = [];
+  private registroSensor2 = [];
+  private registroSensor3 = [];
+  private registroSensor4 = [];
 
   private r: string;
   private registros = [];
@@ -56,7 +61,16 @@ export class GraficaRadarHComponent implements OnInit {
     this._sensorHumedadService.getRegistros().subscribe(res => {
       this.registro = res;
       for (const s of this.registro) {
-        this.registros.push(s.porcentajeH);
+        if(s.idSensorH == 1){
+          this.fechas.push(s.fechaRegistroH)
+          this.registroSensor1.push(s.porcentajeH)
+        }else if(s.idSensorH == 2){
+          this.registroSensor2.push(s.porcentajeH)
+        }else if(s.idSensorH == 3){
+          this.registroSensor3.push(s.porcentajeH)
+        }else if(s.idSensorH == 4){
+          this.registroSensor4.push(s.porcentajeH)
+        }
       }
     });
   }
@@ -68,17 +82,26 @@ export class GraficaRadarHComponent implements OnInit {
       this.sensor = res;
       for (const s of this.sensor) {
         if (s.idSensorH == 1) {
-          this.datos.push(this.registros);
+          this.datos.push(this.registroSensor1);
           this.nombreSensor.push(s.nombreSensorH);
           this.colores.push(s.colorSensorH);
           this.tipo.push(s.tipoSensorH);
-        }else{
-        this.dato = s.datosSensorH.split(',');
-        this.datos.push(this.dato);
-        this.nombreSensor.push(s.nombreSensorH);
-        this.colores.push(s.colorSensorH);
-        this.tipo.push(s.tipoSensorH);
-        }
+        }else if (s.idSensorH == 2) {
+          this.datos.push(this.registroSensor2);
+          this.nombreSensor.push(s.nombreSensorH);
+          this.colores.push(s.colorSensorH);
+          this.tipo.push(s.tipoSensorH);
+        }else if (s.idSensorH == 3) {
+          this.datos.push(this.registroSensor3);
+          this.nombreSensor.push(s.nombreSensorH);
+          this.colores.push(s.colorSensorH);
+          this.tipo.push(s.tipoSensorH);
+        }else if (s.idSensorH == 4) {
+          this.datos.push(this.registroSensor4);
+          this.nombreSensor.push(s.nombreSensorH);
+          this.colores.push(s.colorSensorH);
+          this.tipo.push(s.tipoSensorH);
+        } 
         
       }
 
@@ -100,8 +123,7 @@ export class GraficaRadarHComponent implements OnInit {
       { field: 'idSensorH', displayName: 'Id'},
       { field: 'nombreSensorH', displayName: 'Nombre Del Sensor'},
       { field: 'tipoSensorH', displayName: 'Tipo Del Sensor'},
-      { field: 'id_planta', displayName: 'Id planta'},
-      { field: 'id_estado', displayName: 'Id estado'},
+      { field: 'plantaSensorH', displayName: 'Nombre Planta'},
       { field: 'fechaCreacionH', displayName: 'Fecha De Creación'}
         ],
      type: 'json', header: '<h3 class="custom-h3">Sensores de humedad</h3>',

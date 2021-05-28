@@ -14,7 +14,7 @@
                 <div class="form-group">
                     <label>Planta:</label>
                     <select formControlName="plantaSensor" class="form-control">
-                        <option  *ngFor="let item of plantas" value="{{item.id_planta}}">{{item.nombre_planta}}</option>
+                        <option  *ngFor="let item of plantas">{{item.nombre_planta}}</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -43,7 +43,7 @@
     <!-- Creación de la tabla  -->
     <div class="col-9">
         <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="tablaHumedad" class="table table-striped table-bordered row-border hover" >
-            <thead class="thead-dark text-center">
+            <thead class="bg-primary text-light text-center">
                 <tr class="">
                     <th scope="col">ID</th>
                     <th scope="col">Tipo sensor</th>
@@ -58,11 +58,11 @@
                     <th>{{sensor.idSensorH}}</th>
                     <td>{{sensor.tipoSensorH}}</td>
                     <td>{{sensor.nombreSensorH}}</td>
-                    <td>{{sensor.id_planta}}</td>
+                    <td>{{sensor.plantaSensorH}}</td>
                     <td>{{sensor.fechaCreacionH}}</td>
                     <td>
                         <img class="mr-3" src="../../../assets/imagenes/editarHumedad.png" alt="" [routerLink]="['/humedad', sensor.idSensorH]" width="30px">
-                        <img class="mr-3" src="../../../assets/imagenes/eliminarHumedad.png" alt="" (click)="borrarSensor(sensor.idSensorH)" width="30px">
+                        <img class="" src="../../../assets/imagenes/eliminarHumedad.png" alt="" (click)="borrarSensor(sensor.idSensorH)" width="30px">
                         <!-- <i class="fas fa-edit fa-2x text-info mr-3" [routerLink]="['/humedad', sensor.idSensorH]"></i> -->
                         <!-- <i class="fas fa-minus fa-2x text-danger" (click)="borrarSensor(sensor.idSensorH)"></i> -->
                     </td>

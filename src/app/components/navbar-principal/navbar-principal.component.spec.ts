@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GraficaPolarareaHComponent } from './grafica-polararea-h.component';
+import { NavbarPrincipalComponent } from './navbar-principal.component';
 
-describe('GraficaPolarareaHComponent', () => {
-  let component: GraficaPolarareaHComponent;
-  let fixture: ComponentFixture<GraficaPolarareaHComponent>;
+describe('NavbarPrincipalComponent', () => {
+  let component: NavbarPrincipalComponent;
+  let fixture: ComponentFixture<NavbarPrincipalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GraficaPolarareaHComponent ]
+      declarations: [ NavbarPrincipalComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GraficaPolarareaHComponent);
+    fixture = TestBed.createComponent(NavbarPrincipalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

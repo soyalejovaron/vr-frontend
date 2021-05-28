@@ -24,7 +24,8 @@ export class GraficaHorizontalbarTComponent implements OnInit {
       }
     }
   };
-  public barChartLabels: Label[] = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
+  private fechas = [];
+  public barChartLabels: Label[] = this.fechas;
   public barChartType: ChartType = 'horizontalBar';
   public barChartLegend = true;
   public barChartPlugins = [pluginDataLabels];
@@ -39,9 +40,14 @@ export class GraficaHorizontalbarTComponent implements OnInit {
   private nombreSensor = [];
   private colores = [];
   private tipo = [];
+  private registroSensor1 = [];
+  private registroSensor2 = [];
+  private registroSensor3 = [];
+  private registroSensor4 = [];
 
   private r: string;
   private registros = [];
+  
 
   constructor(protected _sensorTemperaturaService: SensorTemperaturaService, private toastr: ToastrService ) {
     this.getSensor();
@@ -55,29 +61,45 @@ export class GraficaHorizontalbarTComponent implements OnInit {
     this._sensorTemperaturaService.getRegistros().subscribe(res => {
       this.registro = res;
       for (const s of this.registro) {
-        this.registros.push(s.porcentajeT);
+        if(s.idSensorT == 1){
+          this.fechas.push(s.fechaRegistroT)
+          this.registroSensor1.push(s.porcentajeT)
+        }else if(s.idSensorT == 2){
+          this.registroSensor2.push(s.porcentajeT)
+        }else if(s.idSensorT == 3){
+          this.registroSensor3.push(s.porcentajeT)
+        }else if(s.idSensorT == 4){
+          this.registroSensor4.push(s.porcentajeT)
+        }
       }
     });
   }
-
-
 
   getSensor() {
     this._sensorTemperaturaService.getSensores().subscribe(res => {
       this.sensor = res;
       for (const s of this.sensor) {
         if (s.idSensorT == 1) {
-          this.datos.push(this.registros);
+          this.datos.push(this.registroSensor1);
           this.nombreSensor.push(s.nombreSensorT);
           this.colores.push(s.colorSensorT);
           this.tipo.push(s.tipoSensorT);
-        }else{
-        this.dato = s.datosSensorT.split(',');
-        this.datos.push(this.dato);
-        this.nombreSensor.push(s.nombreSensorT);
-        this.colores.push(s.colorSensorT);
-        this.tipo.push(s.tipoSensorT);
-        }
+        }else if (s.idSensorT == 2) {
+          this.datos.push(this.registroSensor2);
+          this.nombreSensor.push(s.nombreSensorT);
+          this.colores.push(s.colorSensorT);
+          this.tipo.push(s.tipoSensorT);
+        }else if (s.idSensorT == 3) {
+          this.datos.push(this.registroSensor3);
+          this.nombreSensor.push(s.nombreSensorT);
+          this.colores.push(s.colorSensorT);
+          this.tipo.push(s.tipoSensorT);
+        }else if (s.idSensorT == 4) {
+          this.datos.push(this.registroSensor4);
+          this.nombreSensor.push(s.nombreSensorT);
+          this.colores.push(s.colorSensorT);
+          this.tipo.push(s.tipoSensorT);
+        } 
         
       }
 
@@ -99,12 +121,11 @@ export class GraficaHorizontalbarTComponent implements OnInit {
       { field: 'idSensorT', displayName: 'Id'},
       { field: 'nombreSensorT', displayName: 'Nombre Del Sensor'},
       { field: 'tipoSensorT', displayName: 'Tipo Del Sensor'},
-      { field: 'id_planta', displayName: 'Id planta'},
-      { field: 'id_estado', displayName: 'Id estado'},
+      { field: 'plantaSensorT', displayName: 'Nombre Planta'},
       { field: 'fechaCreacionT', displayName: 'Fecha De Creación'}
         ],
-     type: 'json', header: '<h3 class="custom-h3">Sensores de temperatura</h3>',
-    style: '.custom-h3 { margin-top: 50px; color: black; text-align: center;text-shadow: 2px 15px 3px #dc3545;border-left: 2px solid black; border-right: 2px solid black; font-size: 25px; }'
+     type: 'json', header: '<h3 class="custom-h3">Sensores de humedad</h3>',
+    style: '.custom-h3 { margin-top: 50px; color: black; text-align: center;text-shadow: 2px 15px 3px #3971A5;border-left: 2px solid black; border-right: 2px solid black; font-size: 25px; }'
     , documentTitle: 'Vive Registro',
     gridHeaderStyle: 'border: 2px solid black; color: black;',
 	  gridStyle: 'border: 2px solid gray; text-align:center; ', showModal: true, modalMessage: 'Por favor espera...', 
@@ -122,4 +143,5 @@ export class GraficaHorizontalbarTComponent implements OnInit {
     }
 
   }
+
 }

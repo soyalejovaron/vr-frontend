@@ -14,9 +14,9 @@
                 <div class="form-group">
                     <label>Planta:</label>
                     <select formControlName="plantaSensor" class="form-control">
-                        <option  *ngFor="let item of plantas" value="{{item.id_planta}}">{{item.nombre_planta}}</option>
+                        <option  *ngFor="let item of plantas">{{item.nombre_planta}}</option>
                     </select>
-                </div>
+                </div>  
                 <div class="form-group">
                     <label for="color">Color de la gráfica</label>
                     <!-- Input que permite seleccionar el color de la paleta -->
@@ -42,7 +42,7 @@
     <!-- Creación de la tabla  -->
     <div class="col-9">
         <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="tablaTemperatura" class="table table-striped table-bordered row-border hover" >
-            <thead class="thead-dark text-center">
+            <thead class="bg-danger text-light text-center">
                 <tr class="">
                     <th scope="col">ID</th>
                     <th scope="col">Tipo sensor</th>
@@ -57,11 +57,11 @@
                     <th>{{sensor.idSensorT}}</th>
                     <td>{{sensor.tipoSensorT}}</td>
                     <td>{{sensor.nombreSensorT}}</td>
-                    <td>{{sensor.id_planta}}</td>
+                    <td>{{sensor.plantaSensorT}}</td>
                     <td>{{sensor.fechaCreacionT}}</td>
                     <td>
                         <img class="mr-3" src="../../../assets/imagenes/editarTemperatura.png" alt="" [routerLink]="['/temperatura', sensor.idSensorT]" width="30px">
-                        <img class="mr-3" src="../../../assets/imagenes/eliminarHumedad.png" alt="" (click)="borrarSensor(sensor.idSensorT)" width="30px">
+                        <img class="" src="../../../assets/imagenes/eliminarHumedad.png" alt="" (click)="borrarSensor(sensor.idSensorT)" width="30px">
                         <!-- <i class="fas fa-edit fa-2x text-info mr-3" [routerLink]="['/temperatura', sensor.idSensorT]"></i> -->
                         <!-- <i class="fas fa-minus fa-2x text-danger" (click)="borrarSensor(sensor.idSensorT)"></i> -->
                     </td>

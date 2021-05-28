@@ -31,7 +31,7 @@
     <!-- Creación de la tabla  -->
     <div class="col-9">
         <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="tablaPlantas" class="table table-striped table-bordered row-border hover" >
-            <thead class="thead-dark text-center">
+            <thead class="bg-success text-light text-center">
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nombre de la planta</th>
@@ -46,7 +46,7 @@
                     <td>{{planta.descripcion_planta}}</td>
                     <td>
                         <img class="mr-3" src="../../../assets/imagenes/editarPlanta.png" alt="" [routerLink]="['/plantas', planta.id_planta]" width="30px">
-                        <img class="mr-3" src="../../../assets/imagenes/eliminarPlanta.png" alt="" (click)="borrarPlanta(planta.id_planta)" width="30px">
+                        <img class="" src="../../../assets/imagenes/eliminarHumedad.png" alt="" (click)="borrarPlanta(planta.id_planta)" width="30px">
                         <!-- <i class="fas fa-edit fa-2x text-info mr-3" [routerLink]="['/plantas', planta.id_planta]"></i>
                         <i class="fas fa-minus fa-2x text-danger" (click)="borrarPlanta(planta.id_planta)"></i> -->
                     </td>

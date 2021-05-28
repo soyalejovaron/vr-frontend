@@ -6,8 +6,6 @@ import { CrearUsuariosComponent } from './components/crear-usuarios/crear-usuari
 import { GraficaLineHComponent } from './components/graficasHumedad/grafica-line-h/grafica-line-h.component';
 import { GraficaBarHComponent } from './components/graficasHumedad/grafica-bar-h/grafica-bar-h.component';
 import { GraficaHorizontalbarHComponent } from './components/graficasHumedad/grafica-horizontalbar-h/grafica-horizontalbar-h.component';
-import { GraficaDoughnutHComponent } from './components/graficasHumedad/grafica-doughnut-h/grafica-doughnut-h.component';
-import { GraficaPolarareaHComponent } from './components/graficasHumedad/grafica-polararea-h/grafica-polararea-h.component';
 import { GraficaRadarHComponent } from './components/graficasHumedad/grafica-radar-h/grafica-radar-h.component';
 
 /* Rutas de los sensores de temperatura */
@@ -15,10 +13,6 @@ import { GraficaRadarHComponent } from './components/graficasHumedad/grafica-rad
 import { GraficaLineTComponent } from './components/graficasTemperatura/grafica-line-t/grafica-line-t.component';
 import { GraficaBarTComponent } from './components/graficasTemperatura/grafica-bar-t/grafica-bar-t.component';
 import { GraficaHorizontalbarTComponent } from './components/graficasTemperatura/grafica-horizontalbar-t/grafica-horizontalbar-t.component';
-import { GraficaDoughnutTComponent } from './components/graficasTemperatura/grafica-doughnut-t/grafica-doughnut-t.component';
-import { GraficaPolarareaTComponent } from './components/graficasTemperatura/grafica-polararea-t/grafica-polararea-t.component';
-import { GraficaRadarTComponent } from './components/graficasTemperatura/grafica-radar-t/grafica-radar-t.component';
-
 import { SensorHumedadComponent } from './components/sensor-humedad/sensor-humedad.component';
 import { SensorTemperaturaComponent } from './components/sensor-temperatura/sensor-temperatura.component'
 import { RegisterComponent } from './auth/register/register.component';
@@ -34,21 +28,12 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { HomeComponent } from './components/home/home.component';
 import { ValidacionInformacionComponent } from './components/validacion-informacion/validacion-informacion.component';
 import { ManualUsuarioComponent } from './components/manual-usuario/manual-usuario.component';
+import { GraficaRadarTComponent } from './components/graficasTemperatura/grafica-radar-t/grafica-radar-t.component';
 
 
 
 const routes: Routes = [
   /* rutas de los sensores de humedad */
-  {
-    path: 'graficaPolarH',
-    component: GraficaPolarareaHComponent,
-    canActivate: [PermisosJardineroAdmin],
-  },
-  {
-    path: 'graficaDoughnutH',
-    component: GraficaDoughnutHComponent,
-    canActivate: [PermisosJardineroAdmin],
-  },
   {
     path: 'graficaHorizontalH',
     component: GraficaHorizontalbarHComponent,
@@ -70,16 +55,6 @@ const routes: Routes = [
     canActivate: [PermisosJardineroAdmin],
   },
   /* rutas de los sensores de temperatura */
-  {
-    path: 'graficaPolarT',
-    component: GraficaPolarareaTComponent,
-    canActivate: [PermisosJardineroAdmin],
-  },
-  {
-    path: 'graficaDoughnutT',
-    component: GraficaDoughnutTComponent,
-    canActivate: [PermisosJardineroAdmin],
-  },
   {
     path: 'graficaHorizontalT',
     component: GraficaHorizontalbarTComponent,
