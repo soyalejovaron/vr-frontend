@@ -11,17 +11,22 @@ no será mostrada esta vista -->
                 <!-- ============================================================ -->
                 <div class="col-6 col-sm-auto col-md-1 py-2">
                     <div>
+                        <!-- Tanque es un componente del sistema, es el que almacena el agua que utiliza el sistema de riego para regar las plantas cuando el sistema automatizado inicie a funcionar. -->
                         <h1 class="fs-5">
                             Tanque
                         </h1>
                     </div>
+                    <!-- El icono que representa o ilustra el tanque. -->
                     <div>
                         <img src="../../../assets/imagenes/deposito-de-agua.png" width="50px">
                     </div>
+                    <!-- Esta parte es para mostrar dos estados del tanque, cuando se está llenando el tanque y cuando no se está llenando, es decir, su porcentaje en cuanto al contenido del tanque. -->
                     <div>
+                        <!-- Este fragmento de código indica el porcentaje en relación al contenido del tanque y se muestra como texto en pantalla. -->
                         <span *ngIf="tanqueAgua=='50%' || tanqueAgua=='60%'" class="text-danger">
                             {{tanqueAgua}}
                         </span>
+                        <!-- Este fragmento de código indica que se está llenando el tanque, es decir, que está recibiendo agua dentro y que se está llenando, esto se muestra como un texto en pantalla. -->
                         <span *ngIf="tanqueAgua=='Llenando...'" class="text-success">
                             {{tanqueAgua}}
                         </span>
@@ -30,17 +35,22 @@ no será mostrada esta vista -->
                 <!-- ============================================================ -->
                 <div class="col-6 col-sm-auto col-md-1 py-2">
                     <div>
+                        <!-- Válvula es un componente del sistema, es el que a través de la válvula, pasa el agua que utiliza el sistema de riego para regar las plantas cuando el sistema automatizado inicie a funcionar. -->
                         <h1 class="fs-5">
                             Válvula
                         </h1>
                     </div>
+                    <!-- El icono que representa o ilustra la válvula. -->
                     <div>
                         <img src="../../../assets/imagenes/gas.png" width="50px">
                     </div>
+                    <!-- Esta parte es para mostrar dos estados de la válvula, cuando se está apagada la válvula y cuando está activada. -->
                     <div>
+                        <!-- Este fragmento de código indica el estado, es decir, apagado y este se muestra como un texto en pantalla. -->
                         <span *ngIf="valvula=='Apagado'" class="text-danger">
                             {{valvula}}
                         </span>
+                        <!-- Este fragmento de código indica el estado, es decir, activado y este se muestra como un texto en pantalla. -->
                         <span *ngIf="valvula=='Activado'" class="text-success">
                             {{valvula}}
                         </span>
@@ -49,17 +59,22 @@ no será mostrada esta vista -->
                 <!-- ============================================================ -->
                 <div class="col-6 col-sm-auto col-md-1 py-2">
                     <div>
+                        <!-- Batería es un componente del sistema, que a través de la batería, es que el sistema, como el riego automatizado, sensores y demás objetos que hacen parte del vivero funcionen y este se complementa con el panel solar. -->
                         <h1 class="fs-5">
                             Batería
                         </h1>
                     </div>
+                    <!-- El icono que representa o ilustra la batería. -->
                     <div>
                         <img src="../../../assets/imagenes/energia.png" width="50px">
                     </div>
+                    <!-- Esta parte es para mostrar dos estados de la batería, cuando se está apagada la batería y cuando está activada. -->
                     <div>
+                        <!-- Este fragmento de código indica el estado, es decir, apagado y este se muestra como un texto en pantalla. -->
                         <span *ngIf="bateria=='Apagado'" class="text-danger">
                             {{bateria}}
                         </span>
+                        <!-- Este fragmento de código indica el estado, es decir, activado y este se muestra como un texto en pantalla. -->
                         <span *ngIf="bateria=='Activado'" class="text-success">
                             {{bateria}}
                         </span>
@@ -68,17 +83,22 @@ no será mostrada esta vista -->
                 <!-- ============================================================ -->
                 <div class="col-6 col-sm-auto col-md-1 py-2">
                     <div>
+                        <!-- Panel es un componente del sistema, que conjuntamente con la batería, es que el sistema, como el riego automatizado, sensores y demás objetos que hacen parte del vivero funcionen, el panel recibe la energía que el sol provee y esta energía es almacenada en la batería. -->
                         <h1 class="fs-5">
                             Panel
                         </h1>
                     </div>
+                    <!-- El icono que representa o ilustra el panel. -->
                     <div>
                         <img src="../../../assets/imagenes/poder.png" width="50px">
                     </div>
+                    <!-- Esta parte es para mostrar dos estados del panel, cuando se está apagado el panel y cuando está activado. -->
                     <div>
+                        <!-- Este fragmento de código indica el estado, es decir, apagado y este se muestra como un texto en pantalla. -->
                         <span *ngIf="panel=='Apagado'" class="text-danger">
                             {{panel}}
                         </span>
+                        <!-- Este fragmento de código indica el estado, es decir, conectado y este se muestra como un texto en pantalla. -->
                         <span *ngIf="panel=='Conectado'" class="text-success">
                             {{panel}}
                         </span>
@@ -86,17 +106,22 @@ no será mostrada esta vista -->
                 </div>
                 <div class="col-6 col-sm-auto py-2">
                     <div>
+                        <!-- Lluvia es un componente del sistema, que conjuntamente con el tanque, cuando esté lloviendo, el estado del tanque cambia, porque de la lluvia es que el tanque se llena. -->
                         <h1 class="fs-5">
                             Lluvia
                         </h1>
                     </div>
+                    <!-- El icono que representa o ilustra la lluvia. -->
                     <div>
                         <img src="../../assets/imagenes/raining.png" width="50px">
                     </div>
+                    <!-- Esta parte es para mostrar dos estados de la lluvia, cuando está lloviendo y cuando no está lloviendo. -->
                     <div>
+                        <!-- Este fragmento de código indica el estado, es decir, no está lloviendo y se muestra como un texto en pantalla. -->
                         <span *ngIf="lluvia=='No'" class="text-danger">
                             {{estadoLluvia}}
                         </span>
+                        <!-- Este fragmento de código indica el estado, es decir, está lloviendo y se muestra como un texto en pantalla. -->
                         <span *ngIf="lluvia=='Si'" class="text-success">
                             {{estadoLluvia}}
                         </span>
@@ -139,71 +164,74 @@ no será mostrada esta vista -->
             <div class="row">
                 <div class="col-12 text-center">
                     <!-- Esta fila contiene las cuatro columnas que tienen la información que puede ser mostrada en un sistema automatizado
-                    Por ejemplo, la primera columna tiene el nombre de la línea que es Línea 1, su estado, apagado o encendido, temperatura,
-                    humedad y dos botones, el primero que es activar es para encender o poner en marcha esa línea de riego y el botón de las
-                    estadísticas es para mostrar sus datos en una gráfica, todo esto es igual para las demás líneas de riego -->
+                    Por ejemplo, la primera columna tiene el indicador al que pertenece que es Línea 1, su estado, apagado o encendido, temperatura, humedad y tres botones
+                - El primer botón es para activar o desactivar la línea, esto habilita los datos que pertenecen a la línea y los otros dos botones.
+                - El segundo botón es para mostras las estadísitcas de humedad, eso es gracias a los sensores de humedad que pertenecen a la línea.
+                - El tercer botón es para mostrar las estadísitcas de temperatura, eso es gracias a los sensores de temperatura que pertenecen a la línea. -->
                     <div class="row g-5">
                         <!-- ============================================================ -->
                         <div class="col-6 col-md-3">
                             <div class="p-3 shadow-lg rounded-5" style="height: auto;">
                                 <div>
                                     <h1 class="fs-5">
-                                        <!-- Indicador de la línea -->
+                                        <!-- Referencia de la línea, indica que esta es la primera línea entre todas las demás -->
                                         Línea 1
                                     </h1>
                                 </div>
                                 <div>
                                     <div>
                                         <span>
-                                            <!-- Referencia de actividad -->
+                                            <!-- Referencia de actividad, en esta fila se muestra el estado que puede tener la línea, sea activado o desactivado -->
                                             Estado
                                         </span>
                                     </div>
                                     <div>
-                                        <!-- Por diseño se implementan iconos para indicar de modo gráfico la información, en
-                                        este caso es de un icono de "turn off" -->
+                                        <!-- Por diseño se implementan iconos para indicar a modo gráfico la información, en
+                                        este caso es de un icono de "turn off" que es la presentación de "apagado" -->
                                         <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
                                     </div>
+                                    <!-- En este espacio se indica el estado de cada línea utilizando el ngIf para validar el estado. -->
                                     <div>
-                                        <!-- En este espacio se indica el estado de cada línea utilizando el ngIf para
-                                        validar el estado, si es apagado que muestre un texto, si es activado que
-                                        muestre un texto -->
+                                        <!-- En este fragmento se muestra en pantalla un texto que indica el estado de la línea, es decir "Apagado" -->
                                         <span *ngIf="estado1=='Apagado'" class="text-danger">
                                             {{estado1}}
                                         </span>
+                                        <!-- En este fragmento se muestra en pantalla un texto que indica el estado de la línea, es decir "Activado" -->
                                         <span *ngIf="estado1=='Activado'" class="text-success">
                                             {{estado1}}
                                         </span>
                                     </div>
                                 </div>
                                 <div>
+                                    <!-- Separación entre filas -->
                                     <hr class="text-secondary">
                                 </div>
                                 <div>
                                     <div>
                                         <span>
-                                            <!-- Sección de dato temperatura. Se muestra con un dato la temperatura de la línea a la que pertenece -->
+                                            <!-- Sección dato de temperatura. Se muestra con un dato la temperatura de la línea a la que pertenece. -->
                                             Temperatura
                                         </span>
                                     </div>
                                     <div>
-                                        <!-- Icono de temperatura -->
+                                        <!-- Por diseño se implementan iconos para indicar a modo gráfico la información, en este caso es de un icono de "temperatura". -->
                                         <img src="../../../assets/imagenes/caliente.png" width="40px">
                                     </div>
                                     <div>
                                         <span>
-                                            <!-- Dato de la temperatura -->
+                                            <!-- Variable que almacena este dato de la temperatura y es mostrado en pantalla como un número -->
                                             {{temperatura1}}
                                         </span>
                                     </div>
                                 </div>
                                 <div>
+                                    <!-- Separación entre filas -->
                                     <hr class="text-secondary">
                                 </div>
                                 <div>
                                     <div>
                                         <span>
-                                            <!-- Sección de dato humedad. Se muestra con un dato la temperatura de la línea a la que pertenece -->
+                                            <!-- Sección dato de humedad. Se muestra con un dato la humedad de la línea a la que pertenece -->
                                             Humedad
                                         </span>
                                     </div>
@@ -212,12 +240,13 @@ no será mostrada esta vista -->
                                     </div>
                                     <div>
                                         <span>
-                                            <!-- Dato de la humedad -->
+                                            <!-- Variable que almacena este dato de la humedad y es mostrado en pantalla como un número -->
                                             {{humedad1}}
                                         </span>
                                     </div>
                                 </div>
                                 <div>
+                                    <!-- Separación entre filas -->
                                     <hr class="text-secondary">
                                 </div>
                                 <!-- Acciones. En esta sección se muestran diferentes secciones las cuales pertenecen a cada una de las líneas, esto para tener más control. -->
@@ -522,178 +551,7 @@ no será mostrada esta vista -->
     </div>
 </div>
 <!-- =========================================================================================== -->
-
-
-
-
-
-
-
-<!-- <div class="container-fluid mt-5" *ngIf="user$ | async as user; else home">
-    <div class="row">
-        <div class="col-12">
-            <div class="row">
-                <div class="col-3 border">
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <h4>Información</h4>
-                        </div>
-                        <div class="col-12 mt-3 text-center border-bottom">
-                            <h4>Tanque</h4>
-                            <img src="../public/img/deposito-de-agua.png" alt="" width="50px">
-                            <img src="../../../assets/imagenes/deposito-de-agua.png" width="50px">
-
-                            <p>97%</p>
-                        </div>
-                        <div class="col-12 mt-3 text-center border-bottom">
-                            <h4>Válvula</h4>
-                            <img src="../public/img/gas.png" alt="" width="50px">
-                            <img src="../../../assets/imagenes/gas.png" width="50px">
-                            <p class="text-success">Encendida</p>
-                        </div>
-                        <div class="col-12 mt-3 text-center border-bottom">
-                            <h4>Energía</h4>
-                            <img src="../public/img/energia.png" alt="" width="50px">
-                            <img src="../../../assets/imagenes/energia.png" width="50px">
-
-                            <p class="text-success">Encendida</p>
-                        </div>
-                        <div class="col-12 mt-3 text-center border-bottom">
-                            <h4>Pánel solar</h4>
-                            <img src="../public/img/poder.png" alt="" width="50px">
-                            <img src="../../../assets/imagenes/poder.png" width="50px">
-
-                            <p class="text-success">Encendida</p>
-                        </div>
-                        <div class="col-12 mt-3 text-center mb-2">
-                            <div class="row">
-                                <div class="col-12">
-                                    <a class="btn btn-danger">Off</a>
-                                    <a class="btn btn-info">Corriente</a>
-                                    <a class="btn btn-danger">Stop</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-9 border">
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <h4>Estado de las líneas de riego</h4>
-                            <hr>
-                        </div>
-                        <div class="col-3 mt-3 text-center border-right">
-                            <h4>Línea 1</h4>
-                            <hr>
-                            <h6>Estado</h6>
-                            <img src="../public/img/boton-de-inicio.png" alt="" width="25px">
-                            <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
-                            <p class="text-success">Encendida</p>
-                            <hr>
-                            <h4>Temperatura</h4>
-                            <img src="../public/img/caliente.png" alt="" width="40px">
-                            <img src="../../../assets/imagenes/caliente.png" width="40px">
-                            <p>24°</p>
-                            <hr>
-                            <h4>Humedad</h4>
-                            <img src="../public/img/humedad.png" alt="" width="40px">
-                            <img src="../../../assets/imagenes/humedad.png" width="40px">
-
-                            <p>16%</p>
-                            <hr>
-                            <div class="row">
-                                <div class="col-12 p-3"><input type="submit" class="btn btn-danger btn-block"
-                                        value="Activar/desactivar"></div>
-                                <div class="col-12 p-3"><a href="#" class="btn btn-primary btn-block">Ver
-                                        estadísticas</a></div>
-                            </div>
-                        </div>
-                        <div class="col-3 mt-3 text-center border-right">
-                            <h4>Línea 2</h4>
-                            <hr>
-                            <h6>Estado</h6>
-                            <img src="../public/img/boton-de-inicio.png" alt="" width="25px">
-                            <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
-
-                            <p class="text-success">Encendida</p>
-                            <hr>
-                            <h4>Temperatura</h4>
-                            <img src="../public/img/caliente.png" alt="" width="40px">
-                            <img src="../../../assets/imagenes/caliente.png" width="40px">
-                            <p>26°</p>
-                            <hr>
-                            <h4>Humedad</h4>
-                            <img src="../public/img/humedad.png" alt="" width="40px">
-                            <img src="../../../assets/imagenes/humedad.png" width="40px">
-                            <p>13%</p>
-                            <hr>
-                            <div class="row">
-                                <div class="col-12 p-3"><input type="submit" class="btn btn-danger btn-block"
-                                        value="Activar/desactivar"></div>
-                                <div class="col-12 p-3"><a href="#" class="btn btn-primary btn-block">Ver
-                                        estadísticas</a></div>
-                            </div>
-                        </div>
-                        <div class="col-3 mt-3 text-center border-right">
-                            <h4>Línea 3</h4>
-                            <hr>
-                            <h6>Estado</h6>
-                            <img src="../public/img/boton-de-inicio.png" alt="" width="25px">
-                            <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
-
-                            <p class="text-danger">Apagada</p>
-                            <hr>
-                            <h4>Temperatura</h4>
-                            <img src="../public/img/caliente.png" alt="" width="40px">
-                            <img src="../../../assets/imagenes/caliente.png" width="40px">
-                            <p>32°</p>
-                            <hr>
-                            <h4>Humedad</h4>
-                            <img src="../public/img/humedad.png" alt="" width="40px">
-                            <img src="../../../assets/imagenes/humedad.png" width="40px">
-                            <p>9%</p>
-                            <hr>
-                            <div class="row">
-                                <div class="col-12 p-3"><input type="submit" class="btn btn-danger btn-block"
-                                        value="Activar/desactivar"></div>
-                                <div class="col-12 p-3"><a href="#" class="btn btn-primary btn-block">Ver
-                                        estadísticas</a></div>
-                            </div>
-                        </div>
-                        <div class="col-3 mt-3 text-center border-right">
-                            <h4>Línea 4</h4>
-                            <hr>
-                            <h6>Estado</h6>
-                            <img src="../public/img/boton-de-inicio.png" alt="" width="25px">
-                            <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
-
-                            <p class="text-warning">Peligro</p>
-                            <hr>
-                            <h4>Temperatura</h4>
-                            <img src="../public/img/caliente.png" alt="" width="40px">
-                            <img src="../../../assets/imagenes/energia.png" width="40px">
-                            <p>39°</p>
-                            <hr>
-                            <h4>Humedad</h4>
-                            <img src="../public/img/humedad.png" alt="" width="40px">
-                            <img src="../../../assets/imagenes/humedad.png" width="40px">
-                            <p>1%</p>
-                            <hr>
-                            <div class="row">
-                                <div class="col-12 p-3"><input type="submit" class="btn btn-danger btn-block"
-                                        value="Activar/desactivar"></div>
-                                <div class="col-12 p-3"><a href="#" class="btn btn-primary btn-block">Ver
-                                        estadísticas</a></div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- Si el usuario no está logueado, esta será la sección mostrada -->
+<!-- Si el usuario no está logueado (no ha iniciado sesión), esta será la interfaz que se muestra -->
 <ng-template #home>
     <!-- Se usan estilos dentro del html por facilidad y comodidad del desarrollador, esto no genera malas prácticas ni tampoco errores -->
     <style>

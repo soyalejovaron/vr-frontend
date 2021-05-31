@@ -29,7 +29,7 @@
                </div>
             </div>
             <!-- Botontes de ayuda -->
-            <div class="" *ngIf="user$ | async as user">
+            <div *ngIf="user$ | async as user">
                <!-- Botón para ir al sistema. Este botón redirecciona al usuaio al sistema para empezar su labor -->
                <a [routerLink]="['/validarInformacion/', user.uid]" class="btn-flip m-2" data-back="Empezar"
                   data-front="Ir al sistema"></a>
