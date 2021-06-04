@@ -24,7 +24,7 @@ export class GraficaRadarHComponent implements OnInit {
       }
     }
   };
-  private fechas = [];
+  private fechas:any = [];
   public barChartLabels: Label[] = this.fechas;
   public barChartType: ChartType = 'radar';
   public barChartLegend = true;
@@ -65,6 +65,7 @@ export class GraficaRadarHComponent implements OnInit {
           this.fechas.push(s.fechaRegistroH)
           this.registroSensor1.push(s.porcentajeH)
         }else if(s.idSensorH == 2){
+          
           this.registroSensor2.push(s.porcentajeH)
         }else if(s.idSensorH == 3){
           this.registroSensor3.push(s.porcentajeH)

@@ -20,7 +20,7 @@ export class ValidacionInformacionComponent implements OnInit {
   uid: string | null;
   titulo:String;
   nombre:boolean;
-  verificacion = "verificado";
+  verificacion = true;
 
   constructor(private fb: FormBuilder,
     private _usuarioService: UsuarioService,

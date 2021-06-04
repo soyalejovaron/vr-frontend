@@ -14,8 +14,11 @@ import * as XLSX from 'xlsx';
 })
 export class DatosHumedadComponent implements OnInit {
 
+  // Lista donde guardaremos todos los registros de humedad que se obtengan de la base de datos
   registros: any = [];
+  // Variable donde guardaremos el nombre que recibirá el archivo de excel que sea descargado sobre los datos de humedad
   fileName= 'RegistrosDeHumedad.xlsx';
+  // Configuración necesaria de las Datatables
   dtOptions: DataTables.Settings = {};
   dtTrigger = new Subject();
 
@@ -23,8 +26,10 @@ export class DatosHumedadComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Inicializamos el metodo de obtener registros, con el fin de que sea ejecutado una vez se acceda a este componente
     this.getRegistros();
 
+    // Configuración necesaria para ejecutar las Datatables
     this.dtOptions = {
       pagingType: 'full_numbers',
       retrieve: true,
@@ -36,17 +41,22 @@ export class DatosHumedadComponent implements OnInit {
     };
   }
 
+
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
   }
 
+  // Metodo para obtener todos los registros que se encuentren en la base de datos a cerca de los datos de humedad
   getRegistros() {
+    // Hacemos uso de un servicio para traer dichos registros
     this._sensorHumedadService.getRegistros().subscribe(res => {
+      // Guardamos estos registros obtenidos en una lista
       this.registros = res;
       this.dtTrigger.next();
     });
   }
 
+  // Metodo que convertirá todas las filas y columnas de la tabla en un archivo excel descargable
   exportarExcel(): void
   {
     
