@@ -15,7 +15,6 @@ import { GraficaBarTComponent } from './components/graficasTemperatura/grafica-b
 import { GraficaHorizontalbarTComponent } from './components/graficasTemperatura/grafica-horizontalbar-t/grafica-horizontalbar-t.component';
 import { SensorHumedadComponent } from './components/sensor-humedad/sensor-humedad.component';
 import { SensorTemperaturaComponent } from './components/sensor-temperatura/sensor-temperatura.component'
-import { RegisterComponent } from './auth/register/register.component';
 import { SendEmailComponent } from './auth/send-email/send-email.component';
 import { PermisosJardineroAdmin } from './auth/guards/permisos-jardinero';
 import { PermisosAdmin } from './auth/guards/permisos-admin';
@@ -29,6 +28,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ValidacionInformacionComponent } from './components/validacion-informacion/validacion-informacion.component';
 import { ManualUsuarioComponent } from './components/manual-usuario/manual-usuario.component';
 import { GraficaRadarTComponent } from './components/graficasTemperatura/grafica-radar-t/grafica-radar-t.component';
+import { RegistrarComponent } from './auth/registrar/registrar.component';
 
 
 
@@ -122,7 +122,7 @@ const routes: Routes = [
   },
   {
     path: 'register', 
-    component: RegisterComponent
+    component: RegistrarComponent
   },
   {
     path: 'verificar',

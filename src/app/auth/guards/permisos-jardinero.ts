@@ -27,7 +27,7 @@ export class PermisosJardineroAdmin implements CanActivate {
       // Haremos un mapeo del usuario logueado, y validaremos si el rol es equivalente a "Jardinero"
       map((user) => user && this.authSvc.esJardineroAdmin(user)),
       // Validamos si el rol que se encontró en el mapeo es valido para entrar a la ruta
-      tap((canEdit) => {
+      tap((canEdit) => { 
         // Si el usuario no tiene el rol necesario, se mostrará un mensaje y se le retornará al componente de inicio
         if (!canEdit) {
           this.toastr.error('Necesitas ser jardinero o administrador para acceder a esta ruta', 'logueate primero',{

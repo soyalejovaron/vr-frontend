@@ -1,6 +1,3 @@
-// Creamos los tipos de roles que existiran en el sistema
-export type Roles = 'Jardinero'  | 'Administrador';
-
 // Creamos una interfaz con diferentes atributos que haran o hacen parte de un usuario, lo cual nos ayudará para enviar, guardar, y usar estos datos
 // en diferentes partes del sistem por medio de observables
 export interface User {
@@ -12,7 +9,7 @@ export interface User {
   emailVerified: boolean;
   password?: string;
   photoURL?: string;
-  role?: Roles;
+  role?: string;
   estado?: string;
   fechaActualización?: Date,
   fechaCreacion?: Date,

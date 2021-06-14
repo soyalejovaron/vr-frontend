@@ -12,4 +12,7 @@ export class RealTimeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+  
+
 }

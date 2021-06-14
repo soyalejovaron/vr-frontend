@@ -71,6 +71,4 @@ export class DatosHumedadComponent implements OnInit {
   }
 
 
- 
-
 }

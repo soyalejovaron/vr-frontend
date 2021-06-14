@@ -10,6 +10,8 @@ import { timestamp, Timestamp } from 'rxjs/internal/operators/timestamp';
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
 import { DatePipe } from '@angular/common';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=UTF-8';
 const EXCEL_EXT = '.xlsx';
@@ -17,8 +19,8 @@ const EXCEL_EXT = '.xlsx';
 @Injectable({ providedIn: 'root' })
 export class AuthService extends RoleValidator {
   public user$: Observable<User>;
-  
-  constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore) {
+  public rol;
+  constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore, public _usuarioService: UsuarioService) {
     super();
     this.user$ = this.afAuth.authState.pipe(
       switchMap((user) => {
@@ -28,6 +30,7 @@ export class AuthService extends RoleValidator {
         return of(null);
       })
     );
+    
   }
 
   async loginGoogle(): Promise<User> {
@@ -56,10 +59,7 @@ export class AuthService extends RoleValidator {
 
   async login(email: string, password: string): Promise<User> {
     try {
-      const { user } = await this.afAuth.signInWithEmailAndPassword(
-        email,
-        password
-      );
+      const { user } = await this.afAuth.signInWithEmailAndPassword(email,password);
       this.updateUsuarioRegistrado(user);
       return user;
     } catch (error) {
@@ -88,19 +88,23 @@ export class AuthService extends RoleValidator {
     }
   }
 
-
   private updateUserData(user: User) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(
       `users/${user.uid}`
     );
 
+    this._usuarioService.getUsuario(user.uid).subscribe(data=>{
+      this.rol = data.payload.data()['role'];
+      user.role=this.rol;
+    });
+
     const data: User = {
       uid: user.uid,
       email: user.email,
+      role: user.role,
       emailVerified: user.emailVerified,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      role: 'Jardinero',
       estado: 'Activo',
       fechaCreacion: new Date(),
     }; 
@@ -113,13 +117,16 @@ export class AuthService extends RoleValidator {
       `users/${user.uid}`
     );
 
-
+    this._usuarioService.getUsuario(user.uid).subscribe(data=>{
+      this.rol = data.payload.data()['role'];
+      user.role=this.rol;
+    });
 
     const data: User = {
       uid: user.uid,
+      role: user.role,
       email: user.email,
       emailVerified: user.emailVerified,
-      role: 'Administrador',
       estado: 'Activo',
     };
     

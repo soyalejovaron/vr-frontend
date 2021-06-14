@@ -30,7 +30,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule } from '@angular/forms';
 import { AngularFireAuthGuardModule  } from '@angular/fire/auth-guard';
 import { SendEmailComponent } from './auth/send-email/send-email.component';
-import { RegisterComponent } from './auth/register/register.component';
 import { CrearUsuariosComponent } from './components/crear-usuarios/crear-usuarios.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlantasComponent } from './components/plantas/plantas.component';
@@ -46,7 +45,7 @@ import { ManualUsuarioComponent } from './components/manual-usuario/manual-usuar
 import { RealTimeTemperaturaComponent } from './components/real-time-temperatura/real-time-temperatura.component';
 import { GraficaRadarTComponent } from './components/graficasTemperatura/grafica-radar-t/grafica-radar-t.component';
 import { NavbarPrincipalComponent } from './components/navbar-principal/navbar-principal.component';
-
+import { RegistrarComponent } from './auth/registrar/registrar.component';
 
 
 @NgModule({
@@ -66,7 +65,6 @@ import { NavbarPrincipalComponent } from './components/navbar-principal/navbar-p
     TipoBarHumedadComponent,
     TipoBarTemperaturaComponent,
     SendEmailComponent,
-    RegisterComponent,
     CrearUsuariosComponent,
     PlantasComponent,
     PerfilComponent,
@@ -80,7 +78,8 @@ import { NavbarPrincipalComponent } from './components/navbar-principal/navbar-p
     ManualUsuarioComponent,
     RealTimeTemperaturaComponent,
     GraficaRadarTComponent,
-    NavbarPrincipalComponent
+    NavbarPrincipalComponent,
+    RegistrarComponent,
   ],
   imports: [
     BrowserModule,

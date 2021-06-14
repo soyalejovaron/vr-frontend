@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { promise } from 'selenium-webdriver';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,7 @@ export class SensorTemperaturaService {
  
   constructor(protected http: HttpClient) { }
 
-  getSensores() {
+  getSensores(){
     return this.http.get(`${this.baseUrl}/sensoresT`);
   }
 
