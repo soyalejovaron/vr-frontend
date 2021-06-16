@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
   estado4:string = "Apagado";
 
   
-  constructor(private _usuarioService: UsuarioService, private fb: FormBuilder,private aRoute: ActivatedRoute, private route: ActivatedRoute, private router: Router, public authSvc: AuthService, private toastr: ToastrService, protected _sensorHumedadService: SensorhumedadService,
+  constructor(private _usuarioService: UsuarioService, private fb: FormBuilder, private aRoute: ActivatedRoute, private route: ActivatedRoute, private router: Router, public authSvc: AuthService, private toastr: ToastrService, protected _sensorHumedadService: SensorhumedadService,
      protected _sensorTemperaturaService: SensorTemperaturaService, protected _sensorLluviaService: SensorLluviaService) {
   
       }
@@ -164,7 +164,7 @@ export class HomeComponent implements OnInit {
         positionClass: 'toast-bottom-right'
       });
     }else{
-      this.router.navigate(['/graficaRadarH']);
+      this.router.navigate(['/graficasHumedad', 'radar', 1]);
     }
   }
 
@@ -174,7 +174,7 @@ export class HomeComponent implements OnInit {
         positionClass: 'toast-bottom-right'
       });
     }else{
-      this.router.navigate(['/graficaRadarH']);
+      this.router.navigate(['/graficasHumedad', 'radar',1]);
     }
   }
 
@@ -184,7 +184,7 @@ export class HomeComponent implements OnInit {
         positionClass: 'toast-bottom-right'
       });
     }else{
-      this.router.navigate(['/graficaRadarH']);
+      this.router.navigate(['/graficasHumedad', 'radar', 1]);
     }
   }
 
@@ -194,7 +194,7 @@ export class HomeComponent implements OnInit {
         positionClass: 'toast-bottom-right'
       });
     }else{
-      this.router.navigate(['/graficaRadarH']);
+      this.router.navigate(['/graficasHumedad', 'radar', 1]);
     }
   }
 
@@ -206,7 +206,7 @@ export class HomeComponent implements OnInit {
         positionClass: 'toast-bottom-right'
       });
     }else{
-      this.router.navigate(['/graficaRadarT']);
+      this.router.navigate(['/graficasTemperatura', 'radar', 1]);
     }
   }
 
@@ -216,7 +216,7 @@ export class HomeComponent implements OnInit {
         positionClass: 'toast-bottom-right'
       });
     }else{
-      this.router.navigate(['/graficaRadarT']);
+      this.router.navigate(['/graficasTemperatura', 'radar', 1]);
     }
   }
 
@@ -226,7 +226,7 @@ export class HomeComponent implements OnInit {
         positionClass: 'toast-bottom-right'
       });
     }else{
-      this.router.navigate(['/graficaRadarT']);
+      this.router.navigate(['/graficasTemperatura', 'radar', 1]);
     }
   }
 
@@ -236,7 +236,7 @@ export class HomeComponent implements OnInit {
         positionClass: 'toast-bottom-right'
       });
     }else{
-      this.router.navigate(['/graficaRadarT']);
+      this.router.navigate(['/graficasTemperatura', 'radar', 1]);
     }
   }
 

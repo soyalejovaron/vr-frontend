@@ -12,4 +12,7 @@ export class RoleValidator {
   esAdministrador(user: User): boolean {
     return user.role === 'Administrador';
   }
+
+  
+
 }

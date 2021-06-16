@@ -74,7 +74,6 @@ export class RegistrarComponent implements OnInit {
       this.router.navigate(['/verificar']);
     } else {
       this.router.navigate(['/register']);
-      
     }
   }
 

@@ -1,9 +1,26 @@
-<div class="dropdown mt-5 ml-3 d-inline-block">
-    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-      Tipo De Bar
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <li><a class="dropdown-item" [routerLink]="['/graficaBarrasH']" [routerLinkActive]="['active']">Barra</a></li>
-      <li><a class="dropdown-item" [routerLink]="['/graficaHorizontalH']" [routerLinkActive]="['active']">Horizontal</a></li>
+<div class="dropdown mt-5 ml-2 d-inline-block">
+  <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+    Tipo De Bar
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    
+    <form [formGroup] = "sensorForm">
+      <li class="dropdown-item dropdown-submenu">
+        <a data-toggle="dropdown" class="dropdown-toggle">Vertical</a>
+        <ul class="dropdown-menu" >
+            <li class="dropdown-item" *ngFor="let sensor of sensores">
+              <a formControlName="idSensor" (click)="bar()" [routerLink]="['/graficasHumedad', 'bar', sensor.idSensorH]">sensor: {{sensor.idSensorH}}</a>
+            </li>
+          </ul>
+      </li>
+      <li class="dropdown-item dropdown-submenu">
+        <a data-toggle="dropdown" class="dropdown-toggle">Horizontal</a>
+        <ul class="dropdown-menu">
+            <li class="dropdown-item" *ngFor="let sensor of sensores">
+                <a (click)="horizontal()" [routerLink]="['/graficasHumedad', 'horizontalBar', sensor.idSensorH]">sensor: {{sensor.idSensorH}}</a>
+            </li>
+        </ul>
+      </li>
+    </form>
     </ul>
 </div>

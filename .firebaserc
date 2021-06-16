@@ -1,9 +1,9 @@
 {
   "targets": {
-    "usuarios-4f720": {
+    "viveregistros": {
       "hosting": {
         "GraficasAngular": [
-          "usuarios-4f720"
+          "viveregistros"
         ]
       }
     }

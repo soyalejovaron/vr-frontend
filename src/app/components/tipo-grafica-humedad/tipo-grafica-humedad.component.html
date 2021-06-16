@@ -3,8 +3,32 @@
       Tipo De Grafica
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" [routerLink]="['/graficaRadarH']" [routerLinkActive]="['active']">Radar</a></li>
-        <li><a class="dropdown-item" [routerLink]="['/graficaLinealH']" [routerLinkActive]="['active']">Lineal</a></li>
-        <li><a class="dropdown-item" [routerLink]="['/graficaBarrasH']" [routerLinkActive]="['active']">Barra</a></li>
-    </ul>
+      
+      <form [formGroup] = "sensorForm">
+        <li class="dropdown-item dropdown-submenu">
+          <a data-toggle="dropdown" class="dropdown-toggle">Radar</a>
+          <ul class="dropdown-menu" >
+              <li class="dropdown-item" *ngFor="let sensor of sensores">
+                <a formControlName="idSensor" (click)="radar()" [routerLink]="['/graficasHumedad', 'radar', sensor.idSensorH]">sensor: {{sensor.idSensorH}}</a>
+              </li>
+            </ul>
+        </li>
+        <li class="dropdown-item dropdown-submenu">
+          <a data-toggle="dropdown" class="dropdown-toggle">Lineal</a>
+          <ul class="dropdown-menu">
+              <li class="dropdown-item" *ngFor="let sensor of sensores">
+                  <a (click)="line()" [routerLink]="['/graficasHumedad', 'line', sensor.idSensorH]">sensor: {{sensor.idSensorH}}</a>
+              </li>
+          </ul>
+        </li>
+        <li class="dropdown-item dropdown-submenu">
+          <a data-toggle="dropdown" class="dropdown-toggle">Bar</a>
+          <ul class="dropdown-menu" >
+              <li class="dropdown-item" *ngFor="let sensor of sensores">
+                  <a (click)="bar()" [routerLink]="['/graficasHumedad', 'bar', sensor.idSensorH]" >sensor: {{sensor.idSensorH}}</a>
+              </li>
+          </ul>
+        </li>
+      </form>
+      </ul>
 </div>

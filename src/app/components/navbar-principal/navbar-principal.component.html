@@ -131,10 +131,11 @@ puede iniciar sesión, registrarse o redireccionarse al inicio. -->
             <li class="nav-item dropdown mx-0 mx-lg-2">
                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                   data-bs-toggle="dropdown" aria-expanded="true">
+                  <img *ngIf="user.photoURL != '' " style="border-radius: 50%; margin-right: 5px;" [src]="user.photoURL" alt="" width="40px">
                   <span>
                      <!-- <i class="fas fa-user text-white me-1"></i> -->
-                     <img src="../../../assets/imagenes/configuracion.png" class="mb-1 mr-1 icons-nav-width"
-                        alt="Icono que ilustra el usuario">
+                     <img *ngIf="user.photoURL==null" style="border-radius: 50%; margin-right: 5px;" src="../../../assets/imagenes/avatar.jpg"
+                        alt="Icono que ilustra el usuario" width="40px">
                      <!-- Esta sentencia trae el dato email del usuario logueado y este se muestra en pantalla con su
                      respectivo icono -->
                      {{user.email}}

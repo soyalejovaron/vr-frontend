@@ -22,6 +22,7 @@ export class AuthService extends RoleValidator {
   public rol;
   constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore, public _usuarioService: UsuarioService) {
     super();
+    
     this.user$ = this.afAuth.authState.pipe(
       switchMap((user) => {
         if (user) {
@@ -32,6 +33,8 @@ export class AuthService extends RoleValidator {
     );
     
   }
+
+  
 
   async loginGoogle(): Promise<User> {
     try {
@@ -93,15 +96,15 @@ export class AuthService extends RoleValidator {
       `users/${user.uid}`
     );
 
-    this._usuarioService.getUsuario(user.uid).subscribe(data=>{
+    /* this._usuarioService.getUsuario(user.uid).subscribe(data=>{
       this.rol = data.payload.data()['role'];
       user.role=this.rol;
-    });
+    }); */
 
     const data: User = {
       uid: user.uid,
       email: user.email,
-      role: user.role,
+      role: 'Jardinero',
       emailVerified: user.emailVerified,
       displayName: user.displayName,
       photoURL: user.photoURL,
@@ -117,14 +120,14 @@ export class AuthService extends RoleValidator {
       `users/${user.uid}`
     );
 
-    this._usuarioService.getUsuario(user.uid).subscribe(data=>{
+    /* this._usuarioService.getUsuario(user.uid).subscribe(data=>{
       this.rol = data.payload.data()['role'];
       user.role=this.rol;
-    });
+    }); */
 
     const data: User = {
       uid: user.uid,
-      role: user.role,
+      role: 'Administrador',
       email: user.email,
       emailVerified: user.emailVerified,
       estado: 'Activo',

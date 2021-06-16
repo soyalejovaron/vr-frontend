@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { User } from '../../shared/models/user.interface';
 import { Observable } from 'rxjs';
 import { UsuarioService } from 'src/app/services/usuario.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -27,6 +28,7 @@ export class LoginComponent {
       email: ['', Validators.required, Validators.email],
       password: ['', Validators.required],
     })
+    
   }
 
   // Metodo para loguearse por modalidad "Google"
@@ -35,13 +37,17 @@ export class LoginComponent {
     try {
       // En una contante guardamos el metodo que nos proporciona Firebase para loguearse con Google
       const user = await this.authSvc.loginGoogle();
-      if (user) {
-        // Validamos si el usuario existe, en caso de ser así, le mostraremos un mensaje y lo llevaremos al sistema
-        this.checkUserIsVerified(user);
-        this.toastr.success(user.displayName,'!Bienvenido a ViveRegistro!',{
-          positionClass: 'toast-bottom-right'
-        });
-      }
+      setTimeout(()=>{
+        if(user){
+            this.checkUserIsVerified(user);
+            this.toastr.success(user.displayName,'!Bienvenido a ViveRegistro!',{
+              positionClass: 'toast-bottom-right'
+            });
+          } else{
+            // En caso de no ser así, no se le dará acceso
+            this.confirmarLogin=true;
+          }
+      },1500)  
       // Capturamos y mostramos los errores que se presenten al ejecutar el "Try" 
     } catch (error) {
       console.log(error);
@@ -64,12 +70,14 @@ export class LoginComponent {
     // En una constante guardamos el resultado de usar el metodo  "login" que nos proporciona Firebase, luego de pasarle tanto el email como el password
     const user = await this.authSvc.login(email, password);
     // Validamos si el usuario existe en la base de datos, de ser asi, lo enviamos al metodo "checkUserIsVerified"
+    setTimeout(()=>{
       if(user){
-        this.checkUserIsVerified(user);
-      } else{
-        // En caso de no ser así, no se le dará acceso
-        this.confirmarLogin=true;
-      }
+          this.checkUserIsVerified(user);
+        } else{
+          // En caso de no ser así, no se le dará acceso
+          this.confirmarLogin=true;
+        }
+    },1500)  
     // Capturamos los errores que se presenten a la hora de ejecutar la sentencia
     } catch (error) {
       console.log(error);
