@@ -12,6 +12,7 @@ import * as XLSX from 'xlsx';
 import { DatePipe } from '@angular/common';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { Router } from '@angular/router';
 
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=UTF-8';
 const EXCEL_EXT = '.xlsx';
@@ -20,7 +21,7 @@ const EXCEL_EXT = '.xlsx';
 export class AuthService extends RoleValidator {
   public user$: Observable<User>;
   public rol;
-  constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore, public _usuarioService: UsuarioService) {
+  constructor(public router: Router ,public afAuth: AngularFireAuth, private afs: AngularFirestore, public _usuarioService: UsuarioService) {
     super();
     
     this.user$ = this.afAuth.authState.pipe(

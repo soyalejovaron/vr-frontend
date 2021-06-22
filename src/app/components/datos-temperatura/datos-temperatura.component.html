@@ -9,7 +9,8 @@
                     <th scope="col">ID sensor temperatura</th>
                     <th scope="col">Porcentaje temperatura</th>
                     <th scope="col">Estado del sensor</th>
-                    <th scope="col">Descripcion temperatura</th>
+                    <th scope="col">Descripcion registro</th>
+                    <th scope="col">Fecha del registro</th>
                 </tr>
             </thead>
             <tbody class="text-center">
@@ -19,11 +20,12 @@
                     <td>{{registro.porcentajeT}}</td>
                     <td>{{registro.estadoT}}</td>
                     <td>{{registro.descripcionT}}</td>
+                    <td>{{registro.fechaRegistroT2}}</td>
                 </tr>
             </tbody>
         </table>
         <button type="button" class="btn btn-success" (click)="exportarExcel()"><img class="mr-2 mb-1" src="../../../assets/imagenes/excel.png" alt="" width="20px">informe Excel</button>
-        <button type="button" class="btn btn-dark float-right" [routerLink]="['/graficasTemperatura', 'radar']">Volver</button>
+        <button type="button" class="btn btn-dark float-right" [routerLink]="['/graficasTemperatura', 'radar', 1]">Volver</button>
     </div>
 
 </div>

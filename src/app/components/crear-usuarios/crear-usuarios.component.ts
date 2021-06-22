@@ -44,6 +44,9 @@ export class CrearUsuariosComponent implements OnInit {
     this.submitted = true;
 
     if (this.createUsuario.invalid) {
+      this.toastr.error('Recuerda que todos los campos son requeridos', 'Aviso',{
+        positionClass: 'toast-bottom-right',
+      });
       return;
     }
     // Validamos si el id que llegó por medio de la URL es diferente a vacio o nulo, en caso de contener algo, o sea un id, se accionará el metodo siguiente

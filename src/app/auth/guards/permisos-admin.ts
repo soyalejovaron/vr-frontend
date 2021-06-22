@@ -33,7 +33,7 @@ export class PermisosAdmin implements CanActivate {
           this.toastr.error('Necesitas ser administrador', 'No tienes acceso a esta ruta',{
             positionClass: 'toast-bottom-left'
           });
-          this.router.navigate(['/home']);
+          
         } else{
           // Si el usuario si tiene acceso, se le enviará a la ruta que intentó acceder, ademas, se le mostrará un mensaje
           this.toastr.success('', 'Acceso concedido',{

@@ -103,10 +103,13 @@ export class PlantasComponent implements OnInit, OnDestroy {
   }
 
   borrarPlanta(id_planta) {
-    this._plantasService.borrarPlanta(id_planta).subscribe(res => {
-      this.getPlantas();
-      window.location.reload();
-    })
+    let confirmar = window.confirm("¿Realmente quieres eliminar esta planta? \n Recuerda que los cambios seran permanentes");
+    if(confirmar==true){
+      this._plantasService.borrarPlanta(id_planta).subscribe(res => {
+        this.getPlantas();
+        window.location.reload();
+      })
+    }
   }
 
 }

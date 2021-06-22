@@ -31,6 +31,9 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit(): void {
     this.esEditar();
+    this.toastr.info('Haz editado tu perfil con exito!', 'Usuario modificado', {
+      positionClass: 'toast-bottom-right'
+    })
   }
 
   editarUsuario() {

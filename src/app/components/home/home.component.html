@@ -141,8 +141,11 @@ no será mostrada esta vista -->
                     Stop
                 </button>
                 <!-- El segundo botón es para cortar la corriente que está bien sea por corriente local o solar a través de un panel -->
-                <button (click)="activarSistema()" class="btn btn-info btn-sm px-4 rounded-pill mx-1" type="button">
+                <button *ngIf="sistema==false" (click)="activarSistema()" class="btn btn-info btn-sm px-4 rounded-pill mx-1" type="button">
                     Corriente
+                </button>
+                <button *ngIf="sistema==true" (click)="activarSistema()" class="btn btn-warning btn-sm px-4 rounded-pill mx-1" type="button">
+                    Encendido
                 </button>
             </div>
         </div>
@@ -193,12 +196,12 @@ no será mostrada esta vista -->
                                     <!-- En este espacio se indica el estado de cada línea utilizando el ngIf para validar el estado. -->
                                     <div>
                                         <!-- En este fragmento se muestra en pantalla un texto que indica el estado de la línea, es decir "Apagado" -->
-                                        <span *ngIf="estado1=='Apagado'" class="text-danger">
-                                            {{estado1}}
+                                        <span *ngIf="estado1==false" class="text-danger">
+                                            Apagada
                                         </span>
                                         <!-- En este fragmento se muestra en pantalla un texto que indica el estado de la línea, es decir "Activado" -->
-                                        <span *ngIf="estado1=='Activado'" class="text-success">
-                                            {{estado1}}
+                                        <span *ngIf="estado1==true" class="text-success">
+                                            Activada
                                         </span>
                                     </div>
                                 </div>
@@ -252,12 +255,12 @@ no será mostrada esta vista -->
                                 <!-- Acciones. En esta sección se muestran diferentes secciones las cuales pertenecen a cada una de las líneas, esto para tener más control. -->
                                 <div>
                                     <!-- Botón activar. Este botón activa la línea, su función es poner en marcha la línea mostrando sus datos correspondientes. -->
-                                    <button *ngIf="estado1=='Apagado'" (click)="activarLinea1()"
+                                    <button *ngIf="estado1==false" (click)="activarLinea1()"
                                         class="btn btn-primary btn-sm w-100 rounded-pill mb-2">
                                         Activar
                                     </button>
                                     <!-- Botón desactivar. Este botón desactiva la línea, su función es detener el estado activo a inactivo en conjunto con sus datos correspondientes. -->
-                                    <button *ngIf="estado1=='Activado'" (click)="desactivarLinea1()"
+                                    <button *ngIf="estado1==true" (click)="desactivarLinea1()"
                                         class="btn btn-warning btn-sm w-100 rounded-pill mb-2">
                                         Desactivar
                                     </button>
@@ -296,11 +299,11 @@ no será mostrada esta vista -->
                                         <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
                                     </div>
                                     <div>
-                                        <span *ngIf="estado2=='Apagado'" class="text-danger">
-                                            {{estado2}}
+                                        <span *ngIf="estado2==false" class="text-danger">
+                                            Apagada
                                         </span>
-                                        <span *ngIf="estado2=='Activado'" class="text-success">
-                                            {{estado2}}
+                                        <span *ngIf="estado2==true" class="text-success">
+                                            Encendida
                                         </span>
                                     </div>
                                 </div>
@@ -344,12 +347,12 @@ no será mostrada esta vista -->
                                     <hr class="text-secondary">
                                 </div>
                                 <div>
-                                    <button *ngIf="estado2=='Apagado'" (click)="activarLinea2()"
+                                    <button *ngIf="estado2==false" (click)="activarLinea2()"
                                         class="btn btn-primary btn-sm w-100 rounded-pill mb-2">
                                         Activar
                                     </button>
 
-                                    <button *ngIf="estado2=='Activado'" (click)="desactivarLinea2()"
+                                    <button *ngIf="estado2==true" (click)="desactivarLinea2()"
                                         class="btn btn-warning btn-sm w-100 rounded-pill mb-2">
                                         Desactivar
                                     </button>
@@ -384,11 +387,11 @@ no será mostrada esta vista -->
                                         <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
                                     </div>
                                     <div>
-                                        <span *ngIf="estado3=='Apagado'" class="text-danger">
-                                            {{estado3}}
+                                        <span *ngIf="estado3==false" class="text-danger">
+                                            Apagada
                                         </span>
-                                        <span *ngIf="estado3=='Activado'" class="text-success">
-                                            {{estado3}}
+                                        <span *ngIf="estado3==true" class="text-success">
+                                            Encendida
                                         </span>
                                     </div>
                                 </div>
@@ -432,12 +435,12 @@ no será mostrada esta vista -->
                                     <hr class="text-secondary">
                                 </div>
                                 <div>
-                                    <button *ngIf="estado3=='Apagado'" (click)="activarLinea3()"
+                                    <button *ngIf="estado3==false" (click)="activarLinea3()"
                                         class="btn btn-primary btn-sm w-100 rounded-pill mb-2">
                                         Activar
                                     </button>
 
-                                    <button *ngIf="estado3=='Activado'" (click)="desactivarLinea3()"
+                                    <button *ngIf="estado3==true" (click)="desactivarLinea3()"
                                         class="btn btn-warning btn-sm w-100 rounded-pill mb-2">
                                         Desactivar
                                     </button>
@@ -472,11 +475,11 @@ no será mostrada esta vista -->
                                         <img src="../../../assets/imagenes/boton-de-inicio.png" width="25px">
                                     </div>
                                     <div>
-                                        <span *ngIf="estado4=='Apagado'" class="text-danger">
-                                            {{estado4}}
+                                        <span *ngIf="estado4==false" class="text-danger">
+                                            Apagado
                                         </span>
-                                        <span *ngIf="estado4=='Activado'" class="text-success">
-                                            {{estado4}}
+                                        <span *ngIf="estado4==true" class="text-success">
+                                            Encendida
                                         </span>
                                     </div>
                                 </div>
@@ -520,12 +523,12 @@ no será mostrada esta vista -->
                                     <hr class="text-secondary">
                                 </div>
                                 <div>
-                                    <button *ngIf="estado4=='Apagado'" (click)="activarLinea4()"
+                                    <button *ngIf="estado4==false" (click)="activarLinea4()"
                                         class="btn btn-primary btn-sm w-100 rounded-pill mb-2">
                                         Activar
                                     </button>
 
-                                    <button *ngIf="estado4=='Activado'" (click)="desactivarLinea4()"
+                                    <button *ngIf="estado4==true" (click)="desactivarLinea4()"
                                         class="btn btn-warning btn-sm w-100 rounded-pill mb-2">
                                         Desactivar
                                     </button>

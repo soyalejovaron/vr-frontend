@@ -30,11 +30,10 @@ export class PermisosJardineroAdmin implements CanActivate {
       tap((canEdit) => { 
         // Si el usuario no tiene el rol necesario, se mostrará un mensaje y se le retornará al componente de inicio
         if (!canEdit) {
-          this.toastr.error('Necesitas ser jardinero o administrador para acceder a esta ruta', 'logueate primero',{
+          this.toastr.error('Necesitas ser jardinero o administrador para acceder a esta ruta', 'Aviso',{
             positionClass: 'toast-bottom-left'
           });
           // En caso de que no tenga el rol o no exista el usuario, se le retornará al componente "login"
-          this.router.navigate(['/login']);
         }
       })
     );

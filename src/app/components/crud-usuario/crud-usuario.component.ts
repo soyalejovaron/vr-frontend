@@ -86,15 +86,20 @@ export class CrudUsuarioComponent implements OnInit, OnDestroy {
 
   // Metodo para eliminar un usuario por medio del id, donde consumiremos un servicio que nos haga este trabajo, y como respuesta, mostraremos un mensaje de exito
   eliminarUsuario(uid: string) {
-    this._usuarioService.eliminarUsuario(uid).then(() =>{
-      this.toastr.error('Usuario eliminado', 'Todo ha ido con exito!',{
-        positionClass: 'toast-bottom-right'
-      });
-      // Recargamos la pagina actual una vez se termine de eliminar el usuario, con el fin de no causar errores de incompatibilidad con las Datatables
-      window.location.reload();
-    }).catch(error => {
-      console.log(error);
-    })
+    let confirmar = window.confirm("¿Realmente quieres eliminar este usuario? \n Recuerda que los cambios seran permanentes");
+    if(confirmar==true){
+      this._usuarioService.eliminarUsuario(uid).then(() =>{
+        this.toastr.error('Usuario eliminado', 'Todo ha ido con exito!',{
+          positionClass: 'toast-bottom-right',
+        });
+        setTimeout(()=>{
+          window.location.reload();
+        },2000)
+        
+      }).catch(error => {
+        console.log(error);
+      })
+    }
   }
 
 

@@ -134,9 +134,12 @@ export class SensorTemperaturaComponent implements OnInit, OnDestroy {
   }
 
   borrarSensor(idSensor) {
-    this._sensorTemperaturaService.borrarSensor(idSensor).subscribe(res => {
-      this.getSensores();
-      window.location.reload();
-    })
+    let confirmar = window.confirm("¿Realmente quieres eliminar este sensor? \n Recuerda que los cambios seran permanentes");
+    if(confirmar==true){
+      this._sensorTemperaturaService.borrarSensor(idSensor).subscribe(res => {
+        this.getSensores();
+        window.location.reload();
+      })
+    }
   }
 }

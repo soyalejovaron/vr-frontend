@@ -10,6 +10,7 @@
                     <th scope="col">Porcentaje humedad</th>
                     <th scope="col">Estado del sensor</th>
                     <th scope="col">Descripcion humedad</th>
+                    <th scope="col">Fecha del registro</th>
                 </tr>
             </thead>
             <tbody class="text-center">
@@ -19,11 +20,12 @@
                     <td>{{registro.porcentajeH}}</td>
                     <td>{{registro.estadoH}}</td>
                     <td>{{registro.descripcionH}}</td>
+                    <td>{{registro.fechaRegistroH2}}</td>
                 </tr>
             </tbody>
         </table>
         <button type="button" class="btn btn-success" (click)="exportarExcel()"><img class="mr-2 mb-1" src="../../../assets/imagenes/excel.png" alt="" width="20px">informe Excel</button>
-        <button type="button" class="btn btn-dark float-right" [routerLink]="['/graficasHumedad', 'radar']">Volver</button>
+        <button type="button" class="btn btn-dark float-right" [routerLink]="['/graficasHumedad', 'radar', 1]">Volver</button>
     </div>
 
 </div>

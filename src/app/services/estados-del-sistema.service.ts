@@ -5,15 +5,20 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class EstadoService {
+export class EstadosDelSistemaService {
 
   baseUrl = environment.baseUrl;
+  estadoSistema = 1;
  
   constructor(protected http: HttpClient) { }
   
-  getEstados() {
-    return this.http.get(`${this.baseUrl}/estados`);
+  obtenerEstadosSistema() {
+    return this.http.get(`${this.baseUrl}/estadosSistema`);
   }
 
-  
+  actualizarEstadosSistema(sistema: any){
+    return this.http.put(`${this.baseUrl}/updateSistema`, sistema);
+  } 
+
+
 }
