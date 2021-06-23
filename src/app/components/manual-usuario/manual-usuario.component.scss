@@ -1,0 +1,42 @@
+.img-size-gc {
+    width: 2rem;
+}
+
+.img-1 {
+    width: 100%;
+}
+
+.img-2 {
+    width: 50%;
+}
+
+.rounded-5 {
+    border-radius: 2rem;
+}
+
+.reproducirAudio{
+    background: url(../../../assets/imagenes/reproduce-el-video.png);
+    background-repeat: no-repeat;
+    background-position-x: 5px;
+    background-position-y: 12px;
+    background-size: 15px;
+    padding-left: 22px;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+}
+
+
+.reproducirAudio.sonando{
+    background: url(../../../assets/imagenes/sonando.png);
+    background-repeat: no-repeat;
+    background-position-x: 5px;
+    background-position-y: 12px;
+    background-size: 15px;
+    padding-left: 22px;
+    outline: none;
+    color: black;
+    border: none;
+    border-radius: 20px;
+}
