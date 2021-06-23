@@ -1,35 +1,41 @@
-<div class="contenedorTabla">
-  <div class="card-header text-white">Temperatura</div>
-  <div class="card-body">
-    <h5 class="card-title">Tabla De Equivalencia</h5>
-    <p class="card-text"><strong>Rangos:</strong></p>
-    <p class="card-text"><strong>0-15°C:</strong> Ambiente frio</p>
-    <p class="card-text"><strong>15-25°C:</strong> Ambiente calido</p>
-    <p class="card-text"><strong>25-35°C:</strong> Ambiente caliente</p>
-  </div>
-</div>
-<div class="container mb-5 pb-1">
-    <app-tipo-grafica-temperatura></app-tipo-grafica-temperatura>
-    <app-tipo-bar-temperatura></app-tipo-bar-temperatura>
-    <app-real-time-temperatura></app-real-time-temperatura>
-    <div>
-      <div>
-        <div style="display: block" *ngIf="barChartData" >
-          <canvas id="grafica" baseChart
-          [datasets]="barChartData"
-          [labels]="barChartLabels"
-          [options]="barChartOptions"
-          [plugins]="barChartPlugins"
-          [legend]="barChartLegend"
-          [chartType]="barChartType"
-          [colors]="chartColors">
-        </canvas>
+<div class="container-fluid">
+  <div class="p-3">
+    <div class="row">
+      <div class="col-12 col-md-9">
+        <app-tipo-grafica-temperatura></app-tipo-grafica-temperatura>
+        <app-tipo-bar-temperatura></app-tipo-bar-temperatura>
+        <app-real-time-temperatura></app-real-time-temperatura>
+        <div>
+          <div>
+            <div style="display: block" *ngIf="barChartData">
+              <canvas id="grafica" baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend"
+                [chartType]="barChartType" [colors]="chartColors">
+              </canvas>
+            </div>
+          </div>
+          <button type="button" class="btn btn-light" (click)="print()"><i class="fas fa-paint-brush mr-2"></i>Descargar
+            gráfica</button>
+          <button type="button" class="btn btn-danger float-left mr-3" (click)="printGrafica()"><i
+              class="fas fa-print mr-2 text-dark"></i>Descargar informe</button>
+          <button type="button" class="btn btn-light float-left mr-3" [routerLink]="['/datosTemperatura']"><img
+              class="mr-2" src="../../../../assets/imagenes/ojo.png" width="25px">Ver datos</button>
+          <button type="button" class="btn btn-dark float-right" [routerLink]="['/home']"><i
+              class="fas fa-chevron-left mr-2"></i>Volver</button>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="">
+          <div class="card-header text-white">Temperatura</div>
+          <div class="card-body">
+            <h5 class="card-title">Tabla De Equivalencia</h5>
+            <p class="card-text"><strong>Rangos:</strong></p>
+            <p class="card-text"><strong>0-15°C:</strong> Ambiente frío</p>
+            <p class="card-text"><strong>15-25°C:</strong> Ambiente cálido</p>
+            <p class="card-text"><strong>25-35°C:</strong> Ambiente caliente</p>
+          </div>
+        </div>
       </div>
     </div>
-    <button type="button" class="btn btn-light" (click)="print()"><i class="fas fa-paint-brush mr-2"></i>Descargar grafica</button>
-    <button type="button" class="btn btn-danger float-left mr-3" (click)="printGrafica()"><i class="fas fa-print mr-2 text-dark"></i>Descargar informe</button>
-    <button type="button" class="btn btn-light float-left mr-3" [routerLink]="['/datosTemperatura']"><img class="mr-2" src="../../../../assets/imagenes/ojo.png" width="25px">Ver datos</button>
-    <button type="button" class="btn btn-dark float-right" [routerLink]="['/home']"><i class="fas fa-chevron-left mr-2"></i>Volver</button>
-    </div>
-  
   </div>
+</div>
